@@ -1,0 +1,43 @@
+{#
+	About her, at /about and /es/about: her portrait and signature, her story
+	(Bio on Agent Info), her credentials and what her clients say. Everything
+	is edited in the admin under Agent Info and Testimonials.
+#}
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	{% import 'macros/i18n.twig' as i18n %}
+	<section class="sheet split section">
+		{% if info.photo.name|default('') %}
+			<div class="arch">
+				{{ cms.render.image(info, {w: 900, h: 1125, fit: 'crop'}, {collection: 'info', property: 'photo', loading: 'eager'}) }}
+				{% include 'partials/signature.twig' %}
+			</div>
+		{% endif %}
+		<div class="stack">
+			<p class="eyebrow">{{ i18n.l(info.tagline) }}</p>
+			<h1>{{ i18n.t('about.title', {name: info.name}) }}</h1>
+			<div class="prose">{{ i18n.styled(info.bio) }}</div>
+			<dl class="credentials">
+				{% if info.yearsInBusiness|default(0) %}<div><dt>{{ i18n.t('about.credentials') }}</dt><dd>{{ i18n.tn('about.years', info.yearsInBusiness) }}</dd></div>{% endif %}
+				{% if info.license|default('') %}<div><dt>{{ i18n.t('about.license') }}</dt><dd>{{ info.license }}</dd></div>{% endif %}
+				{% if info.brokerage|default('') %}<div><dt>{{ i18n.t('about.brokerage') }}</dt><dd>{{ info.brokerage }}</dd></div>{% endif %}
+				{% if i18n.l(info.languages)|trim %}<div><dt>{{ i18n.t('about.languages') }}</dt><dd>{{ i18n.l(info.languages) }}</dd></div>{% endif %}
+			</dl>
+			<p class="cluster" data-gap="sm">
+				<a class="button" href="{{ i18n.url('contact') }}">{{ i18n.t('buttons.contact') }}</a>
+				<a class="button" data-emphasis="medium" href="{{ i18n.url('homes') }}">{{ i18n.t('buttons.browse') }}</a>
+			</p>
+		</div>
+	</section>
+
+	{% set quotes = cms.collection.objects('testimonials')|sort((a, b) => b.date <=> a.date) %}
+	{% if quotes is not empty %}
+		<section class="section" data-blush>
+			<div class="sheet">
+				<div class="section-head"><h2>{{ i18n.t('home.words_title') }}</h2></div>
+				<div class="quote-grid">{% for q in quotes %}{% include 'partials/testimonial.twig' %}{% endfor %}</div>
+			</div>
+		</section>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{#
+	The home page, at / and /es. Its sections live in partials/home.twig.
+	This is version A of the home-page test, which leads with buyers: Browse
+	homes comes first and the "what's my home worth?" callout sits lower.
+#}
+{% extends 'layouts/default.twig' %}
+{% set version = 'a' %}
+
+{% block content %}{% include 'partials/home.twig' %}{% endblock %}

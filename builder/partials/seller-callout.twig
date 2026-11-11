@@ -1,0 +1,14 @@
+{#
+	The seller callout: a heading, a line and the valuation button. The
+	words are on Agent Info (Seller Callout, and the B versions for the
+	home-page test). Version B uses its own words when they're filled in.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set b = version|default('a') == 'b' and i18n.l(info.sellerTitleB)|trim %}
+<section class="section" data-blush>
+	<div class="sheet seller-callout">
+		<h2>{{ i18n.l(b ? info.sellerTitleB : info.sellerTitle) }}</h2>
+		<p>{{ i18n.l(b ? info.sellerTextB : info.sellerText) }}</p>
+		<p><a class="button" href="{{ i18n.url('sell') }}#valuation">{{ b ? i18n.t('sellers.callout_b_button') : i18n.t('buttons.value') }}</a></p>
+	</div>
+</section>

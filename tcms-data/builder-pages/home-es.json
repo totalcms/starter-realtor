@@ -1,0 +1,56 @@
+{
+    "id": "home-es",
+    "title": "Inicio",
+    "route": "/es",
+    "template": "index",
+    "draft": false,
+    "nav": false,
+    "data": {
+        "lang": "es",
+        "abTemplate": "pages/index-b.twig",
+        "abPercent": 50
+    },
+    "middleware": [
+        "ab-split"
+    ],
+    "accessGroups": [],
+    "accessCollection": "",
+    "status": 200,
+    "redirectTo": "",
+    "sitemap": true,
+    "changeFrequency": "",
+    "priority": 0,
+    "updated": "2026-11-10T18:05:03-08:00",
+    "created": "2026-11-10T17:11:58-08:00",
+    "seo": {
+        "id": "seo",
+        "title": "Valeria Montoya, bienes ra\u00edces en la Pen\u00ednsula",
+        "socialTitle": "",
+        "description": "Casas en venta en San Carlos, Belmont, San Mateo y Burlingame con la agente Valeria Montoya. Busque casas, vea las casas abiertas y averig\u00fce cu\u00e1nto vale la suya.",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:05:03-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    }
+}

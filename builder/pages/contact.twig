@@ -1,0 +1,30 @@
+{#
+	Contact, at /contact and /es/contact: her phone, email and office from
+	Agent Info, and a short message form (partials/contact-form.twig).
+#}
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	{% import 'macros/i18n.twig' as i18n %}
+	<header class="page-head sheet">
+		<p class="eyebrow">{{ info.name }}</p>
+		<h1>{{ i18n.t('contact.title') }}</h1>
+		<p>{{ i18n.t('contact.intro') }}</p>
+	</header>
+
+	<section class="sheet split contact">
+		<div class="stack contact-details">
+			{% if info.phone|default('') %}
+				<div><h2 class="caps">{{ i18n.t('contact.call') }}</h2><p><a href="tel:{{ info.phone|replace({' ': '', '(': '', ')': '', '-': ''}) }}">{{ info.phone }}</a></p></div>
+			{% endif %}
+			{% if info.email|default('') %}
+				<div><h2 class="caps">{{ i18n.t('contact.write') }}</h2><p><a href="mailto:{{ info.email }}">{{ info.email }}</a></p></div>
+			{% endif %}
+			{% if info.address|default('') %}
+				<div><h2 class="caps">{{ i18n.t('contact.office') }}</h2><address>{{ info.address|e|nl2br }}</address></div>
+			{% endif %}
+		</div>
+		<div class="panel">{% include 'partials/contact-form.twig' %}</div>
+	</section>
+	<div class="section"></div>
+{% endblock %}

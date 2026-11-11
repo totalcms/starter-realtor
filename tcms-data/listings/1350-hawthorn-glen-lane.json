@@ -1,0 +1,71 @@
+{
+    "id": "1350-hawthorn-glen-lane",
+    "address": "1350 Hawthorn Glen Lane",
+    "town": "burlingame",
+    "zip": "94010",
+    "status": "for-sale",
+    "price": 2975000,
+    "soldPrice": 0,
+    "soldDate": "",
+    "listedOn": "2026-11-05T00:00:00-08:00",
+    "beds": 4,
+    "baths": 2.5,
+    "sqft": 2210,
+    "lotSqft": 7000,
+    "yearBuilt": 1938,
+    "propertyType": "house",
+    "description": {
+        "en_US": "A traditional home on a tree-lined lane, with a formal dining room and a family room open to the garden."
+    },
+    "features": {
+        "en_US": "Formal dining room\nFamily room open to the garden\nWalk to Broadway"
+    },
+    "gallery": [],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": false,
+    "agentName": "Daniel Okafor",
+    "brokerage": "Cypress Bend Realty",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:25:53-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T17:25:53-08:00",
+    "created": "2026-11-10T17:25:53-08:00"
+}

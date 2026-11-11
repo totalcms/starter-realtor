@@ -1,0 +1,70 @@
+{
+    "id": "27-juniper-bluff-court",
+    "address": "27 Juniper Bluff Court",
+    "town": "san-carlos",
+    "zip": "94070",
+    "status": "sold",
+    "price": 1995000,
+    "soldPrice": 2080000,
+    "soldDate": "2026-03-20T00:00:00-07:00",
+    "listedOn": "2026-02-26T00:00:00-08:00",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1640,
+    "lotSqft": 6100,
+    "yearBuilt": 1959,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A mid-century three-bedroom, sold to buyers relocating from Seattle.</p>",
+        "es": "<p>Una casa de tres habitaciones de mediados de siglo, vendida a compradores que se mudaban desde Seattle.</p>"
+    },
+    "features": [],
+    "gallery": [],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:04-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:11-08:00",
+    "created": "2026-11-10T17:27:04-08:00"
+}

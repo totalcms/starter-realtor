@@ -1,0 +1,5 @@
+{# The name at the top of the admin sidebar, from the same partial as the website. Needs the Pro edition. #}
+{% set info = cms.collection.object('info', 'info') %}
+<a class="custom-logo" href="" title="Dashboard Home">
+	{% include 'partials/logo.twig' %}
+</a>

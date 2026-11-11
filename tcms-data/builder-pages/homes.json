@@ -1,0 +1,50 @@
+{
+    "id": "homes",
+    "title": "Homes",
+    "route": "/homes",
+    "template": "homes",
+    "draft": false,
+    "nav": true,
+    "data": [],
+    "middleware": [],
+    "accessGroups": [],
+    "accessCollection": "",
+    "status": 200,
+    "redirectTo": "",
+    "sitemap": true,
+    "changeFrequency": "",
+    "priority": 0,
+    "updated": "2026-11-10T18:05:04-08:00",
+    "created": "2026-11-10T17:34:41-08:00",
+    "seo": {
+        "id": "seo",
+        "title": "Homes for Sale on the Peninsula",
+        "socialTitle": "",
+        "description": "Homes for sale in San Carlos, Belmont, San Mateo and Burlingame. Search by town, price, bedrooms and bathrooms.",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:05:04-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    }
+}

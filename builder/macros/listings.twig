@@ -1,0 +1,37 @@
+{#
+	Small helpers for homes. Import them with
+	  {% import 'macros/listings.twig' as homes %}
+
+	The list of homes itself, with private homes left out and her listings
+	first, is `listings` in the layout. Start every list from that.
+#}
+
+{#
+	The next date of one open house, as 2026-11-15, or nothing when there is
+	none. An open house is One date (shown until that day is over) or Weekly
+	(on its weekday, from today, until its Until date if it has one).
+	`today` is a date such as 2026-11-10.
+
+	  {% set next = homes.nextOpenHouse(item, today) %}
+#}
+{% macro nextOpenHouse(item, today) -%}
+	{%- if item.kind|default('once') == 'weekly' -%}
+		{%- if item.weekday|default('') matches '/^[0-6]$/' -%}
+			{%- set ahead = (item.weekday - today|date('w') + 7) % 7 -%}
+			{%- set next = (today ~ ' +' ~ ahead ~ ' days')|date('Y-m-d') -%}
+			{%- if not item.until|default('') or next <= item.until|date('Y-m-d') -%}{{- next -}}{%- endif -%}
+		{%- endif -%}
+	{%- elseif item.date|default('') and item.date|date('Y-m-d') >= today -%}
+		{{- item.date|date('Y-m-d') -}}
+	{%- endif -%}
+{%- endmacro %}
+
+{# The median of some prices, or 0 when there are none. #}
+{% macro median(prices) -%}
+	{%- set sorted = prices|sort|slice(0) -%}
+	{%- set n = sorted|length -%}
+	{%- if n == 0 -%}0
+	{%- elseif n is odd -%}{{- sorted[(n - 1) // 2] -}}
+	{%- else -%}{{- ((sorted[n // 2 - 1] + sorted[n // 2]) / 2)|round -}}
+	{%- endif -%}
+{%- endmacro %}

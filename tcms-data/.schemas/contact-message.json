@@ -1,0 +1,145 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/contact-message.json",
+    "type": "object",
+    "id": "contact-message",
+    "description": "A message from the Contact page. Visitors can create these but never read them.",
+    "properties": {
+        "id": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/slug.json",
+            "label": "ID",
+            "help": "Made automatically: the time it was sent plus a random part, so the Thanks page address doesn't carry the visitor's name and can't be guessed.",
+            "field": "id",
+            "settings": {
+                "autogen": "${timestamp}-${uid-10}"
+            }
+        },
+        "name": {
+            "type": "string",
+            "label": "Name",
+            "help": "The visitor's name.",
+            "field": "text"
+        },
+        "email": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/email.json",
+            "label": "Email",
+            "help": "Where to reply.",
+            "field": "email"
+        },
+        "phone": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/phone.json",
+            "label": "Phone",
+            "help": "Optional.",
+            "field": "phone"
+        },
+        "interest": {
+            "type": "string",
+            "label": "Thinking About",
+            "help": "What they're thinking about.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "buying",
+                    "label": "Buying"
+                },
+                {
+                    "value": "selling",
+                    "label": "Selling"
+                },
+                {
+                    "value": "both",
+                    "label": "Both"
+                },
+                {
+                    "value": "other",
+                    "label": "Something else"
+                }
+            ],
+            "default": "buying"
+        },
+        "message": {
+            "type": "string",
+            "label": "Message",
+            "help": "What they wrote.",
+            "field": "textarea"
+        },
+        "lang": {
+            "type": "string",
+            "label": "Language",
+            "help": "The language the visitor was reading when they sent this: reply in it. Set by the form; visitors don't see this field.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "en_US",
+                    "label": "English"
+                },
+                {
+                    "value": "es",
+                    "label": "Spanish"
+                }
+            ],
+            "default": "en_US"
+        },
+        "status": {
+            "type": "string",
+            "label": "Status",
+            "help": "Where this lead stands. For the agent only: visitors can't set it.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "new",
+                    "label": "New"
+                },
+                {
+                    "value": "contacted",
+                    "label": "Contacted"
+                },
+                {
+                    "value": "closed",
+                    "label": "Closed"
+                }
+            ],
+            "protected": true,
+            "default": "new"
+        },
+        "updated": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Updated",
+            "help": "Set automatically when the object is saved.",
+            "field": "datetime",
+            "settings": {
+                "onUpdate": true,
+                "readonly": true
+            }
+        },
+        "created": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Created",
+            "help": "Set automatically when the object is created.",
+            "field": "datetime",
+            "settings": {
+                "onCreate": true,
+                "readonly": true
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "email",
+        "message"
+    ],
+    "index": [
+        "name",
+        "email",
+        "interest",
+        "lang",
+        "status",
+        "updated",
+        "created",
+        "id"
+    ],
+    "formgrid": "id id id id id id\nname name email email phone phone\ninterest interest interest interest interest interest\nmessage message message message message message\nlang lang lang status status status\nupdated updated updated created created created",
+    "updated": "2026-11-10T17:17:38-08:00",
+    "category": "Valeria Montoya"
+}

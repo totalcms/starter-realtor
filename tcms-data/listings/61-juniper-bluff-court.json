@@ -1,0 +1,105 @@
+{
+    "id": "61-juniper-bluff-court",
+    "address": "61 Juniper Bluff Court",
+    "town": "san-carlos",
+    "zip": "94070",
+    "status": "sold",
+    "price": 2695000,
+    "soldPrice": 2810000,
+    "soldDate": "2026-09-18T00:00:00-07:00",
+    "listedOn": "2026-08-21T00:00:00-07:00",
+    "beds": 4,
+    "baths": 3,
+    "sqft": 2410,
+    "lotSqft": 6900,
+    "yearBuilt": 1962,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A sunny four-bedroom on a quiet court, sold over asking with multiple offers.</p>",
+        "es": "<p>Una casa soleada de cuatro habitaciones en una calle cerrada, vendida por encima del precio con varias ofertas.</p>"
+    },
+    "features": [],
+    "gallery": [
+        {
+            "alt": "Two-story white stucco home with a red clay tile roof, brown shutters, an arched entry, and a two-car garage in bright sun.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "6e126b53",
+            "height": 1200,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "sold-1.jpg",
+            "palette": [
+                "#4c3e38",
+                "#6a5d4a",
+                "#b7adac",
+                "#f5ede5",
+                "#796a65"
+            ],
+            "size": 163398,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:30-08:00",
+            "width": 1800,
+            "credit": {
+                "author": "Luis Yanez",
+                "authorUrl": "https://www.pexels.com/@luis-yanez-57302/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/206172/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:02-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:31-08:00",
+    "created": "2026-11-10T17:27:02-08:00"
+}

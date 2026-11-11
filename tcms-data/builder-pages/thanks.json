@@ -1,0 +1,50 @@
+{
+    "id": "thanks",
+    "title": "Thank You",
+    "route": "/thanks",
+    "template": "thanks",
+    "draft": false,
+    "nav": false,
+    "data": [],
+    "middleware": [],
+    "accessGroups": [],
+    "accessCollection": "",
+    "status": 200,
+    "redirectTo": "",
+    "sitemap": false,
+    "changeFrequency": "",
+    "priority": 0,
+    "updated": "2026-11-10T18:05:13-08:00",
+    "created": "2026-11-10T17:45:23-08:00",
+    "seo": {
+        "id": "seo",
+        "title": "Thank You",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:05:13-08:00",
+            "width": 0
+        },
+        "noindex": true,
+        "nofollow": false,
+        "jsonldType": ""
+    }
+}

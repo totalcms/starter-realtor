@@ -1,0 +1,131 @@
+{
+    "id": "info",
+    "name": "Valeria Montoya",
+    "signature": "Valeria",
+    "photo": {
+        "alt": "Smiling woman with long, light-brown hair and a cream blouse, talking on her phone on a tree-lined path.",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "d5cd1521",
+        "height": 1400,
+        "link": "",
+        "mime": "image/jpeg",
+        "name": "agent-portrait.jpg",
+        "palette": [
+            "#d0af8b",
+            "#e3e1df",
+            "#332f29",
+            "#46392e",
+            "#5a5741"
+        ],
+        "size": 177143,
+        "tags": [],
+        "uploadDate": "2026-11-10T20:20:28-08:00",
+        "width": 1120,
+        "credit": {
+            "author": "Israel Torres",
+            "authorUrl": "https://www.pexels.com/@israwmx/",
+            "source": "Pexels",
+            "sourceUrl": "https://www.pexels.com/photo/28386385/",
+            "license": "Pexels License"
+        }
+    },
+    "tagline": {
+        "en_US": "Peninsula homes, sold with care.",
+        "es": "Casas en la Pen\u00ednsula, vendidas con esmero."
+    },
+    "heroHeadline": {
+        "en_US": "A home on the Peninsula that",
+        "es": "Una casa en la Pen\u00ednsula que"
+    },
+    "heroAccent": {
+        "en_US": "feels like yours.",
+        "es": "se siente suya."
+    },
+    "heroLede": {
+        "en_US": "I help families buy and sell homes in San Carlos, Belmont, San Mateo and Burlingame, with patience, local knowledge and a calm hand from the first visit to the keys.",
+        "es": "Ayudo a familias a comprar y vender casas en San Carlos, Belmont, San Mateo y Burlingame, con paciencia, conocimiento local y calma desde la primera visita hasta la entrega de llaves."
+    },
+    "bio": {
+        "en_US": "<p>I grew up in Belmont, walked to school under the oaks on Ralston, and came back to the Peninsula after a decade in interior design in San Francisco. That eye for a room is still the first thing I bring to a sale: what to keep, what to change, and what a buyer will feel when they walk in.</p><p>Since 2012 I have helped more than two hundred families buy and sell here. Most of them found me through a neighbor. I keep my business small on purpose, so the person who answers your call is the person who sells your home.</p><p>I work in English and Spanish, and I am happiest at an open house on a Sunday afternoon, with the doors open and the coffee on.</p>",
+        "es": "<p>Crec\u00ed en Belmont, caminaba a la escuela bajo los robles de Ralston, y regres\u00e9 a la Pen\u00ednsula despu\u00e9s de diez a\u00f1os dedicada al dise\u00f1o de interiores en San Francisco. Ese ojo para los espacios es lo primero que aporto a cada venta: qu\u00e9 conservar, qu\u00e9 cambiar y qu\u00e9 sentir\u00e1 un comprador al entrar.</p><p>Desde 2012 he ayudado a m\u00e1s de doscientas familias a comprar y vender aqu\u00ed. La mayor\u00eda me conoci\u00f3 por un vecino. Mantengo mi negocio peque\u00f1o a prop\u00f3sito, para que la persona que contesta su llamada sea la misma que vende su casa.</p><p>Trabajo en ingl\u00e9s y en espa\u00f1ol, y donde m\u00e1s disfruto es en una casa abierta un domingo por la tarde, con las puertas abiertas y el caf\u00e9 listo.</p>"
+    },
+    "languages": {
+        "en_US": "English and Spanish",
+        "es": "Ingl\u00e9s y espa\u00f1ol"
+    },
+    "phone": "(650) 555-0142",
+    "email": "valeria@valeriamontoya.example",
+    "address": "12 Halloran Plaza, Suite 210\nSan Carlos, CA 94070",
+    "license": "DRE #00000000",
+    "brokerage": "Alder & Finch Realty",
+    "brokerageLogo": {
+        "alt": "",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "0b9e9d46",
+        "height": 0,
+        "link": "",
+        "mime": "",
+        "name": "",
+        "palette": [],
+        "size": 0,
+        "tags": [],
+        "uploadDate": "2026-11-10T18:49:02-08:00",
+        "width": 0
+    },
+    "yearsInBusiness": 14,
+    "sellerTitle": {
+        "en_US": "Curious what your home is worth?",
+        "es": "\u00bfQuiere saber cu\u00e1nto vale su casa?"
+    },
+    "sellerText": {
+        "en_US": "A considered price from someone who has walked every street in town, within two business days. No obligation, and no pressure to sell.",
+        "es": "Un precio bien pensado, de alguien que conoce cada calle de la ciudad, en dos d\u00edas h\u00e1biles. Sin compromiso y sin presi\u00f3n para vender."
+    },
+    "sellerTitleB": {
+        "en_US": "Thinking of selling this year?",
+        "es": "\u00bfPiensa vender este a\u00f1o?"
+    },
+    "sellerTextB": {
+        "en_US": "Let's talk about timing, preparation and price before you decide anything. Start with a free valuation of your home.",
+        "es": "Hablemos del momento, la preparaci\u00f3n y el precio antes de que decida nada. Empiece con una valuaci\u00f3n gratuita de su casa."
+    },
+    "privateTitle": {
+        "en_US": "The private list",
+        "es": "La lista privada"
+    },
+    "privateText": {
+        "en_US": "Some sellers prefer a quiet sale. Members of the private list see those homes as soon as they are ready, with the price and every photo, before they reach the open market.",
+        "es": "Algunos vendedores prefieren una venta discreta. Los miembros de la lista privada ven esas casas en cuanto est\u00e1n listas, con el precio y todas las fotos, antes de que lleguen al mercado abierto."
+    },
+    "mortgageRate": 6.25,
+    "propertyTaxRate": 1.1,
+    "insuranceYearly": 2400,
+    "social": {
+        "instagram": {
+            "id": "instagram",
+            "label": "Instagram",
+            "url": "https://www.instagram.com/"
+        },
+        "linkedin": {
+            "id": "linkedin",
+            "label": "LinkedIn",
+            "url": "https://www.linkedin.com/"
+        }
+    },
+    "updated": "2026-11-10T20:20:29-08:00",
+    "created": "2026-11-10T17:26:57-08:00"
+}

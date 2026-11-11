@@ -1,0 +1,20 @@
+{#
+	Open houses, at /open-houses and /es/open-houses: every upcoming one,
+	grouped by day. Nothing to keep up to date: each listing's Open Houses
+	say "one date" or "weekly", and the page works out the next date from
+	today, so past ones disappear by themselves.
+#}
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	{% import 'macros/i18n.twig' as i18n %}
+	<header class="page-head sheet">
+		<p class="eyebrow">{{ info.name }}</p>
+		<h1>{{ i18n.t('open.title') }}</h1>
+		<p>{{ i18n.t('open.intro') }}</p>
+	</header>
+	<section class="sheet narrow">
+		{% include 'partials/open-house-list.twig' with {homes: listings} %}
+	</section>
+	<div class="section"></div>
+{% endblock %}

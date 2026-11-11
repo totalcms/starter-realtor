@@ -1,0 +1,17 @@
+{#
+	Options for the sign-in form, as JSON. Only for the private list's buyers:
+	the form's labels come from builder/strings/ in the language that
+	whitelabel/login-above.twig picked, and there is no passkey button (buyers
+	sign up with a password). The agent's own admin login is left as it is.
+#}
+{% if collection|default('') == 'buyers' %}
+	{% import 'macros/i18n.twig' as i18n %}
+	{{ {
+		showPasskeys: false,
+		emailLabel: i18n.t('register.email') ~ '',
+		passwordLabel: i18n.t('signin.password') ~ '',
+		rememberLabel: i18n.t('signin.remember') ~ '',
+		forgotPasswordLabel: i18n.t('signin.forgot') ~ '',
+		submitLabel: i18n.t('buttons.sign_in') ~ ''
+	}|json_encode|raw }}
+{% endif %}

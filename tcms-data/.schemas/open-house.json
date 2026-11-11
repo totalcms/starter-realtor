@@ -1,0 +1,122 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/open-house.json",
+    "type": "object",
+    "id": "open-house",
+    "description": "One open house on a listing: either a single date, or the same day every week.",
+    "properties": {
+        "id": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/slug.json",
+            "label": "ID",
+            "help": "Made automatically.",
+            "field": "id",
+            "settings": {
+                "autogen": "item_${uid-7}"
+            }
+        },
+        "kind": {
+            "type": "string",
+            "label": "Repeats",
+            "help": "Once: one date. Weekly: the same day and time every week, until the home sells or the Until date passes. Weekly is how most agents run a Sunday open house.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "once",
+                    "label": "Once"
+                },
+                {
+                    "value": "weekly",
+                    "label": "Weekly"
+                }
+            ],
+            "default": "weekly"
+        },
+        "date": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Date",
+            "help": "For a one-time open house: the day it happens. Ignored for a weekly one.",
+            "field": "date"
+        },
+        "weekday": {
+            "type": "string",
+            "label": "Day of the Week",
+            "help": "For a weekly open house: which day. Ignored for a one-time one.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "0",
+                    "label": "Sunday"
+                },
+                {
+                    "value": "1",
+                    "label": "Monday"
+                },
+                {
+                    "value": "2",
+                    "label": "Tuesday"
+                },
+                {
+                    "value": "3",
+                    "label": "Wednesday"
+                },
+                {
+                    "value": "4",
+                    "label": "Thursday"
+                },
+                {
+                    "value": "5",
+                    "label": "Friday"
+                },
+                {
+                    "value": "6",
+                    "label": "Saturday"
+                }
+            ],
+            "default": "0"
+        },
+        "start": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/time.json",
+            "label": "Starts",
+            "help": "Start time, e.g. 1:00 PM.",
+            "field": "time"
+        },
+        "end": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/time.json",
+            "label": "Ends",
+            "help": "End time, e.g. 4:00 PM.",
+            "field": "time"
+        },
+        "until": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Until",
+            "help": "Optional, for a weekly open house: the last date it runs. Leave it empty to keep it going every week. A past open house hides itself on its own, so nothing needs deleting.",
+            "field": "date"
+        },
+        "note": {
+            "type": "string",
+            "label": "Note (English)",
+            "help": "Optional, one short line, e.g. Refreshments from Belmont Bakery.",
+            "field": "text"
+        },
+        "noteEs": {
+            "type": "string",
+            "label": "Note (Spanish)",
+            "help": "The same note in Spanish, shown on Spanish pages. Leave it empty and Spanish pages show no note.",
+            "field": "text"
+        }
+    },
+    "required": [
+        "id"
+    ],
+    "index": [
+        "kind",
+        "date",
+        "weekday",
+        "start",
+        "end",
+        "until",
+        "id"
+    ],
+    "updated": "2026-11-10T17:17:39-08:00",
+    "category": "Valeria Montoya"
+}

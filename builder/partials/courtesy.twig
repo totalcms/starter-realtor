@@ -1,0 +1,11 @@
+{#
+	"Listing courtesy of {agent}, {brokerage}" on another agent's home.
+	Listing rules ask for it wherever someone else's listing appears. Her own
+	listings (My Listing on) don't show it. Include with {l: the listing}.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% if not l.mine and l.agentName|default('') %}
+	<p class="courtesy">{{ l.brokerage|default('')
+		? i18n.t('listing.courtesy', {agent: l.agentName, brokerage: l.brokerage})
+		: i18n.t('listing.courtesy_agent', {agent: l.agentName}) }}</p>
+{% endif %}

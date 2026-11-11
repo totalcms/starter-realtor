@@ -1,0 +1,52 @@
+{
+    "id": "private-es",
+    "title": "Lista privada",
+    "route": "/es/private",
+    "template": "private",
+    "draft": false,
+    "nav": false,
+    "data": {
+        "lang": "es"
+    },
+    "middleware": [],
+    "accessGroups": [],
+    "accessCollection": "",
+    "status": 200,
+    "redirectTo": "",
+    "sitemap": true,
+    "changeFrequency": "",
+    "priority": 0,
+    "updated": "2026-11-10T18:05:10-08:00",
+    "created": "2026-11-10T17:45:20-08:00",
+    "seo": {
+        "id": "seo",
+        "title": "La lista privada",
+        "socialTitle": "",
+        "description": "Algunas casas de la Pen\u00ednsula se venden con discreci\u00f3n, antes de llegar al mercado. \u00danase a la lista privada para verlas en cuanto est\u00e9n listas.",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:05:10-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    }
+}

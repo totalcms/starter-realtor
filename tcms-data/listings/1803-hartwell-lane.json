@@ -1,0 +1,106 @@
+{
+    "id": "1803-hartwell-lane",
+    "address": "1803 Hartwell Lane",
+    "town": "burlingame",
+    "zip": "94010",
+    "status": "for-sale",
+    "price": 2395000,
+    "soldPrice": 0,
+    "soldDate": "",
+    "listedOn": "2026-10-08T00:00:00-07:00",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1720,
+    "lotSqft": 6500,
+    "yearBuilt": 1952,
+    "propertyType": "house",
+    "description": {
+        "en_US": "A single-level ranch home on a generous lot, ready for its next chapter, with a large backyard and a two-car garage."
+    },
+    "features": {
+        "en_US": "Single level\nLarge backyard\nTwo-car garage\nHardwood floors"
+    },
+    "gallery": [
+        {
+            "alt": "Single-story ranch house with white walls, a brown tiled roof, an attached garage, and a neat lawn with low shrubs.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "d7012ba6",
+            "height": 765,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "csv-3.jpg",
+            "palette": [
+                "#add0eb",
+                "#998a6f",
+                "#313c1e",
+                "#deeaf4",
+                "#9ca7af"
+            ],
+            "size": 168296,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:33-08:00",
+            "width": 1440,
+            "credit": {
+                "author": "Rana Matloob Hussain",
+                "authorUrl": "https://www.pexels.com/@ranamatloob567/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/34827910/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": false,
+    "agentName": "Thomas Whitcombe",
+    "brokerage": "Cypress Bend Realty",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:25:53-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:33-08:00",
+    "created": "2026-11-10T17:25:53-08:00"
+}

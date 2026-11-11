@@ -1,0 +1,22 @@
+{
+    "id": "new-showing",
+    "active": true,
+    "requireBotProtection": true,
+    "name": "New Showing Request",
+    "category": "Website",
+    "description": "Sent to the agent when a buyer asks to see a home from its page. Reply goes to the buyer.",
+    "from": "",
+    "fromName": "",
+    "to": "{{ cms.collection.object('info', 'info').email }}",
+    "toName": "",
+    "replyTo": "{{ data.email }}",
+    "cc": "",
+    "bcc": "",
+    "subject": "Showing request: {{ cms.collection.object('listings', data.listing).address|default(data.listing) }}",
+    "bodyHtml": "{% if data.lang|default('') == 'es' %}<p><strong>Sent from the Spanish site: reply in Spanish.</strong></p>{% endif %}\n{% set home = cms.collection.object('listings', data.listing) %}\n<p><strong>{{ data.name|e }}</strong>, {{ data.email|e }}{% if data.phone %}, {{ data.phone|e }}{% endif %}</p>\n<p>Would like to see <strong>{{ home.address|default(data.listing)|e }}</strong>{% if not home.mine|default(true) %} ({{ home.agentName|e }}'s listing){% endif %}<br>\n{% if data.date %}{{ data.date|date('l, F j') }}, {% endif %}{{ {'morning': 'morning', 'afternoon': 'afternoon', 'evening': 'evening'}[data.times]|default(data.times)|e }}</p>\n{% if data.message %}<p>{{ data.message|e|nl2br }}</p>{% endif %}\n<p>It is saved in the admin under Showing Requests.</p>",
+    "bodyText": "",
+    "bulkCollection": "",
+    "bulkInclude": "",
+    "bulkExclude": "",
+    "updated": "2026-11-10T17:46:29-08:00"
+}

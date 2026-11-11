@@ -1,0 +1,14 @@
+{#
+	EN / ES: the same page in the other language, worked out in the layout
+	(`twin`). The language being read is marked and shown in rosewood.
+	Total CMS 3.8's cms.locale.url() can replace the two hrefs.
+#}
+{# Hidden on an English-only site (no home-es page). #}
+{% if (bilingual ?? true) %}
+{% set spanish = lang starts with 'es' %}
+<p class="lang-switch">
+	<a href="{{ (twin.en ~ twin.query)|e }}" hreflang="en" lang="en"{% if not spanish %} aria-current="true"{% endif %} title="English">EN</a>
+	<span aria-hidden="true">/</span>
+	<a href="{{ (twin.es ~ twin.query)|e }}" hreflang="es" lang="es"{% if spanish %} aria-current="true"{% endif %} title="Español">ES</a>
+</p>
+{% endif %}

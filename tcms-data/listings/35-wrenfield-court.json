@@ -1,0 +1,176 @@
+{
+    "id": "35-wrenfield-court",
+    "address": "35 Wrenfield Court",
+    "town": "san-carlos",
+    "zip": "94070",
+    "status": "coming-soon",
+    "price": 2450000,
+    "soldPrice": 0,
+    "soldDate": "",
+    "listedOn": "2026-11-06T00:00:00-08:00",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1860,
+    "lotSqft": 6600,
+    "yearBuilt": 1958,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A mid-century modern home in the spirit of Eichler: a low roofline, walls of glass and an atrium at its heart, open to the sky. The living spaces flow out to a private garden, and the original post-and-beam ceilings have been lovingly kept.</p><p>Coming to market soon. Members of the private list can see it now and ask for a showing before it goes public.</p>",
+        "es": "<p>Una casa moderna de mediados de siglo al estilo de Eichler: techo bajo, paredes de vidrio y un atrio en el centro, abierto al cielo. Los espacios de estar se extienden hacia un jard\u00edn privado, y los techos originales de vigas se han conservado con cari\u00f1o.</p><p>Saldr\u00e1 al mercado pronto. Los miembros de la lista privada pueden verla ahora y pedir una visita antes de que se publique.</p>"
+    },
+    "features": {
+        "en_US": "Open-air atrium at the center of the house\nOriginal post-and-beam ceilings\nWalls of glass onto a private garden\nRadiant floor heating\nQuiet cul-de-sac",
+        "es": "Atrio al aire libre en el centro de la casa\nTechos originales de vigas y postes\nParedes de vidrio hacia un jard\u00edn privado\nCalefacci\u00f3n radiante en el piso\nCalle cerrada y tranquila"
+    },
+    "gallery": [
+        {
+            "alt": "Low, single-story mid-century ranch home with a wide overhanging roof, a carport, board-and-batten siding, and a green front lawn.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "e21721e9",
+            "height": 854,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "quail-exterior.jpg",
+            "palette": [
+                "#6c782e",
+                "#223418",
+                "#5f4228",
+                "#b8aaa5",
+                "#6a8181"
+            ],
+            "size": 162570,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:29-08:00",
+            "width": 1280,
+            "credit": {
+                "author": "Derwin Edwards",
+                "authorUrl": "https://www.pexels.com/@derwin-edwards-163348797/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/10854898/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Mid-century modern living room with a wood-plank ceiling, glass walls, a leather lounge chair, a bold black-and-white rug, and an orange sofa.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "5ec81243",
+            "height": 960,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "quail-living.jpg",
+            "palette": [
+                "#32261d",
+                "#c29f71",
+                "#873711",
+                "#d7d4d3",
+                "#cb5c23"
+            ],
+            "size": 166546,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:29-08:00",
+            "width": 1440,
+            "credit": {
+                "author": "Stephen Leonardi",
+                "authorUrl": "https://www.pexels.com/@stephen-leonardi-587681991/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/18657168/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Retro mid-century galley kitchen with orange countertops, cream cabinets, a parquet floor, and a wood-beam ceiling with windows along one side.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "e1134ed1",
+            "height": 1066,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "quail-kitchen.jpg",
+            "palette": [
+                "#3e2012",
+                "#7c3914",
+                "#e0aa72",
+                "#c06622",
+                "#eae5d4"
+            ],
+            "size": 168488,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:30-08:00",
+            "width": 1600,
+            "credit": {
+                "author": "Stephen Leonardi",
+                "authorUrl": "https://www.pexels.com/@stephen-leonardi-587681991/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/18657161/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": false,
+    "private": true,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:01-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:30-08:00",
+    "created": "2026-11-10T17:27:01-08:00"
+}

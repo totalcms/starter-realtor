@@ -1,0 +1,105 @@
+{
+    "id": "318-bellflower-terrace",
+    "address": "318 Bellflower Terrace",
+    "town": "san-mateo",
+    "zip": "94403",
+    "status": "sold",
+    "price": 1895000,
+    "soldPrice": 1962000,
+    "soldDate": "2026-06-12T00:00:00-07:00",
+    "listedOn": "2026-05-14T00:00:00-07:00",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1720,
+    "lotSqft": 5500,
+    "yearBuilt": 1951,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A first home for a young family, found before it reached the open market.</p>",
+        "es": "<p>La primera casa de una familia joven, encontrada antes de que llegara al mercado abierto.</p>"
+    },
+    "features": [],
+    "gallery": [
+        {
+            "alt": "Sunlit beige stucco house with a gabled roofline and a grid of windows, seen against a deep blue sky behind a low block wall.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "93541d83",
+            "height": 1200,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "sold-3.jpg",
+            "palette": [
+                "#cdb08b",
+                "#423824",
+                "#0769ae",
+                "#6e8491",
+                "#3882b7"
+            ],
+            "size": 168631,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:31-08:00",
+            "width": 1800,
+            "credit": {
+                "author": "David Brown",
+                "authorUrl": "https://www.pexels.com/@ninobur/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/17613793/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:03-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:31-08:00",
+    "created": "2026-11-10T17:27:03-08:00"
+}

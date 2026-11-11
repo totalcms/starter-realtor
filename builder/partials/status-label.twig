@@ -1,0 +1,7 @@
+{#
+	The status on a listing's photo or heading: ivory, or filled rosewood for
+	Sold. A private home also says Private, so a signed-in buyer can tell.
+	Include with {l: the listing}.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+<span class="status" data-status="{{ l.status }}">{{ i18n.t('status.' ~ l.status) }}{% if l.private|default(false) %} · {{ i18n.t('status.private') }}{% endif %}</span>

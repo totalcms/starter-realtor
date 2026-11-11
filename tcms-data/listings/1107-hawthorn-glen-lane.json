@@ -1,0 +1,176 @@
+{
+    "id": "1107-hawthorn-glen-lane",
+    "address": "1107 Hawthorn Glen Lane",
+    "town": "burlingame",
+    "zip": "94010",
+    "status": "pending",
+    "price": 3895000,
+    "soldPrice": 0,
+    "soldDate": "",
+    "listedOn": "2026-09-24T00:00:00-07:00",
+    "beds": 5,
+    "baths": 3.5,
+    "sqft": 3480,
+    "lotSqft": 8400,
+    "yearBuilt": 1931,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A classic Burlingame family home on a wide, quiet lane, with a formal living room, a paneled library and a kitchen that opens to the garden. Five bedrooms over two floors leave room for everyone, including guests.</p><p>In contract after its first weekend.</p>",
+        "es": "<p>Una cl\u00e1sica casa familiar de Burlingame en una calle amplia y tranquila, con sala formal, biblioteca con paneles de madera y una cocina que se abre al jard\u00edn. Cinco habitaciones en dos pisos dejan espacio para todos, incluidos los invitados.</p><p>Con una oferta aceptada desde su primer fin de semana.</p>"
+    },
+    "features": {
+        "en_US": "Formal living and dining rooms\nPaneled library with a fireplace\nKitchen open to the family room\nFive bedrooms on two floors\nGarden with a brick patio",
+        "es": "Sala y comedor formales\nBiblioteca con paneles de madera y chimenea\nCocina abierta a la sala familiar\nCinco habitaciones en dos pisos\nJard\u00edn con patio de ladrillo"
+    },
+    "gallery": [
+        {
+            "alt": "Classic red brick two-story home with white trim, a columned front entrance, and tidy hedges and lawn in front.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "46dfc4b5",
+            "height": 667,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "larkspur-exterior.jpg",
+            "palette": [
+                "#abb5bb",
+                "#d7cecf",
+                "#9a8079",
+                "#989eaa",
+                "#25271b"
+            ],
+            "size": 166419,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:27-08:00",
+            "width": 1000,
+            "credit": {
+                "author": "Robert So",
+                "authorUrl": "https://www.pexels.com/@robertkso/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/36086367/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Warm living room with a cream sofa and round wooden coffee table, sheer blush curtains over a tall window, and hardwood floors in soft light.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "dffcb040",
+            "height": 1800,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "larkspur-living.jpg",
+            "palette": [
+                "#e8e6e6",
+                "#51382b",
+                "#c0a397",
+                "#82685d",
+                "#6b534c"
+            ],
+            "size": 168267,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:28-08:00",
+            "width": 1200,
+            "credit": {
+                "author": "Erik Mclean",
+                "authorUrl": "https://www.pexels.com/@introspectivedsgn/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/7340487/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Traditional white kitchen with a long island and leather barstools, double wall ovens, lantern pendant lights, and dark hardwood floors.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "f399800a",
+            "height": 1201,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "larkspur-kitchen.jpg",
+            "palette": [
+                "#c2bebb",
+                "#281a18",
+                "#5c4a45",
+                "#6f6c6a",
+                "#edeae6"
+            ],
+            "size": 167639,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:28-08:00",
+            "width": 1800,
+            "credit": {
+                "author": "Curtis Adams",
+                "authorUrl": "https://www.pexels.com/@curtis-adams-1694007/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/12700379/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:01-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:28-08:00",
+    "created": "2026-11-10T17:27:01-08:00"
+}

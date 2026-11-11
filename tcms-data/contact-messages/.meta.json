@@ -1,0 +1,31 @@
+{
+    "id": "contact-messages",
+    "schema": "contact-message",
+    "name": "Contact Messages",
+    "description": "Messages from the Contact page. Visitors can send these but never read them.",
+    "url": "",
+    "category": "",
+    "labelPlural": "Messages",
+    "labelSingular": "Message",
+    "groups": [],
+    "publicOperations": [
+        "create"
+    ],
+    "requireBotProtection": true,
+    "sortBy": "created",
+    "reverseSort": true,
+    "prettyUrl": false,
+    "singleton": false,
+    "format": "json",
+    "publicRegistration": false,
+    "requireEmailVerification": false,
+    "registrationGroups": [],
+    "ownerProperty": "",
+    "ownerCollection": "",
+    "accessCollection": "",
+    "queueRebuildOnSave": false,
+    "count": 1,
+    "totalObjects": 0,
+    "lastUpdated": "2026-11-10T18:31:35-08:00",
+    "updated": "2026-11-10T17:18:21-08:00"
+}

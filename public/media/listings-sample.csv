@@ -1,0 +1,28 @@
+address,town,zip,status,price,beds,baths,sqft,lotSqft,yearBuilt,propertyType,listedOn,agentName,brokerage,mine,description.en_US,features.en_US
+400 Tamsin Way #210,san-mateo,94402,for-sale,1195000,2,2,1150,0,2006,condo,2026-10-22,Renata Silva,Fennimore Bay Realty,false,"A bright corner condo two blocks from downtown, with a balcony over the courtyard, in-unit laundry and one parking space.","Corner unit with a balcony
+In-unit laundry
+One deeded parking space
+Elevator building"
+19 Wrenfield Court,san-carlos,94070,for-sale,1695000,3,2.5,1640,1900,1998,townhouse,2026-10-30,Daniel Okafor,Cypress Bend Realty,false,"An end-unit townhouse on a quiet court with a private patio, an attached two-car garage and a short walk to the schools.","End unit
+Private patio
+Attached two-car garage
+Low HOA dues"
+1803 Hartwell Lane,burlingame,94010,for-sale,2395000,3,2,1720,6500,1952,house,2026-10-08,Thomas Whitcombe,Cypress Bend Realty,false,"A single-level ranch home on a generous lot, ready for its next chapter, with a large backyard and a two-car garage.","Single level
+Large backyard
+Two-car garage
+Hardwood floors"
+512 Juniper Bluff Court,san-carlos,94070,for-sale,1525000,2,1,1020,5000,1941,house,2026-11-02,Renata Silva,Fennimore Bay Realty,false,"A charming bungalow with a front porch, a sunny kitchen and a detached studio in the garden.","Front porch
+Detached garden studio
+Original built-ins"
+1188 Sorrel Ridge Road,belmont,94002,pending,2850000,4,3,2480,10400,1979,house,2026-09-17,Daniel Okafor,Cypress Bend Realty,false,"A split-level home with bay views, a remodeled kitchen and a terraced garden.","Bay views
+Remodeled kitchen
+Terraced garden"
+77 Bellflower Terrace,san-mateo,94403,for-sale,1849000,3,2,1560,5200,1950,house,2026-10-25,Thomas Whitcombe,Cypress Bend Realty,false,"A well-kept three-bedroom near the park, with an updated bath and a fenced yard.","Updated bathroom
+Fenced yard
+Near the park"
+925 Wren Hollow Drive,belmont,94002,for-sale,1398000,2,2.5,1380,1600,2001,townhouse,2026-10-19,Renata Silva,Fennimore Bay Realty,false,"A two-level townhouse with vaulted ceilings, a fireplace and a view of the hills from the deck.","Vaulted ceilings
+Gas fireplace
+Deck with a hill view"
+1350 Hawthorn Glen Lane,burlingame,94010,for-sale,2975000,4,2.5,2210,7000,1938,house,2026-11-05,Daniel Okafor,Cypress Bend Realty,false,"A traditional home on a tree-lined lane, with a formal dining room and a family room open to the garden.","Formal dining room
+Family room open to the garden
+Walk to Broadway"

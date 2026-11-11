@@ -1,0 +1,14 @@
+{#
+	The median sale price of some sold homes, as a big number. Hidden under
+	three sales: one or two sales don't make a median worth quoting.
+	Include with {sales: the sold listings}.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% import 'macros/listings.twig' as homes %}
+{% if sales|length >= 3 %}
+	<div class="stat">
+		<strong>{{ i18n.price(homes.median(sales|map(s => s.soldPrice|default(s.price)))) }}</strong>
+		<span class="caps">{{ i18n.t('towns.median') }}</span>
+		<span class="muted">{{ i18n.t('towns.median_note', {count: sales|length}) }}</span>
+	</div>
+{% endif %}

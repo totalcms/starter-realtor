@@ -1,0 +1,70 @@
+{
+    "id": "1610-hartwell-lane",
+    "address": "1610 Hartwell Lane",
+    "town": "burlingame",
+    "zip": "94010",
+    "status": "sold",
+    "price": 2450000,
+    "soldPrice": 2525000,
+    "soldDate": "2025-12-05T00:00:00-08:00",
+    "listedOn": "2025-11-06T00:00:00-08:00",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1890,
+    "lotSqft": 6000,
+    "yearBuilt": 1940,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A traditional three-bedroom, sold with two offers in the first week.</p>",
+        "es": "<p>Una casa tradicional de tres habitaciones, vendida con dos ofertas la primera semana.</p>"
+    },
+    "features": [],
+    "gallery": [],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:05-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:13-08:00",
+    "created": "2026-11-10T17:27:05-08:00"
+}

@@ -1,0 +1,10 @@
+{#
+	"4 bd · 3 ba · 2,640 sq ft" in small capitals, in the page's language.
+	Include with {l: the listing}. A fact left empty is left out.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set parts = [] %}
+{% if l.beds|default(0) %}{% set parts = parts|merge([i18n.tn('facts.beds', l.beds)]) %}{% endif %}
+{% if l.baths|default(0) %}{% set parts = parts|merge([i18n.tn('facts.baths', l.baths)]) %}{% endif %}
+{% if l.sqft|default(0) %}{% set parts = parts|merge([i18n.t('facts.sqft', {count: i18n.number(l.sqft)})]) %}{% endif %}
+<p class="facts">{{ parts|join(' · ') }}</p>

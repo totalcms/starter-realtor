@@ -1,0 +1,21 @@
+{#-
+	Served at /robots.txt. It points crawlers at both sitemaps, using this
+	site's own address: Total CMS's own (every page, home and town at its
+	English address, plus the Spanish pages) and sitemap-es.xml (the Spanish
+	address of every home and town).
+
+	The readme, the thanks page and the private homes are kept out of both.
+	To keep search engines off a demo copy, add {"blockCrawlers": true} to
+	this page's Data.
+-#}
+User-agent: *
+{% if page.data.blockCrawlers|default(false) -%}
+Disallow: /
+{%- else -%}
+Allow: /
+
+Sitemap: {{ cms.seo.data().site.baseUrl }}/sitemap.xml
+{% if cms.builder.url('home-es') %}
+Sitemap: {{ cms.seo.data().site.baseUrl }}/sitemap-es.xml
+{% endif %}
+{%- endif %}

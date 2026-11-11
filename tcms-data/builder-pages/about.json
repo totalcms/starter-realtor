@@ -1,0 +1,50 @@
+{
+    "id": "about",
+    "title": "About",
+    "route": "/about",
+    "template": "about",
+    "draft": false,
+    "nav": true,
+    "data": [],
+    "middleware": [],
+    "accessGroups": [],
+    "accessCollection": "",
+    "status": 200,
+    "redirectTo": "",
+    "sitemap": true,
+    "changeFrequency": "",
+    "priority": 0,
+    "updated": "2026-11-10T18:05:11-08:00",
+    "created": "2026-11-10T17:45:21-08:00",
+    "seo": {
+        "id": "seo",
+        "title": "About Valeria Montoya",
+        "socialTitle": "",
+        "description": "Valeria Montoya has sold homes on the Peninsula for 14 years, in English and Spanish. Her story, her credentials and what her clients say.",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:05:11-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    }
+}

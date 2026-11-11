@@ -1,0 +1,96 @@
+{
+    "id": "belmont",
+    "name": "Belmont",
+    "image": {
+        "alt": "Hillside neighborhood of homes stepping up a wooded slope above a bay, in warm hazy afternoon light.",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "1cc520b8",
+        "height": 960,
+        "link": "",
+        "mime": "image/jpeg",
+        "name": "town-belmont.jpg",
+        "palette": [
+            "#d0cdce",
+            "#938679",
+            "#424146",
+            "#787d7d",
+            "#6d6a64"
+        ],
+        "size": 165595,
+        "tags": [],
+        "uploadDate": "2026-11-10T18:14:21-08:00",
+        "width": 1440,
+        "credit": {
+            "author": "Stephen Leonardi",
+            "authorUrl": "https://www.pexels.com/@stephen-leonardi-587681991/",
+            "source": "Pexels",
+            "sourceUrl": "https://www.pexels.com/photo/28955574/",
+            "license": "Pexels License"
+        }
+    },
+    "intro": {
+        "en_US": "<p>Belmont sits on the hills between the bay and the open space, and many of its homes look out over both. It is quieter than its neighbors, greener than most, and the trails start practically at the end of the street.</p>",
+        "es": "<p>Belmont se asienta en las colinas entre la bah\u00eda y los espacios abiertos, y muchas de sus casas tienen vista a ambos. Es m\u00e1s tranquila que sus vecinas, m\u00e1s verde que la mayor\u00eda, y los senderos empiezan casi al final de la calle.</p>"
+    },
+    "knownFor": {
+        "en_US": "Hillside homes with views, mature oaks, and a relaxed pace close to everything.",
+        "es": "Casas en las colinas con vista, robles maduros y un ritmo tranquilo cerca de todo."
+    },
+    "schools": {
+        "en_US": "A well-regarded public school district, plus several private schools and a small university in town.",
+        "es": "Un distrito escolar p\u00fablico bien valorado, adem\u00e1s de varias escuelas privadas y una peque\u00f1a universidad en la ciudad."
+    },
+    "commute": {
+        "en_US": "Its own Caltrain station, with Highway 101 along the bay and 280 over the hill.",
+        "es": "Tiene su propia estaci\u00f3n de Caltrain, con la autopista 101 junto a la bah\u00eda y la 280 al otro lado de la colina."
+    },
+    "weekends": {
+        "en_US": "Trail runs around Waterdog Lake, coffee in the village, and long views from the ridge at sunset.",
+        "es": "Carreras por los senderos de Waterdog Lake, caf\u00e9 en el centro y largas vistas desde la cresta al atardecer."
+    },
+    "metaDescription": {
+        "en_US": "Homes for sale in Belmont, California: hillside neighborhoods, schools, commute and recent sales, with agent Valeria Montoya.",
+        "es": "Casas en venta en Belmont, California: vecindarios en las colinas, escuelas, traslados y ventas recientes, con Valeria Montoya."
+    },
+    "sort": 2,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:26:58-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:21-08:00",
+    "created": "2026-11-10T17:26:58-08:00"
+}

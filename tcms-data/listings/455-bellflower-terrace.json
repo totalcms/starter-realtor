@@ -1,0 +1,70 @@
+{
+    "id": "455-bellflower-terrace",
+    "address": "455 Bellflower Terrace",
+    "town": "san-mateo",
+    "zip": "94403",
+    "status": "sold",
+    "price": 1395000,
+    "soldPrice": 1420000,
+    "soldDate": "2026-01-09T00:00:00-08:00",
+    "listedOn": "2025-12-01T00:00:00-08:00",
+    "beds": 2,
+    "baths": 2,
+    "sqft": 1210,
+    "lotSqft": 4200,
+    "yearBuilt": 1948,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A cottage for downsizing sellers, sold over the holidays.</p>",
+        "es": "<p>Una casita para vendedores que buscaban algo m\u00e1s peque\u00f1o, vendida durante las fiestas.</p>"
+    },
+    "features": [],
+    "gallery": [],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:05-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:12-08:00",
+    "created": "2026-11-10T17:27:05-08:00"
+}

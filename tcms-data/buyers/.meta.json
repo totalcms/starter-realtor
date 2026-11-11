@@ -1,0 +1,31 @@
+{
+    "id": "buyers",
+    "schema": "buyer",
+    "name": "Private List Buyers",
+    "description": "Buyers who joined the private list on the site. They're signed in as soon as they join, and see private (coming-soon) homes.",
+    "url": "",
+    "category": "",
+    "labelPlural": "Buyers",
+    "labelSingular": "Buyer",
+    "groups": [],
+    "publicOperations": [],
+    "requireBotProtection": true,
+    "sortBy": "created",
+    "reverseSort": true,
+    "prettyUrl": false,
+    "singleton": false,
+    "format": "json",
+    "publicRegistration": true,
+    "requireEmailVerification": false,
+    "registrationGroups": [
+        "buyers"
+    ],
+    "ownerProperty": "",
+    "ownerCollection": "",
+    "accessCollection": "",
+    "queueRebuildOnSave": false,
+    "count": 7,
+    "totalObjects": 0,
+    "lastUpdated": "2026-11-10T23:52:25-08:00",
+    "updated": "2026-11-10T17:18:23-08:00"
+}

@@ -1,0 +1,106 @@
+{
+    "id": "19-wrenfield-court",
+    "address": "19 Wrenfield Court",
+    "town": "san-carlos",
+    "zip": "94070",
+    "status": "for-sale",
+    "price": 1695000,
+    "soldPrice": 0,
+    "soldDate": "",
+    "listedOn": "2026-10-30T00:00:00-07:00",
+    "beds": 3,
+    "baths": 2.5,
+    "sqft": 1640,
+    "lotSqft": 1900,
+    "yearBuilt": 1998,
+    "propertyType": "townhouse",
+    "description": {
+        "en_US": "An end-unit townhouse on a quiet court with a private patio, an attached two-car garage and a short walk to the schools."
+    },
+    "features": {
+        "en_US": "End unit\nPrivate patio\nAttached two-car garage\nLow HOA dues"
+    },
+    "gallery": [
+        {
+            "alt": "Row of three-story townhouses in gray, tan, and brick tones, each with a two-car garage and driveway, under a blue sky with light clouds.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "04927d63",
+            "height": 960,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "csv-2.jpg",
+            "palette": [
+                "#323232",
+                "#c3c0be",
+                "#747b84",
+                "#876e43",
+                "#664b32"
+            ],
+            "size": 171495,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:32-08:00",
+            "width": 1440,
+            "credit": {
+                "author": "Curtis Adams",
+                "authorUrl": "https://www.pexels.com/@curtis-adams-1694007/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/10486073/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": false,
+    "agentName": "Daniel Okafor",
+    "brokerage": "Cypress Bend Realty",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:25:53-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:33-08:00",
+    "created": "2026-11-10T17:25:53-08:00"
+}

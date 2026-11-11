@@ -1,0 +1,21 @@
+{#
+	The Just-listed signup, in the footer of every page: an email address and
+	a button. Each signup is saved in Just-listed Subscribers with the
+	language it was made in, which picks the language of the email they get.
+	To send the email, see the just-listed template in the Mailer.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set form = cms.form.builder('subscribers', {
+	addOnly: true,
+	botProtection: true,
+	fieldIcons: false,
+	save: i18n.t('signup.send') ~ '',
+	formgrid: 'email',
+	newActions: [
+		{action: 'redirect', link: i18n.url('thanks') ~ '?form=signup'}
+	]
+}) %}
+{% do form.addField('email', {label: i18n.t('signup.email'), help: '', placeholder: '', settings: {attributes: {autocomplete: 'email'}}}) %}
+{% do form.addField('lang', {field: 'hidden', default: lang}) %}
+<div class="signup-form">{{ form.build() }}</div>
+<p class="fine">{{ i18n.t('signup.note') }}</p>

@@ -1,0 +1,149 @@
+{#
+	A walkthrough for the person setting this site up: how the real estate
+	starter works and what to change for a real agent. English only. It is
+	not in the nav, the sitemap or search results. Delete the "readme" page in
+	Site Builder (and this file) before the site goes live.
+#}
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	<header class="page-head sheet">
+		<p class="eyebrow">For the person setting this up</p>
+		<h1>How this site works</h1>
+		<p>A tour of the real estate starter: where each part is edited, what to try, and what to change before you hand it to an agent.</p>
+	</header>
+
+	<article class="sheet narrow readme">
+		<p class="panel">Sign in at <a href="/admin">/admin</a> to follow along. Every change shows on the site as soon as you save; there is no publish step.</p>
+
+		<section aria-labelledby="where-heading">
+			<h2 id="where-heading">Where things are edited</h2>
+			<table>
+				<thead><tr><th scope="col">On the site</th><th scope="col">In the admin</th></tr></thead>
+				<tbody>
+					<tr><td>Her name, phone, email, office, license line, brokerage, the home page words, her story and portrait, the mortgage and tax rates</td><td><strong>Agent Info</strong>. One record, and every page reads from it. The text fields have an English and a Spanish box.</td></tr>
+					<tr><td>Every home: hers and other agents', coming soon, for sale, pending and sold</td><td><strong>Listings</strong>. <em>My Listing</em> puts a home first and shows "Listed by Valeria". <em>Featured</em> puts it on the home page. <em>Private</em> shows it only to the private list.</td></tr>
+					<tr><td>Open houses</td><td>Inside each listing, <strong>Open Houses</strong>. One date, or weekly until a date. Past ones hide themselves.</td></tr>
+					<tr><td>Video tours</td><td>Inside each listing, <strong>Video Tour</strong>. A YouTube or Vimeo link works, or an <code>.mp4</code> on the site, like the demo tour at <code>/media/tour.mp4</code>.</td></tr>
+					<tr><td>Town pages, the town cards, the search's town list</td><td><strong>Neighborhoods</strong></td></tr>
+					<tr><td>Kind words on the home and About pages</td><td><strong>Testimonials</strong></td></tr>
+					<tr><td>What visitors send: home values, showings, messages</td><td><strong>Valuation Requests</strong>, <strong>Showing Requests</strong> and <strong>Contact Messages</strong>. Each also emails her (see Going live).</td></tr>
+					<tr><td>The Just-listed list and the private list</td><td><strong>Just-listed Subscribers</strong> and <strong>Private List Buyers</strong></td></tr>
+					<tr><td>The emails</td><td><strong>Mailer</strong>: one template for each form, and Just Listed</td></tr>
+					<tr><td>Page titles, addresses and the A/B test</td><td><strong>Site Builder</strong></td></tr>
+					<tr><td>Buttons, labels and form messages, in both languages</td><td><code>builder/strings/en_US.json</code> and <code>builder/strings/es.json</code></td></tr>
+				</tbody>
+			</table>
+			<p>Give the agent her own login in the <strong>agent</strong> access group. She can edit listings, towns, testimonials and Agent Info, read the leads and send the Just-listed email, but not change settings, schemas or templates.</p>
+		</section>
+
+		<section aria-labelledby="try-heading">
+			<h2 id="try-heading">Try it</h2>
+			<ol>
+				<li><strong>Sell a home.</strong> Open <a href="/admin/collections/listings/214-linden-hollow-lane">214 Linden Hollow Lane in the admin</a>, set Status to Sold, and fill in Sold Price and Sold Date. It leaves the home page and the search, joins Recently sold and San Carlos's recent sales, the town's median price moves, and the "sold in the last 12 months" figures on the home and Sell pages go up.</li>
+				<li><strong>Search.</strong> On <a href="{{ cms.builder.url('homes') }}?town=belmont&amp;beds=4">Homes</a> the choices land in the address, so a search can be shared. Her own homes always come first.</li>
+				<li><strong>Switch to Spanish.</strong> The EN / ES switch in the nav keeps you on the same page, <a href="{{ cms.builder.url('listing-es', {id: '214-linden-hollow-lane'}) }}">this home in Spanish</a> included. Dates, prices, labels, forms and the 404 all follow.</li>
+				<li><strong>Join the private list.</strong> In a private window, open <a href="{{ cms.builder.url('listing', {id: '35-wrenfield-court'}) }}">35 Wrenfield Court</a>: it is Private, so you get a note instead of the home. Join on <a href="{{ cms.builder.url('private') }}">the private list page</a> and you see it at once, with no approval step.</li>
+				<li><strong>Ask for a valuation.</strong> Fill in the form on <a href="{{ cms.builder.url('sell') }}#valuation">Sell</a>. It lands in Valuation Requests, and in her inbox once email is set up.</li>
+				<li><strong>Run the numbers.</strong> Change the down payment or rate in the payment calculator on any for-sale home. It works without JavaScript too.</li>
+				<li><strong>Add an open house.</strong> Give a listing an open house this weekend. It appears on the listing, on <a href="{{ cms.builder.url('open-houses') }}">Open Houses</a> and on the home page, and disappears by itself after the day.</li>
+			</ol>
+		</section>
+
+		<section aria-labelledby="csv-heading">
+			<h2 id="csv-heading">Import other agents' homes from a CSV file</h2>
+			<p>Agents often get other brokerages' homes as a spreadsheet export. Eight of the homes here came in that way, from <a href="/media/listings-sample.csv" download>listings-sample.csv</a>. To see how it works:</p>
+			<ol>
+				<li>In Listings, delete one of the CSV homes, such as 400 Tamsin Way #210.</li>
+				<li>Choose <strong>Import</strong> on the Listings page and upload <code>listings-sample.csv</code> (download it from the link above, or find it in <code>public/media/</code>). Homes that already exist are skipped, so only the one you deleted comes back.</li>
+				<li>It comes back without photos, because a CSV file can't hold them. Its card shows a placeholder until you add photos in the listing's Photos field.</li>
+			</ol>
+			<p>The columns, in the first row, match the Listings fields:</p>
+			<table>
+				<thead><tr><th scope="col">Column</th><th scope="col">What goes in it</th></tr></thead>
+				<tbody>
+					<tr><td><code>address</code>, <code>zip</code></td><td>The street address (it also makes the home's web address) and ZIP code</td></tr>
+					<tr><td><code>town</code></td><td>A town's ID from Neighborhoods: <code>san-carlos</code>, <code>belmont</code>, <code>san-mateo</code> or <code>burlingame</code></td></tr>
+					<tr><td><code>status</code></td><td><code>coming-soon</code>, <code>for-sale</code>, <code>pending</code> or <code>sold</code></td></tr>
+					<tr><td><code>propertyType</code></td><td><code>house</code>, <code>townhouse</code>, <code>condo</code> or <code>multi</code></td></tr>
+					<tr><td><code>price</code>, <code>beds</code>, <code>baths</code>, <code>sqft</code>, <code>lotSqft</code>, <code>yearBuilt</code></td><td>Numbers only, without $ or commas. Baths can be 2.5.</td></tr>
+					<tr><td><code>listedOn</code></td><td>The date it was listed, as 2026-10-22</td></tr>
+					<tr><td><code>agentName</code>, <code>brokerage</code></td><td>Whose listing it is, for the "Courtesy of" line</td></tr>
+					<tr><td><code>mine</code></td><td><code>false</code> for another agent's home</td></tr>
+					<tr><td><code>description.en_US</code>, <code>features.en_US</code></td><td>The English text. Features go one per line inside quotes. Add <code>description.es</code> and <code>features.es</code> columns for Spanish; without them the Spanish pages show the English text.</td></tr>
+				</tbody>
+			</table>
+			<p>An MLS export uses its own column names. Rename the columns in a spreadsheet before you import, and change the status and type values to the ones above.</p>
+		</section>
+
+		<section aria-labelledby="listed-heading">
+			<h2 id="listed-heading">Send a Just-listed email</h2>
+			<p>Visitors join the Just-listed list from the footer of any page, in English or Spanish. When she lists a new home of her own:</p>
+			<ol>
+				<li>Add the home in Listings with My Listing on and Status For sale or Coming soon. The email always shows her newest such home that isn't Private.</li>
+				<li>In <strong>Mailer</strong>, open Just Listed, preview it against a subscriber, then use <strong>Bulk Send</strong> with the collection Just-listed Subscribers. Each subscriber gets it in the language they signed up in, with an unsubscribe link. Anyone who unsubscribed is left out.</li>
+				<li><strong>A template reaches each subscriber only once, ever.</strong> For the next home, choose Duplicate on Just Listed, name the copy (for example "Just Listed: 88 Sorrel Ridge"), and send the copy.</li>
+			</ol>
+			<p>The emails go out from the job queue, so they need email and the scheduled job from Going live.</p>
+		</section>
+
+		<section aria-labelledby="ab-heading">
+			<h2 id="ab-heading">The A/B test on the home page</h2>
+			<p>Half the visitors see version A, which leads with buyers (Browse homes first, the valuation callout lower down). The other half see version B, which leads with sellers ("What's my home worth?" first, and the callout right under the welcome). A visitor keeps the same version for 30 days.</p>
+			<ul>
+				<li>Both versions use <code>builder/partials/home.twig</code>; <code>pages/index.twig</code> and <code>pages/index-b.twig</code> only say which one they are.</li>
+				<li>The English and Spanish home pages are separate pages, so each has its own test.</li>
+				<li><strong>To see one version:</strong> in Site Builder, open Home (or Inicio) and set <code>abPercent</code> in its Data to <code>0</code> for only A or <code>100</code> for only B. Or delete the <code>tcms_ab_home</code> (or <code>tcms_ab_home-es</code>) cookie and reload until you get the other one.</li>
+				<li><strong>To end the test:</strong> set <code>abPercent</code> to <code>0</code> (keep A) or <code>100</code> (keep B).</li>
+				<li><strong>Reading the results:</strong> the test doesn't count anything by itself. The welcome section carries <code>data-version="a"</code> or <code>"b"</code>, so an analytics tool can record which version each visitor saw. Compare how many of each go on to send a valuation request.</li>
+			</ul>
+		</section>
+
+		<section aria-labelledby="private-heading">
+			<h2 id="private-heading">Private homes</h2>
+			<p>A listing with <em>Private</em> on is hidden from everyone except signed-in members of the private list, the agent and admins: the search, the home and town pages, the counts, both sitemaps and search engines. Anyone can join on the private list page, is signed in at once, and lands in the <strong>buyers</strong> access group, which shows them the private homes and nothing in the admin. The signup is the lead: it is in Private List Buyers.</p>
+			<p><strong>Check the MLS rules first.</strong> Rules such as NAR's Clear Cooperation Policy can limit marketing a home before it is on the MLS, and a page any registered visitor can see may count as public marketing. Have the agent check her own MLS's rules before she uses private listings for real.</p>
+			<p>The signup form uses the same bot protection as the other forms. If the private list draws spam, add a CAPTCHA or turn private listings off.</p>
+		</section>
+
+		<section aria-labelledby="spanish-heading">
+			<h2 id="spanish-heading">The Spanish site</h2>
+			<ul>
+				<li>Every page has a Spanish twin in Site Builder: the same ID plus <code>-es</code>, the same address with <code>/es</code> in front, the same template, and <code>{"lang": "es"}</code> in its Data. The twin's title is the Spanish name in the nav.</li>
+				<li><strong>To add a page:</strong> make the English page, then duplicate it, add <code>-es</code> to its ID and <code>/es</code> to its address, put <code>{"lang": "es"}</code> in Data and give it a Spanish title. The EN / ES switch and the hreflang links find it by the ID.</li>
+				<li>Words written in templates come from <code>builder/strings/en_US.json</code> and <code>builder/strings/es.json</code>, which must have the same keys. Content fields such as a home's description have their own English and Spanish boxes in the admin.</li>
+				<li>Homes and towns don't need twins: one record shows at both <code>/homes/…</code> and <code>/es/homes/…</code>. Total CMS's sitemap lists their English addresses, and <code>/sitemap-es.xml</code> lists the Spanish ones.</li>
+			</ul>
+		</section>
+
+		<section aria-labelledby="demo-heading">
+			<h2 id="demo-heading">What a hosted demo shows</h2>
+			<p>With demo mode on, sign-in is off for the whole site and every visitor is treated as an admin. On the front end that means the private home shows to everyone, with its Private badge, and the private list page shows the member's view. The private home is still left out of the sitemaps and marked noindex. Forms can be filled in, but nothing is saved: sending one answers that the site is in demo mode.</p>
+		</section>
+
+		<section aria-labelledby="live-heading">
+			<h2 id="live-heading">Going live</h2>
+			<ol>
+				<li><strong>Email.</strong> Set up SMTP in Settings, with a From address the mail server is allowed to send from. Until then the forms still save, but no email goes out.</li>
+				<li><strong>The scheduled job.</strong> Bulk Send works through the job queue, which needs a cron job on the server, every minute:
+					<pre><code>* * * * * cd /path/to/site &amp;&amp; php vendor/bin/tcms jobs:process</code></pre>
+				</li>
+				<li><strong>Site Environment</strong> to <strong>Production</strong> in the General settings. Production keeps error messages short for visitors and makes the template editor read-only.</li>
+			</ol>
+		</section>
+
+		<section aria-labelledby="handover-heading">
+			<h2 id="handover-heading">Before you hand it over</h2>
+			<ul>
+				<li>Replace everything in <strong>Agent Info</strong>: her name, phone, email, office, brokerage, the real license line, her story and portrait, and the mortgage and tax rates for her area. The demo phone numbers are fake 555 numbers.</li>
+				<li>Replace the demo homes, towns and photos. The photos are stock images; see <code>CREDITS.md</code>.</li>
+				<li>Replace the testimonials with real ones from her clients. Never publish made-up reviews for a real agent.</li>
+				<li>Have a Spanish speaker read the Spanish, or delete the <code>-es</code> pages if she works in English only. Once Inicio (<code>home-es</code>) is gone, the EN / ES switch, the hreflang links and the Spanish sitemap turn themselves off.</li>
+				<li>Replace the site icon (the arched window) in Site SEO in the admin, and her name in the nav in <code>builder/partials/logo.twig</code>. The colors and fonts are at the top of <code>css/theme.css</code>; run <code>npm run build</code> after changing them.</li>
+				<li>Check the admin's own words in <code>builder/whitelabel/</code>: the welcome note and dashboard (<code>admin-welcome.twig</code>, <code>admin-home.twig</code>), the admin logo, and the buyers' sign-in and password-reset pages (<code>login-*.twig</code>, <code>forgot-password-*.twig</code>, <code>reset-password-*.twig</code>). The reset email itself is Total CMS's own, in English.</li>
+				<li>Delete this page: remove "readme" in Site Builder and <code>builder/pages/readme.twig</code>.</li>
+			</ul>
+		</section>
+	</article>
+	<div class="section"></div>
+{% endblock %}

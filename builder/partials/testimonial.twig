@@ -1,0 +1,14 @@
+{#
+	One testimonial: the quote in her client's words, then who and where.
+	Include with {q: the testimonial}.
+
+	When the testimonial names a home (Home in the admin), its address links
+	to that home's page. The home is looked up in `listings`, the layout's
+	list of homes this visitor may see, so a Private home is never linked.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+<figure class="quote">
+	<blockquote>{{ i18n.l(q.quote) }}</blockquote>
+	{% set home = q.listing|default('') ? listings|default([])|filter(l => l.id == q.listing)|first : null %}
+	<figcaption class="caps muted">{{ q.name }} · {{ q.town }}{% if home %} · <a href="{{ i18n.url('listing', {id: home.id}) }}">{{ home.address }}</a>{% endif %}</figcaption>
+</figure>

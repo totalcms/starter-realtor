@@ -1,0 +1,188 @@
+{
+    "id": "88-sorrel-ridge-road",
+    "address": "88 Sorrel Ridge Road",
+    "town": "belmont",
+    "zip": "94002",
+    "status": "for-sale",
+    "price": 3450000,
+    "soldPrice": 0,
+    "soldDate": "",
+    "listedOn": "2026-10-15T00:00:00-07:00",
+    "beds": 4,
+    "baths": 3.5,
+    "sqft": 3120,
+    "lotSqft": 11800,
+    "yearBuilt": 2009,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>Walls of glass, a long view of the bay, and a hillside garden that turns gold in the late afternoon. This contemporary home was designed around its light: every main room faces east, and the great room opens onto a deck that runs the width of the house.</p><p>Upstairs, four bedrooms include a primary suite with its own terrace. Below, a flexible lower level suits guests, a studio or a home gym. Waterdog Lake's trails begin at the top of the street.</p>",
+        "es": "<p>Paredes de vidrio, una amplia vista de la bah\u00eda y un jard\u00edn en la ladera que se vuelve dorado al final de la tarde. Esta casa contempor\u00e1nea se dise\u00f1\u00f3 en torno a su luz: cada espacio principal mira al este, y la sala se abre a una terraza que recorre todo el ancho de la casa.</p><p>Arriba, cuatro habitaciones incluyen una suite principal con terraza propia. Abajo, un nivel flexible sirve para invitados, un estudio o un gimnasio. Los senderos de Waterdog Lake empiezan al final de la calle.</p>"
+    },
+    "features": {
+        "en_US": "Bay views from every main room\nFull-width deck off the great room\nPrimary suite with a private terrace\nFlexible lower level with its own entrance\nSolar panels and an EV charger\nLandscaped hillside garden",
+        "es": "Vista a la bah\u00eda desde cada espacio principal\nTerraza a todo lo ancho junto a la sala\nSuite principal con terraza privada\nNivel inferior flexible con entrada propia\nPaneles solares y cargador para auto el\u00e9ctrico\nJard\u00edn en la ladera con paisajismo"
+    },
+    "gallery": [
+        {
+            "alt": "Contemporary hillside house clad in gray horizontal siding with large black-framed windows, overlooking a sunny city view below.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "6f4f9304",
+            "height": 922,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "sorrel-exterior.jpg",
+            "palette": [
+                "#3d3f3a",
+                "#938a3b",
+                "#64553a",
+                "#c1d8f1",
+                "#bcae97"
+            ],
+            "size": 162065,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:24-08:00",
+            "width": 1280,
+            "credit": {
+                "author": "Robert So",
+                "authorUrl": "https://www.pexels.com/@robertkso/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/16244163/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Living room with a gray sofa, patterned rug, and a wall of floor-to-ceiling glass doors opening onto a calm lake view.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "fe6725bb",
+            "height": 1068,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "sorrel-living.jpg",
+            "palette": [
+                "#26242c",
+                "#bac8cd",
+                "#dde3e9",
+                "#635e64",
+                "#ac9d98"
+            ],
+            "size": 168001,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:25-08:00",
+            "width": 1600,
+            "credit": {
+                "author": "Max Vakhtbovych",
+                "authorUrl": "https://www.pexels.com/@artbovich/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/6580239/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Sleek contemporary kitchen in white, with a long marble-topped island, flat-front cabinets, a wine fridge, and soft overhead lighting.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "77f83e8d",
+            "height": 1013,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "sorrel-kitchen.jpg",
+            "palette": [
+                "#423e38",
+                "#d9d5d1",
+                "#89827b",
+                "#b0aaa3",
+                "#6d625c"
+            ],
+            "size": 108780,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:25-08:00",
+            "width": 1800,
+            "credit": {
+                "author": "John Mcwhinnie",
+                "authorUrl": "https://www.pexels.com/@john-mcwhinnie-155334134/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/10670947/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": {
+        "saturday": {
+            "id": "saturday",
+            "kind": "weekly",
+            "date": "",
+            "weekday": "6",
+            "start": "13:00",
+            "end": "16:00",
+            "until": "",
+            "note": "",
+            "noteEs": ""
+        }
+    },
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": true,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:00-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:26-08:00",
+    "created": "2026-11-10T17:27:00-08:00"
+}

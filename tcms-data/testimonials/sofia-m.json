@@ -1,0 +1,14 @@
+{
+    "id": "sofia-m",
+    "name": "Sof\u00eda M.",
+    "town": "San Carlos",
+    "quote": {
+        "en_US": "From the first coffee to the last signature, everything was clear and on time. I would not sell a home with anyone else.",
+        "es": "Desde el primer caf\u00e9 hasta la \u00faltima firma, todo fue claro y puntual. No vender\u00eda una casa con nadie m\u00e1s."
+    },
+    "kind": "sold",
+    "date": "2026-10-12T00:00:00-07:00",
+    "listing": "240-linden-hollow-lane",
+    "updated": "2026-11-10T18:14:17-08:00",
+    "created": "2026-11-10T17:27:10-08:00"
+}

@@ -1,0 +1,31 @@
+{
+    "id": "showings",
+    "schema": "showing",
+    "name": "Showing Requests",
+    "description": "Buyers asking to see one of her listings, from the listing's page. Visitors can send these but never read them.",
+    "url": "",
+    "category": "",
+    "labelPlural": "Showings",
+    "labelSingular": "Showing",
+    "groups": [],
+    "publicOperations": [
+        "create"
+    ],
+    "requireBotProtection": true,
+    "sortBy": "created",
+    "reverseSort": true,
+    "prettyUrl": false,
+    "singleton": false,
+    "format": "json",
+    "publicRegistration": false,
+    "requireEmailVerification": false,
+    "registrationGroups": [],
+    "ownerProperty": "",
+    "ownerCollection": "",
+    "accessCollection": "",
+    "queueRebuildOnSave": false,
+    "count": 2,
+    "totalObjects": 0,
+    "lastUpdated": "2026-11-10T18:52:26-08:00",
+    "updated": "2026-11-10T17:18:21-08:00"
+}

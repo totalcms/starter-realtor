@@ -1,0 +1,22 @@
+{#
+	The canonical address and the hreflang links, written here rather than by
+	cms.seo.head() so a Spanish page points at its own /es address.
+
+	Every page gets links to itself in English and in Spanish, and x-default
+	points at English. A page set to No Index, or one that sets
+	{% set noindex = true %} (a private listing), gets none of them, and the
+	"Not Found" page gets none either. An English-only site (no home-es page)
+	gets the canonical link only.
+
+	Total CMS 3.8 writes these itself; this partial is the one to delete then.
+#}
+{% set hidden = noindex|default(page.seo.noindex|default(false)) or page.status|default(200) == 404 %}
+{% if not hidden %}
+	{% set origin = cms.seo.data().site.baseUrl %}
+	<link rel="canonical" href="{{ origin ~ (lang starts with 'es' ? twin.es : twin.en) }}">
+	{% if (bilingual ?? true) and twin.es %}
+		<link rel="alternate" hreflang="en" href="{{ origin ~ twin.en }}">
+		<link rel="alternate" hreflang="es" href="{{ origin ~ twin.es }}">
+		<link rel="alternate" hreflang="x-default" href="{{ origin ~ twin.en }}">
+	{% endif %}
+{% endif %}

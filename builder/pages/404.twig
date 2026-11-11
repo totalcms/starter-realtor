@@ -1,0 +1,36 @@
+{#
+	Shown for any address that doesn't exist: the "Not Found" page in Site
+	Builder has its HTTP Status set to 404, which makes it the fallback. A
+	missing home or town (/homes/no-such-home) lands here too.
+
+	There is one Not Found page for both languages. Under /es the layout
+	answers in Spanish by itself, so a missing Spanish address gets this page
+	in Spanish, with links to the Spanish pages.
+#}
+{% extends 'layouts/default.twig' %}
+
+{# The page record's title is English, so the title here follows the language. #}
+{% block seo %}
+	{% import 'macros/i18n.twig' as i18n %}
+	<title>{{ i18n.t('notfound.title') }} | {{ info.name }}</title>
+	<meta name="robots" content="noindex">
+	{{ cms.seo.icons(page) }}
+{% endblock %}
+
+{% block content %}
+	{% import 'macros/i18n.twig' as i18n %}
+	<header class="page-head sheet">
+		<p class="eyebrow">404</p>
+		<h1>{{ i18n.t('notfound.title') }}</h1>
+		<p>{{ i18n.t('notfound.intro') }}</p>
+		<p class="cluster" data-gap="sm" data-justify="center">
+			<a class="button" href="{{ i18n.url('homes') }}">{{ i18n.t('buttons.browse') }}</a>
+			<a class="button" data-emphasis="medium" href="{{ i18n.url('neighborhoods') }}">{{ i18n.t('towns.title') }}</a>
+			<a class="button" data-emphasis="medium" href="{{ i18n.url('home') }}">{{ i18n.t('thanks.back') }}</a>
+		</p>
+	</header>
+	<section class="sheet">
+		{% include 'partials/search-form.twig' %}
+	</section>
+	<div class="section"></div>
+{% endblock %}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+	<style>
+		.tile { fill: #fae1de; }
+		.arch { fill: none; stroke: #935459; stroke-width: 34; stroke-linecap: round; stroke-linejoin: round; }
+		.sill { fill: #935459; }
+		@media (prefers-color-scheme: dark) {
+			.tile { fill: #21151c; }
+			.arch { stroke: #e7acaf; }
+			.sill { fill: #e7acaf; }
+		}
+	</style>
+	<rect class="tile" width="512" height="512" rx="112"/>
+	<path class="arch" d="M156 392 V236 a100 100 0 0 1 200 0 V392"/>
+	<path class="arch" d="M256 392 V136 M156 270 H356"/>
+	<rect class="sill" x="116" y="380" width="280" height="30" rx="15"/>
+</svg>

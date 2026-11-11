@@ -1,0 +1,52 @@
+{
+    "id": "contact-es",
+    "title": "Contacto",
+    "route": "/es/contact",
+    "template": "contact",
+    "draft": false,
+    "nav": true,
+    "data": {
+        "lang": "es"
+    },
+    "middleware": [],
+    "accessGroups": [],
+    "accessCollection": "",
+    "status": 200,
+    "redirectTo": "",
+    "sitemap": true,
+    "changeFrequency": "",
+    "priority": 0,
+    "updated": "2026-11-10T18:05:12-08:00",
+    "created": "2026-11-10T17:45:22-08:00",
+    "seo": {
+        "id": "seo",
+        "title": "Contacte a Valeria Montoya",
+        "socialTitle": "",
+        "description": "Llame, escriba o env\u00ede un mensaje a Valeria Montoya para comprar o vender una casa en la Pen\u00ednsula. Responde el mismo d\u00eda.",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:05:12-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    }
+}

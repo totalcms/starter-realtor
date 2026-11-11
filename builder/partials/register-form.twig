@@ -1,0 +1,26 @@
+{#
+	Joining the private list. A public registration form on the Private List
+	Buyers collection: the new buyer is put in the "buyers" access group and
+	signed in at once (Settings for this live on the collection: Public
+	Registration, Registration Groups, no email verification). They land back
+	on the Private page and see the private homes right away, or back on the
+	home they came from: a private home's Join button adds ?home=<its ID>.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set home = getData.home|default('') %}
+{% set home = home is not iterable and cms.collection.objects('listings')|filter(o => o.id == home)|length ? home : '' %}
+{% set form = cms.form.builder('buyers', {
+	register: true,
+	botProtection: true,
+	fieldIcons: false,
+	save: i18n.t('buttons.join') ~ '',
+	newActions: [
+		{action: 'redirect', link: home ? i18n.url('listing', {id: home}) : i18n.url('private')}
+	]
+}) %}
+{% do form.addField('name', {label: i18n.t('register.name'), help: '', settings: {attributes: {autocomplete: 'name'}}}) %}
+{% do form.addField('email', {label: i18n.t('register.email'), help: '', settings: {attributes: {autocomplete: 'email'}}}) %}
+{% do form.addField('password', {label: i18n.t('register.password'), help: i18n.t('register.password_help') ~ '', placeholder: i18n.t('register.password_placeholder') ~ '',
+	settings: {confirmPlaceholder: i18n.t('register.password_confirm') ~ '', attributes: {autocomplete: 'new-password'}}, minlength: 8}) %}
+{% do form.addField('lang', {field: 'hidden', default: lang}) %}
+{{ form.build() }}

@@ -1,0 +1,118 @@
+{#
+	Language helpers, used by every template. Import with
+	{% import 'macros/i18n.twig' as i18n %}.
+
+	The site speaks English and Spanish. A Spanish page is a twin of an English
+	one in Site Builder: same template, its ID ends in -es, its address starts
+	with /es, and its Data holds {"lang": "es"}. The layout reads that and calls
+	cms.locale.set() once, so everything below follows the page's language.
+
+	t(key, params)
+	  The words templates print: nav labels, buttons, "bd", "For sale", form
+	  labels and messages. They live in builder/strings/en_US.json and
+	  builder/strings/es.json, under dotted keys such as "buttons.browse".
+	  A key missing from Spanish falls back to English, then to the key itself,
+	  so a missing string shows up as "buttons.browse" rather than silently
+	  vanishing. {name} placeholders are filled from params:
+	    {{ i18n.t('homes.count', {count: 12}) }}
+	  Total CMS 3.8 adds cms.locale.t() with these same arguments and keys. When
+	  this site moves to it, the body of t() becomes one line and the two files
+	  move to tcms-data/translations/.
+
+	tn(key, count, params)
+	  The same, for words that change with a number: reads key.one when count
+	  is 1, and key.other otherwise, with {count} filled in.
+
+	url(pageId, params)
+	  A link to a Site Builder page in the language being read: on a Spanish
+	  page, url('homes') links to the homes-es twin at /es/homes. Every
+	  internal link goes through it.
+
+	es()
+	  "1" on a Spanish page, "" otherwise, for the few places that need to
+	  choose between two things.
+
+	l(value) and styled(value)
+	  A localized field (one value per language) in the page's language:
+	  l() for Localized Text and Localized Textarea, styled() for Localized
+	  Styled Text. When the Spanish is empty they show the English, so a
+	  listing imported from a CSV in English only still has a description on
+	  Spanish pages. A plain string (as a CSV import may store) is shown as is.
+	    {{ i18n.l(listing.features) }}   {{ i18n.styled(listing.description) }}
+	  cms.locale.text() alone returns nothing for a missing language, which is
+	  why the site goes through these two.
+#}
+
+{% macro t(key, params = {}) -%}
+	{%- set locale = cms.locale.get() -%}
+	{#- The active language's strings, then its bare language (es_MX → es), then English. -#}
+	{%- set text = json_decode(source('strings/' ~ locale ~ '.json', ignore_missing = true) ?: '{}', true)[key] ?? null -%}
+	{%- if text is null and '_' in locale -%}
+		{%- set text = json_decode(source('strings/' ~ (locale|split('_')|first) ~ '.json', ignore_missing = true) ?: '{}', true)[key] ?? null -%}
+	{%- endif -%}
+	{%- if text is null -%}
+		{%- set text = json_decode(source('strings/en_US.json'), true)[key] ?? key -%}
+	{%- endif -%}
+	{%- for name, value in params -%}
+		{%- set text = text|replace({('{' ~ name ~ '}'): value}) -%}
+	{%- endfor -%}
+	{{- text -}}
+{%- endmacro %}
+
+{% macro tn(key, count, params = {}) -%}
+	{{- _self.t(key ~ (count == 1 ? '.one' : '.other'), params|merge({count: count})) -}}
+{%- endmacro %}
+
+{% macro es() -%}
+	{{- cms.locale.get() starts with 'es' ? '1' : '' -}}
+{%- endmacro %}
+
+{% macro l(value) -%}
+	{%- if value is iterable -%}
+		{{- cms.locale.text(value) ?: cms.locale.text(value, 'en_US') -}}
+	{%- else -%}
+		{{- value -}}
+	{%- endif -%}
+{%- endmacro %}
+
+{% macro styled(value) -%}
+	{%- if value is iterable -%}
+		{{- cms.locale.styledtext(value) ?: cms.locale.styledtext(value, 'en_US') -}}
+	{%- else -%}
+		{{- value -}}
+	{%- endif -%}
+{%- endmacro %}
+
+{% macro url(pageId, params = {}) -%}
+	{{- cms.builder.url(_self.es() ? pageId ~ '-es' : pageId, params) -}}
+{%- endmacro %}
+
+{#
+	A price as "$2,895,000" in both languages: the homes are priced in US
+	dollars, and US Spanish writes them the same way.
+#}
+{% macro price(amount) -%}
+	{#- ~ '' turns another macro's output (text, not a number) back into digits. -#}
+	{%- set amount = (amount|default(0) ~ '')|trim -%}
+	{{- amount matches '/^[0-9]+(\.[0-9]+)?$/' and amount > 0 ? '$' ~ amount|number_format(0, '.', ',') : '' -}}
+{%- endmacro %}
+
+{# A whole number with US digit grouping: 2,640. #}
+{% macro number(value, decimals = 0) -%}
+	{%- set value = (value|default(0) ~ '')|trim -%}
+	{{- (value matches '/^-?[0-9]+(\.[0-9]+)?$/' ? value : 0)|number_format(decimals, '.', ',') -}}
+{%- endmacro %}
+
+{#
+	A date in the page's language, such as "Saturday, November 14" or
+	"sábado, 14 de noviembre". The patterns are in the strings files
+	(dates.long, dates.short, dates.month), in the ICU date format.
+#}
+{% macro date(value, style = 'long') -%}
+	{%- if value -%}{{- value|format_datetime(pattern: _self.t('dates.' ~ style), locale: cms.locale.get()) -}}{%- endif -%}
+{%- endmacro %}
+
+{# A time such as "1:00 PM" or "1:00 p. m.", from "13:00". #}
+{% macro time(value) -%}
+	{%- if value -%}{{- ('2000-01-01 ' ~ value)|format_datetime(pattern: _self.t('dates.time'), locale: cms.locale.get()) -}}{%- endif -%}
+{%- endmacro %}

@@ -1,0 +1,126 @@
+{#
+	The layout every page extends. It holds what is the same on every page:
+	the <head>, the nav and the footer. Each page fills in {% block content %}.
+
+	Language: every page is in English or Spanish. A Spanish page is a twin in
+	Site Builder (ID ending -es, address starting /es) with {"lang": "es"} in
+	its Data. The layout reads that once, below, and calls cms.locale.set(),
+	so dates, localized fields and the strings in builder/strings/ all follow
+	it. A page with no lang is English, except an address under /es, which is
+	how the one "Not Found" page answers in Spanish there.
+
+	Names you will see everywhere:
+	  page    the Site Builder page being shown (title, route, data...)
+	  info    the agent's details, edited in the admin under Agent Info
+	  lang    the page's language: en_US or es
+
+	A page can set `section` to a nav page's ID to light up that nav link, e.g.
+	a listing sets {% set section = 'homes' %}.
+
+	A page can set `assetsExcept` to Total CMS features it never uses, so
+	their CSS and JavaScript stay off that page, e.g. ['gallery'].
+
+	Keep a page's own words inside its blocks. Anything a page works out above
+	{% block content %} runs before the language is set.
+#}
+{% set assetsExcept = assetsExcept|default([]) %}
+{% set lang = page.data.lang|default(cms.currentUrl matches '{^/es(/|\\?|$)}' ? 'es' : 'en_US') %}
+{% do cms.locale.set(lang) %}
+{% set info = cms.collection.object('info', 'info') %}
+{% import 'macros/i18n.twig' as i18n %}
+
+{#
+	Every list of homes on the site starts from `listings`, worked out once
+	here, so the rules below hold everywhere: the Homes search, the home page,
+	the town pages, the open houses and every count. Pages filter it further
+	(`listings|filter(l => l.town == 'belmont')`); they don't load the
+	Listings collection themselves.
+
+	- A Private home is left out unless the visitor is signed in as a buyer
+	  from the private list, or is the agent or an admin.
+	- Her own listings (My Listing on) come first, then Coming soon, For sale,
+	  Pending and Sold, and the newest listed first within each.
+
+	`today` is the date open houses and "the last 12 months" count from, in
+	the site's time zone. A test page can set it at the top to try a date.
+#}
+{% set seePrivate = cms.auth.isAdmin() or cms.auth.userHasAccess(['buyers', 'agent']) %}
+{% set statusOrder = {'coming-soon': 1, 'for-sale': 2, 'pending': 3, 'sold': 4} %}
+{% set listings = cms.collection.objects('listings')
+	|filter(l => seePrivate or not l.private|default(false))
+	|sort((a, b) => [b.mine ? 1 : 0, statusOrder[a.status]|default(9), b.listedOn|default('')] <=> [a.mine ? 1 : 0, statusOrder[b.status]|default(9), a.listedOn|default('')]) %}
+{% set today = today|default('now'|date('Y-m-d')) %}
+
+{# The towns, in their Sort order, and each town's name by its ID. #}
+{% set towns = cms.collection.objects('neighborhoods')|sort((a, b) => a.sort|default(99) <=> b.sort|default(99)) %}
+{% set townName = {} %}
+{% for t in towns %}{% set townName = townName|merge({(t.id): t.name}) %}{% endfor %}
+{% set yearAgo = (today ~ ' -12 months')|date('Y-m-d') %}
+
+{#
+	This page in each language, for the EN / ES switch and the hreflang links.
+	A twin has the same ID plus -es, and an object page (a listing, a town)
+	keeps its object, so /homes/214-linden-hollow-lane and
+	/es/homes/214-linden-hollow-lane are the same home. Filters such as
+	?town=belmont carry over. The "Not Found" page links to each home page.
+#}
+{# The site is bilingual while the Spanish home page (Inicio, home-es) exists.
+   Delete the -es pages and the EN / ES switch, the hreflang links and the
+   Spanish sitemap all go quiet on their own. #}
+{% set bilingual = cms.builder.url('home-es') is not empty %}
+{% set pageId = page.id|default('') %}
+{% set baseId = pageId ends with '-es' ? pageId|slice(0, -3) : pageId %}
+{% if baseId == '' or page.status|default(200) == 404 %}
+	{% set twin = {en: cms.builder.url('home'), es: cms.builder.url('home-es'), query: ''} %}
+{% else %}
+	{% set twin = {
+		en: cms.builder.url(baseId, params|default({})),
+		es: cms.builder.url(baseId ~ '-es', params|default({})),
+		query: '?' in cms.currentUrl ? '?' ~ cms.currentUrl|split('?', 2)|last : ''
+	} %}
+	{# A page with no twin (the readme) links to the other language's home page. #}
+	{% if not twin.en or not twin.es %}
+		{% set twin = {en: twin.en ?: cms.builder.url('home'), es: twin.es ?: cms.builder.url('home-es'), query: ''} %}
+	{% endif %}
+{% endif %}
+<!DOCTYPE html>
+<html lang="{{ cms.locale.htmlLang() }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{# Title, description, social cards and structured data, built from the page's SEO settings. Don't add a <title> by hand. #}
+	{% block seo %}{% include 'partials/seo-agent.twig' with {subject: page} %}{% endblock %}
+
+	{# The canonical address, and links to the same page in the other language. #}
+	{% include 'partials/head-i18n.twig' %}
+
+	{# Total CMS's own CSS for the parts it renders, such as the forms. #}
+	{{ cms.assetsHead({except: assetsExcept}) }}
+
+	{# Yeti, the CSS framework, then this site's theme, built from css/. #}
+	{{ cms.builder.css('css/style.css') }}
+	{{ cms.builder.js('js/app.js', {module: true}) }}
+
+	{% block head %}{% endblock %}
+</head>
+
+{# "shell" is Yeti's page skeleton: nav on top, footer pinned to the bottom of short pages. #}
+<body class="shell" data-gap="none">
+	{# Lets keyboard and screen-reader users jump past the nav. #}
+	<a href="#content">{{ i18n.t('a11y.skip') }}</a>
+
+	<header class="site-header">
+		{% include 'partials/nav.twig' %}
+	</header>
+
+	<main id="content">
+		{% block content %}{% endblock %}
+	</main>
+
+	{% include 'partials/footer.twig' %}
+
+	{# Total CMS's own JavaScript, such as the forms and htmx. Keep it just before </body>. #}
+	{{ cms.assetsBody({except: assetsExcept}) }}
+</body>
+</html>

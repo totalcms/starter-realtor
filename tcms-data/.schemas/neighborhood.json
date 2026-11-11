@@ -1,0 +1,115 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/neighborhood.json",
+    "type": "object",
+    "id": "neighborhood",
+    "description": "A town she works in, with its own page: a photo, a short guide, its homes for sale and recent sales. Homes link to a town through their Town field.",
+    "properties": {
+        "id": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/slug.json",
+            "label": "ID",
+            "help": "Made from the name, e.g. san-carlos. It becomes the page address, \/neighborhoods\/san-carlos.",
+            "field": "id",
+            "settings": {
+                "autogen": "${name}"
+            }
+        },
+        "name": {
+            "type": "string",
+            "label": "Name",
+            "help": "The town's name. Shared by both languages.",
+            "field": "text"
+        },
+        "image": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/image.json",
+            "label": "Photo",
+            "help": "A wide street or skyline photo for the top of the town's page and its card. Credit the photographer in the image's Credit field.",
+            "field": "image"
+        },
+        "intro": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Introduction",
+            "help": "A short paragraph on what it's like to live there.",
+            "field": "localizedstyledtext"
+        },
+        "knownFor": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Known For",
+            "help": "One or two sentences: the town's character, where people walk and eat.",
+            "field": "localizedtextarea"
+        },
+        "schools": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Schools",
+            "help": "One or two sentences about the schools. Keep it general and factual.",
+            "field": "localizedtextarea"
+        },
+        "commute": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Commute",
+            "help": "One or two sentences: Caltrain, freeways, the drive to the City and to Palo Alto.",
+            "field": "localizedtextarea"
+        },
+        "weekends": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Weekends",
+            "help": "One or two sentences: parks, farmers markets, trails.",
+            "field": "localizedtextarea"
+        },
+        "metaDescription": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Search Description",
+            "help": "One sentence for search results, under 160 characters. Leave it empty and the start of the introduction is used.",
+            "field": "localizedtextarea"
+        },
+        "sort": {
+            "type": "number",
+            "label": "Order",
+            "help": "Lower numbers come first in lists and the footer.",
+            "field": "number",
+            "default": 0
+        },
+        "seo": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/seo.json",
+            "label": "Search and Sharing",
+            "help": "How this page appears in search results and when shared, in English. Leave it empty and the page's own words are used. Spanish pages use the Spanish text from the fields above.",
+            "field": "card",
+            "schemaref": "https:\/\/www.totalcms.co\/schemas\/seo.json"
+        },
+        "updated": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Updated",
+            "help": "Set automatically when the object is saved.",
+            "field": "datetime",
+            "settings": {
+                "onUpdate": true,
+                "readonly": true
+            }
+        },
+        "created": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Created",
+            "help": "Set automatically when the object is created.",
+            "field": "datetime",
+            "settings": {
+                "onCreate": true,
+                "readonly": true
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name"
+    ],
+    "index": [
+        "name",
+        "sort",
+        "image",
+        "updated",
+        "created",
+        "id"
+    ],
+    "formgrid": "id id id name name name\nimage image image image image image\nintro intro intro intro intro intro\nknownFor knownFor knownFor knownFor knownFor knownFor\nschools schools schools schools schools schools\ncommute commute commute commute commute commute\nweekends weekends weekends weekends weekends weekends\nmetaDescription metaDescription metaDescription metaDescription metaDescription metaDescription\nsort sort sort sort sort sort\nseo seo seo seo seo seo\nupdated updated updated created created created",
+    "updated": "2026-11-10T17:32:44-08:00",
+    "category": "Valeria Montoya"
+}

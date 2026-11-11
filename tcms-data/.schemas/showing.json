@@ -1,0 +1,155 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/showing.json",
+    "type": "object",
+    "id": "showing",
+    "description": "A buyer asking to see one of her listings, sent from the listing's page. Visitors can create these but never read them.",
+    "properties": {
+        "id": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/slug.json",
+            "label": "ID",
+            "help": "Made automatically: the time it was sent plus a random part, so the Thanks page address doesn't carry the visitor's name and can't be guessed.",
+            "field": "id",
+            "settings": {
+                "autogen": "${timestamp}-${uid-10}"
+            }
+        },
+        "listing": {
+            "type": "string",
+            "label": "Home",
+            "help": "The ID of the listing they asked about, set by the page the form was on. The dashboard shows its address.",
+            "field": "text"
+        },
+        "name": {
+            "type": "string",
+            "label": "Name",
+            "help": "The visitor's name.",
+            "field": "text"
+        },
+        "email": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/email.json",
+            "label": "Email",
+            "help": "Where to confirm the time.",
+            "field": "email"
+        },
+        "phone": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/phone.json",
+            "label": "Phone",
+            "help": "Optional.",
+            "field": "phone"
+        },
+        "date": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Preferred Day",
+            "help": "The day they'd like to come.",
+            "field": "date"
+        },
+        "times": {
+            "type": "string",
+            "label": "Preferred Time",
+            "help": "Morning, afternoon or evening.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "morning",
+                    "label": "Morning"
+                },
+                {
+                    "value": "afternoon",
+                    "label": "Afternoon"
+                },
+                {
+                    "value": "evening",
+                    "label": "Evening"
+                }
+            ],
+            "default": "afternoon"
+        },
+        "message": {
+            "type": "string",
+            "label": "Message",
+            "help": "Questions they asked.",
+            "field": "textarea"
+        },
+        "lang": {
+            "type": "string",
+            "label": "Language",
+            "help": "The language the visitor was reading when they sent this: reply in it. Set by the form; visitors don't see this field.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "en_US",
+                    "label": "English"
+                },
+                {
+                    "value": "es",
+                    "label": "Spanish"
+                }
+            ],
+            "default": "en_US"
+        },
+        "status": {
+            "type": "string",
+            "label": "Status",
+            "help": "Where this lead stands. For the agent only: visitors can't set it.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "new",
+                    "label": "New"
+                },
+                {
+                    "value": "contacted",
+                    "label": "Contacted"
+                },
+                {
+                    "value": "closed",
+                    "label": "Closed"
+                }
+            ],
+            "protected": true,
+            "default": "new"
+        },
+        "updated": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Updated",
+            "help": "Set automatically when the object is saved.",
+            "field": "datetime",
+            "settings": {
+                "onUpdate": true,
+                "readonly": true
+            }
+        },
+        "created": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Created",
+            "help": "Set automatically when the object is created.",
+            "field": "datetime",
+            "settings": {
+                "onCreate": true,
+                "readonly": true
+            }
+        }
+    },
+    "required": [
+        "id",
+        "listing",
+        "name",
+        "email"
+    ],
+    "index": [
+        "listing",
+        "name",
+        "email",
+        "date",
+        "times",
+        "lang",
+        "status",
+        "updated",
+        "created",
+        "id"
+    ],
+    "formgrid": "id id id id id id\nlisting listing listing listing listing listing\nname name email email phone phone\ndate date date times times times\nmessage message message message message message\nlang lang lang status status status\nupdated updated updated created created created",
+    "updated": "2026-11-10T18:47:55-08:00",
+    "category": "Valeria Montoya"
+}

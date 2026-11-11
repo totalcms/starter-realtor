@@ -1,0 +1,6 @@
+{#-
+	Her name in script, on a chip at the foot of the hero arch. The words come
+	from Agent Info → Signature (usually just a first name). The script font is
+	only for this and the footer's signature: never body text or buttons.
+-#}
+<span class="signature" aria-hidden="true">{{ info.signature|default(info.name|default('')|split(' ')|first) }}</span>

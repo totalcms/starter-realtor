@@ -1,0 +1,50 @@
+{
+    "id": "sell",
+    "title": "Sell",
+    "route": "/sell",
+    "template": "sell",
+    "draft": false,
+    "nav": true,
+    "data": [],
+    "middleware": [],
+    "accessGroups": [],
+    "accessCollection": "",
+    "status": 200,
+    "redirectTo": "",
+    "sitemap": true,
+    "changeFrequency": "",
+    "priority": 0,
+    "updated": "2026-11-10T18:05:09-08:00",
+    "created": "2026-11-10T17:45:18-08:00",
+    "seo": {
+        "id": "seo",
+        "title": "Selling Your Home on the Peninsula",
+        "socialTitle": "",
+        "description": "How Valeria Montoya prepares, presents and negotiates the sale of your home in San Carlos, Belmont, San Mateo or Burlingame. Ask what your home is worth.",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:05:09-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    }
+}

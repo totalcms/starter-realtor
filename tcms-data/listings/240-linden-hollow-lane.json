@@ -1,0 +1,70 @@
+{
+    "id": "240-linden-hollow-lane",
+    "address": "240 Linden Hollow Lane",
+    "town": "san-carlos",
+    "zip": "94070",
+    "status": "sold",
+    "price": 2150000,
+    "soldPrice": 2205000,
+    "soldDate": "2026-10-02T00:00:00-07:00",
+    "listedOn": "2026-09-04T00:00:00-07:00",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1780,
+    "lotSqft": 6500,
+    "yearBuilt": 1946,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A neighbor of her current listing, sold over asking.</p>",
+        "es": "<p>Vecina de su propiedad actual, vendida por encima del precio.</p>"
+    },
+    "features": [],
+    "gallery": [],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:06-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:13-08:00",
+    "created": "2026-11-10T17:27:06-08:00"
+}

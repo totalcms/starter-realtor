@@ -1,0 +1,3 @@
+{#- The name in the nav: her name in the serif, and a small line of capitals under it. To use a logo image instead, replace this with an <img>. -#}
+{% import 'macros/i18n.twig' as i18n %}
+<span class="brand"><strong>{{ info.name|default(cms.siteName) }}</strong><small>{{ i18n.t('brand.small') }}</small></span>

@@ -1,0 +1,55 @@
+{#
+	The monthly payment estimate beside a home for sale. It is an ordinary form:
+	without JavaScript, Calculate reloads the page with the new numbers and the
+	result is worked out here. With JavaScript (js/calculator.js) the result
+	updates as the visitor types. Both use the same sum, below.
+
+	The starting rate, property tax rate and yearly insurance come from Agent
+	Info. `l` is the listing.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{# Each value as text; a value sent as a list (?price[]=1) counts as missing. #}
+{% set g = getData|default({}) %}
+{% set g = {price: g.price ?? '', down: g.down ?? '', rate: g.rate ?? '', term: g.term ?? ''}|map(v => v is iterable ? '' : v ~ '') %}
+{% set num = '/^[0-9]+(\\.[0-9]+)?$/' %}
+{% set price = (g.price|default('') matches num and g.price > 0 and g.price < 100000000) ? g.price + 0 : l.price|default(0) %}
+{% set down = (g.down|default('') matches num and g.down <= 100) ? g.down + 0 : 20 %}
+{% set rate = (g.rate|default('') matches num and g.rate <= 25) ? g.rate + 0 : info.mortgageRate|default(6.25) %}
+{% set term = g.term|default('') in ['15', '20', '30'] ? g.term + 0 : 30 %}
+{% set taxRate = info.propertyTaxRate|default(1.1) %}
+{% set insurance = info.insuranceYearly|default(2400) %}
+
+{# Principal and interest: L·r / (1 − (1 + r)^−n), monthly rate r over n months. #}
+{% set loan = price * (1 - down / 100) %}
+{% set r = rate / 100 / 12 %}
+{% set n = term * 12 %}
+{% set pi = r > 0 ? loan * r / (1 - (1 + r) ** (0 - n)) : loan / n %}
+{% set tax = price * taxRate / 100 / 12 %}
+{% set ins = insurance / 12 %}
+
+<form class="calculator" method="get" action="#calculator" id="calculator" aria-labelledby="calculator-title" data-calculator
+	data-tax-rate="{{ taxRate }}" data-insurance="{{ insurance }}" data-locale="{{ i18n.es() ? 'es-US' : 'en-US' }}">
+	<h2 id="calculator-title">{{ i18n.t('calc.title') }}</h2>
+	<div class="inputs">
+		<label>{{ i18n.t('calc.price') }}<input name="price" type="number" inputmode="numeric" min="0" step="1000" value="{{ price|round }}"></label>
+		<label>{{ i18n.t('calc.down') }} (%)<input name="down" type="number" inputmode="decimal" min="0" max="100" step="1" value="{{ down }}"></label>
+		<label>{{ i18n.t('calc.rate') }} (%)<input name="rate" type="number" inputmode="decimal" min="0" max="25" step="0.05" value="{{ rate }}"></label>
+		<label>{{ i18n.t('calc.term') }}
+			<select name="term">
+				{% for years in [30, 20, 15] %}<option value="{{ years }}"{% if years == term %} selected{% endif %}>{{ i18n.t('calc.years', {count: years}) }}</option>{% endfor %}
+			</select>
+		</label>
+	</div>
+	<output aria-live="polite">
+		<span class="caps">{{ i18n.t('calc.estimate') }}</span>
+		<strong data-out="total">{{ i18n.price((pi + tax + ins)|round) }}</strong>
+	</output>
+	<dl class="breakdown">
+		<dt>{{ i18n.t('calc.principal') }}</dt><dd data-out="pi">{{ i18n.price(pi|round) }}</dd>
+		<dt>{{ i18n.t('calc.tax') }}</dt><dd data-out="tax">{{ i18n.price(tax|round) }}</dd>
+		<dt>{{ i18n.t('calc.insurance') }}</dt><dd data-out="ins">{{ i18n.price(ins|round) }}</dd>
+		<dt>{{ i18n.t('calc.loan') }}</dt><dd data-out="loan">{{ i18n.price(loan|round) }}</dd>
+	</dl>
+	<p><button class="button" data-emphasis="medium" type="submit" data-calc-submit>{{ i18n.t('calc.calculate') }}</button></p>
+	<p class="fine">{{ i18n.t('calc.note', {rate: i18n.number(taxRate, 1)}) }}</p>
+</form>

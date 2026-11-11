@@ -1,0 +1,55 @@
+{#
+	The home search: a plain form that sends its choices in the address, such
+	as /homes?town=san-carlos&beds=4, so a search can be bookmarked and shared.
+	The Homes page reads them back (see pages/homes.twig).
+
+	Include with:
+	  f        the choices already made, checked by the Homes page
+	  compact  true for the short version on the home page (town, price, beds)
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set f = f|default({}) %}
+{% set prices = [1000000, 1500000, 2000000, 2500000, 3000000, 3500000, 4000000] %}
+<form class="search-form" method="get" action="{{ i18n.url('homes') }}" role="search">
+	<label>{{ i18n.t('search.town') }}
+		<select name="town">
+			<option value="">{{ i18n.t('search.any_town') }}</option>
+			{% for t in towns %}<option value="{{ t.id }}"{% if f.town|default('') == t.id %} selected{% endif %}>{{ t.name }}</option>{% endfor %}
+		</select>
+	</label>
+	<label>{{ i18n.t('search.min_price') }}
+		<select name="min">
+			<option value="">{{ i18n.t('search.no_min') }}</option>
+			{% for p in prices %}<option value="{{ p }}"{% if f.min|default(0) == p %} selected{% endif %}>{{ i18n.price(p) }}</option>{% endfor %}
+		</select>
+	</label>
+	<label>{{ i18n.t('search.max_price') }}
+		<select name="max">
+			<option value="">{{ i18n.t('search.no_max') }}</option>
+			{% for p in prices %}<option value="{{ p }}"{% if f.max|default(0) == p %} selected{% endif %}>{{ i18n.price(p) }}</option>{% endfor %}
+		</select>
+	</label>
+	<label>{{ i18n.t('search.beds') }}
+		<select name="beds">
+			<option value="">{{ i18n.t('search.any_beds') }}</option>
+			{% for n in 2..5 %}<option value="{{ n }}"{% if f.beds|default(0) == n %} selected{% endif %}>{{ i18n.t('search.beds_min', {count: n}) }}</option>{% endfor %}
+		</select>
+	</label>
+	{% if not compact|default(false) %}
+		<label>{{ i18n.t('search.baths') }}
+			<select name="baths">
+				<option value="">{{ i18n.t('search.any_baths') }}</option>
+				{% for n in 1..4 %}<option value="{{ n }}"{% if f.baths|default(0) == n %} selected{% endif %}>{{ i18n.t('search.beds_min', {count: n}) }}</option>{% endfor %}
+			</select>
+		</label>
+		<label>{{ i18n.t('search.status') }}
+			<select name="status">
+				<option value="">{{ i18n.t('search.any_status') }}</option>
+				<option value="pending"{% if f.status|default('') == 'pending' %} selected{% endif %}>{{ i18n.t('status.pending') }}</option>
+				<option value="sold"{% if f.status|default('') == 'sold' %} selected{% endif %}>{{ i18n.t('search.recently_sold') }}</option>
+				<option value="all"{% if f.status|default('') == 'all' %} selected{% endif %}>{{ i18n.t('search.all_status') }}</option>
+			</select>
+		</label>
+	{% endif %}
+	<button class="button" type="submit">{{ i18n.t('buttons.search') }}</button>
+</form>

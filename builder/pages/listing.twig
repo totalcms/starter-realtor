@@ -1,0 +1,167 @@
+{#
+	One home, at /homes/{id} and /es/homes/{id}. The {id} in the page's route
+	arrives as params.id, and both languages show the same home.
+
+	In order: the photos, the price, status and address, the facts, what she
+	says about the home, its features, the video tour when there is one, its
+	open houses, the map link and, on another agent's home, whose listing it
+	is. A sold home says what it sold for and when.
+
+	A Private home is shown only to signed-in buyers on the private list (and
+	to the agent). Anyone else gets a short note and the way to join instead
+	of the home, and the page is never indexed by search engines.
+#}
+{% extends 'layouts/default.twig' %}
+
+{% set listing = cms.collection.object('listings', params.id|default('')) %}
+{% if listing is empty %}{% do cms.notFound() %}{% endif %}
+{% set section = 'homes' %}
+{# No search engine sees a private home, whoever is looking. #}
+{% set noindex = listing.private|default(false) %}
+
+{% block seo %}
+	{% if listing.private|default(false) and not seePrivate %}
+		{% import 'macros/i18n.twig' as i18n %}
+		<title>{{ i18n.t('private.locked_title') }} · {{ info.name }}</title>
+		<meta name="robots" content="noindex, nofollow">
+	{% else %}
+		{% include 'partials/seo-agent.twig' with {subject: listing, collection: 'listings'} %}
+		{% if listing.private|default(false) %}<meta name="robots" content="noindex, nofollow">{% endif %}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% import 'macros/i18n.twig' as i18n %}
+	{% import 'macros/listings.twig' as homes %}
+	{% set l = listing %}
+	{% set town = townName[l.town]|default(l.town) %}
+
+	{% if l.private|default(false) and not seePrivate %}
+		<header class="page-head sheet">
+			<p class="eyebrow">{{ i18n.t('status.private') }}</p>
+			<h1>{{ i18n.t('private.locked_title') }}</h1>
+			<p>{{ i18n.t('private.locked_text') }}</p>
+			<p class="cluster" data-gap="sm" data-justify="center">
+				{# ?home= brings a new buyer back to this home once they've joined. #}
+				<a class="button" href="{{ i18n.url('private') }}?home={{ l.id|url_encode }}">{{ i18n.t('buttons.join') }}</a>
+				<a class="button" data-emphasis="medium" href="{{ cms.auth.login('buyers', cms.currentUrl) }}">{{ i18n.t('buttons.sign_in') }}</a>
+			</p>
+		</header>
+		<div class="section"></div>
+	{% else %}
+		<header class="listing-head sheet">
+			{% include 'partials/status-label.twig' %}
+			<h1>{{ l.address }}</h1>
+			<p class="caps muted">{{ town }}, CA {{ l.zip }}</p>
+			<p class="price">{{ i18n.price(l.status == 'sold' and l.soldPrice|default(0) ? l.soldPrice : l.price) }}</p>
+			{% include 'partials/facts.twig' %}
+			{% if l.private|default(false) %}<p class="muted">{{ i18n.t('listing.private_note') }}</p>{% endif %}
+		</header>
+
+		{% if l.gallery|default([]) is not empty %}
+			<section class="sheet gallery" aria-label="{{ l.address }}">
+				{% set photos = l.gallery|map(p => p.name) %}
+				<figure>{{ cms.render.galleryImage(l, photos|first, {w: 1800, h: 1125, fit: 'crop'}, {collection: 'listings', loading: 'eager'}) }}</figure>
+				{% if photos|length > 1 %}
+					<div class="gallery-rest">
+						{% for name in photos|slice(1) %}
+							<figure>{{ cms.render.galleryImage(l, name, {w: 900, h: 675, fit: 'crop'}, {collection: 'listings'}) }}</figure>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</section>
+		{% endif %}
+
+		<div class="sheet listing-layout">
+			<div class="listing-main">
+				{% if l.status == 'sold' %}
+					<div class="sold-note">
+						<p class="serif">{{ i18n.t('listing.sold_title') }}</p>
+						<p>{{ l.soldPrice|default(0)
+							? i18n.t('listing.sold_text', {date: i18n.date(l.soldDate, 'full'), price: i18n.price(l.soldPrice)})
+							: i18n.t('listing.sold_text_noprice', {date: i18n.date(l.soldDate, 'full')}) }}</p>
+					</div>
+				{% endif %}
+
+				<dl class="fact-row">
+					{% if l.beds|default(0) %}<div><dt>{{ i18n.t('facts.bedrooms') }}</dt><dd>{{ l.beds }}</dd></div>{% endif %}
+					{% if l.baths|default(0) %}<div><dt>{{ i18n.t('facts.bathrooms') }}</dt><dd>{{ i18n.number(l.baths, l.baths == l.baths|round ? 0 : 1) }}</dd></div>{% endif %}
+					{% if l.sqft|default(0) %}<div><dt>{{ i18n.t('facts.size') }}</dt><dd>{{ i18n.number(l.sqft) }}</dd></div>{% endif %}
+					{% if l.lotSqft|default(0) %}<div><dt>{{ i18n.t('facts.lot') }}</dt><dd>{{ l.lotSqft >= 43560
+						? i18n.t('facts.lot_acres', {count: i18n.number(l.lotSqft / 43560, 2)})
+						: i18n.t('facts.lot_sqft', {count: i18n.number(l.lotSqft)}) }}</dd></div>{% endif %}
+					{% if l.yearBuilt|default(0) %}<div><dt>{{ i18n.t('facts.year') }}</dt><dd>{{ l.yearBuilt }}</dd></div>{% endif %}
+				</dl>
+
+				{% set about = i18n.styled(l.description) %}
+				{% if about|trim %}
+					<section>
+						<h2>{{ i18n.t('listing.about') }}</h2>
+						<div class="prose">{{ about }}</div>
+					</section>
+				{% endif %}
+
+				{# Features: one per line in the Features field. #}
+				{% set features = i18n.l(l.features)|trim %}
+				{% if features %}
+					<section>
+						<h2>{{ i18n.t('listing.features') }}</h2>
+						<ul class="feature-list">
+							{% for line in features|split("\n")|map(f => f|trim)|filter(f => f) %}<li>{{ line }}</li>{% endfor %}
+						</ul>
+					</section>
+				{% endif %}
+
+				{% if l.video.url|default('') %}
+					<section class="video-tour">
+						<h2>{{ i18n.t('listing.video') }}</h2>
+						{{ cms.render.video(l, {collection: 'listings', property: 'video'}, {w: 1600}) }}
+					</section>
+				{% endif %}
+
+				{% if l.status != 'sold' %}
+					<section>
+						<h2>{{ i18n.t('listing.open_houses') }}</h2>
+						{% set upcoming = [] %}
+						{% for item in l.openHouses|default({}) %}
+							{% set next = homes.nextOpenHouse(item, today) %}
+							{% if next %}{% set upcoming = upcoming|merge([{date: next, item: item}]) %}{% endif %}
+						{% endfor %}
+						{% if upcoming is empty %}
+							<p class="muted">{{ i18n.t('listing.no_open_houses') }}</p>
+						{% else %}
+							<ul class="open-house-list">
+								{% for o in upcoming|sort((a, b) => a.date <=> b.date) %}
+									<li>
+										<span class="when">{% set label = i18n.date(o.date, 'long') %}{{ label|slice(0, 1)|upper ~ label|slice(1) }}</span>
+										<span>{{ i18n.t('open.time_range', {start: i18n.time(o.item.start), end: i18n.time(o.item.end)}) }}</span>
+										{% set note = i18n.es() ? o.item.noteEs|default(o.item.note) : o.item.note %}
+										{% if note|default('') %}<span class="note">{{ note }}</span>{% endif %}
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</section>
+				{% endif %}
+
+				<p class="cluster" data-gap="sm">
+					<a class="button" data-emphasis="medium" href="https://www.google.com/maps/search/?api=1&query={{ (l.address ~ ', ' ~ town ~ ', CA ' ~ l.zip)|url_encode }}" rel="noopener" target="_blank">{{ i18n.t('listing.map') }}</a>
+					<a class="button" data-emphasis="medium" href="{{ i18n.url('homes') }}">{{ i18n.t('listing.back') }}</a>
+				</p>
+				{% include 'partials/courtesy.twig' %}
+			</div>
+
+			{# The showing request and the mortgage calculator. A sold home has neither. #}
+			{% if l.status != 'sold' %}
+				<aside class="listing-aside">
+					<div class="panel" id="showing">
+						<h2>{{ i18n.t('listing.showing_title') }}</h2>
+						<p class="muted">{{ i18n.t('listing.showing_text') }}</p>
+						{% include 'partials/showing-form.twig' %}
+					</div>
+					{% if l.price|default(0) %}<div class="panel">{% include 'partials/mortgage-calculator.twig' %}</div>{% endif %}
+				</aside>
+			{% endif %}
+		</div>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,163 @@
+{
+    "id": "seo-site",
+    "siteName": "Valeria Montoya",
+    "baseUrl": "",
+    "titleTemplate": "${title} | ${site}",
+    "socialTitleTemplate": "${title}",
+    "defaultDescription": "Homes for sale in San Carlos, Belmont, San Mateo and Burlingame, with Peninsula agent Valeria Montoya, in English and Spanish.",
+    "defaultSocialDescription": "",
+    "defaultImage": {
+        "alt": "Modern farmhouse with white siding and a steep gabled wing, dark-framed windows, and a wide, freshly mowed green lawn under a bright blue sky.",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "87c2be3a",
+        "height": 730,
+        "link": "",
+        "mime": "image/jpeg",
+        "name": "linden-exterior.jpg",
+        "palette": [
+            "#5a8dd6",
+            "#d9d4c9",
+            "#292e23",
+            "#7b9a2e",
+            "#868a82"
+        ],
+        "size": 165374,
+        "tags": [],
+        "uploadDate": "2026-11-10T18:14:34-08:00",
+        "width": 1100,
+        "credit": {
+            "author": "Pixabay",
+            "authorUrl": "https://www.pexels.com/@pixabay/",
+            "source": "Pexels",
+            "sourceUrl": "https://www.pexels.com/photo/280229/",
+            "license": "Pexels License"
+        }
+    },
+    "twitterHandle": "",
+    "organizationName": "Valeria Montoya, Peninsula Real Estate",
+    "organizationLogo": {
+        "alt": "Valeria Montoya",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "870d656f",
+        "height": 512,
+        "link": "",
+        "mime": "image/png",
+        "name": "icon.png",
+        "palette": [
+            "#fce4dc",
+            "#94545c",
+            "#c49c9c",
+            "#ac747b",
+            "#e4bcbc"
+        ],
+        "size": 8275,
+        "tags": [],
+        "uploadDate": "2026-11-10T18:14:35-08:00",
+        "width": 512,
+        "credit": {
+            "author": "Drawn for this site",
+            "license": "No credit needed"
+        }
+    },
+    "icon": {
+        "alt": "An arched window",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "16357a6d",
+        "height": 512,
+        "link": "",
+        "mime": "image/png",
+        "name": "icon.png",
+        "palette": [
+            "#fce4dc",
+            "#94545c",
+            "#c49c9c",
+            "#ac747b",
+            "#e4bcbc"
+        ],
+        "size": 8275,
+        "tags": [],
+        "uploadDate": "2026-11-10T18:14:34-08:00",
+        "width": 512,
+        "credit": {
+            "author": "Drawn for this site",
+            "license": "No credit needed"
+        }
+    },
+    "touchIcon": {
+        "alt": "An arched window",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "f1b04020",
+        "height": 180,
+        "link": "",
+        "mime": "image/png",
+        "name": "touch-icon.png",
+        "palette": [
+            "#fce4dc",
+            "#94545c",
+            "#ac747c",
+            "#c49c9c",
+            "#e4bcbc"
+        ],
+        "size": 1439,
+        "tags": [],
+        "uploadDate": "2026-11-10T18:14:35-08:00",
+        "width": 180,
+        "credit": {
+            "author": "Drawn for this site",
+            "license": "No credit needed"
+        }
+    },
+    "iconSvg": {
+        "tags": [],
+        "password": "",
+        "uploadDate": "2026-11-10T18:14:35-08:00",
+        "protected": true,
+        "mime": "image/svg+xml",
+        "download": "icon.svg",
+        "name": "icon.svg",
+        "ext": "svg",
+        "comments": "",
+        "size": 625,
+        "count": 0
+    },
+    "themeColor": "",
+    "sameAs": "",
+    "contactEmail": "valeria@valeriamontoya.example",
+    "contactUrl": "",
+    "metaTags": "",
+    "emitJsonLd": true,
+    "emitSocial": true,
+    "emitGenerator": true,
+    "indexNowEnabled": false,
+    "indexNowKey": "",
+    "created": "2026-11-10T18:14:04-08:00",
+    "updated": "2026-11-10T18:21:58-08:00"
+}

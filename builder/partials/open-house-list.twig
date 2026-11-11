@@ -1,0 +1,42 @@
+{#
+	Upcoming open houses, grouped by day, soonest first. Each one's next date
+	is worked out from today (macros/listings.twig), so a weekly open house
+	moves on by itself and a one-date one disappears the day after.
+
+	Include with:
+	  homes    the listings to look through (start from `listings`)
+	  limit    optional: show only the first few days, e.g. 2 on the home page
+	  heading  optional: the heading level for each day, default h2
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% import 'macros/listings.twig' as oh %}
+{% set entries = [] %}
+{% for l in homes|filter(l => l.status != 'sold') %}
+	{% for item in l.openHouses|default({}) %}
+		{% set next = oh.nextOpenHouse(item, today) %}
+		{% if next %}{% set entries = entries|merge([{date: next, start: item.start|default(''), listing: l, item: item}]) %}{% endif %}
+	{% endfor %}
+{% endfor %}
+{% set entries = entries|sort((a, b) => [a.date, a.start] <=> [b.date, b.start]) %}
+{% set days = entries|map(e => e.date)|reduce((carry, d) => d in carry ? carry : carry|merge([d]), []) %}
+{% set days = limit|default(0) ? days|slice(0, limit) : days %}
+{% set tomorrow = (today ~ ' +1 day')|date('Y-m-d') %}
+{% set h = heading|default('h2') %}
+
+{% for day in days %}
+	<section class="day-group">
+		<{{ h }}>{% if day == today %}{{ i18n.t('open.today') }} · {% elseif day == tomorrow %}{{ i18n.t('open.tomorrow') }} · {% endif %}{% set label = i18n.date(day, 'long') %}{{ label|slice(0, 1)|upper ~ label|slice(1) }}</{{ h }}>
+		<ul class="open-house-list">
+			{% for e in entries|filter(e => e.date == day) %}
+				<li>
+					<span class="when">{{ i18n.t('open.time_range', {start: i18n.time(e.item.start), end: i18n.time(e.item.end)}) }}</span>
+					<a href="{{ i18n.url('listing', {id: e.listing.id}) }}">{{ e.listing.address }}, {{ townName[e.listing.town]|default(e.listing.town) }} · {{ i18n.price(e.listing.price) }}</a>
+					{% set note = i18n.es() ? e.item.noteEs|default(e.item.note) : e.item.note %}
+					{% if note|default('') %}<span class="note">{{ note }}</span>{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	</section>
+{% else %}
+	<p class="empty-note">{{ i18n.t('open.none') }}</p>
+{% endfor %}

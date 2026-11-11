@@ -1,0 +1,49 @@
+{
+  "css/style.css": {
+    "file": "style-1UleXN8f.css",
+    "name": "style",
+    "names": [
+      "style.css"
+    ],
+    "src": "css/style.css",
+    "isEntry": true,
+    "assets": [
+      "cormorant-garamond-300-Dl0Gi0c7.woff2",
+      "cormorant-garamond-300-italic-By2XhnBp.woff2",
+      "cormorant-garamond-400-CUJuyepZ.woff2",
+      "cormorant-garamond-400-italic-D5ntC6tw.woff2",
+      "jost-latin-wght-ObQm3Zd1.woff2",
+      "allura-400-B8WwesNi.woff2"
+    ]
+  },
+  "fonts/allura-400.woff2": {
+    "file": "allura-400-B8WwesNi.woff2",
+    "src": "fonts/allura-400.woff2"
+  },
+  "fonts/cormorant-garamond-300-italic.woff2": {
+    "file": "cormorant-garamond-300-italic-By2XhnBp.woff2",
+    "src": "fonts/cormorant-garamond-300-italic.woff2"
+  },
+  "fonts/cormorant-garamond-300.woff2": {
+    "file": "cormorant-garamond-300-Dl0Gi0c7.woff2",
+    "src": "fonts/cormorant-garamond-300.woff2"
+  },
+  "fonts/cormorant-garamond-400-italic.woff2": {
+    "file": "cormorant-garamond-400-italic-D5ntC6tw.woff2",
+    "src": "fonts/cormorant-garamond-400-italic.woff2"
+  },
+  "fonts/cormorant-garamond-400.woff2": {
+    "file": "cormorant-garamond-400-CUJuyepZ.woff2",
+    "src": "fonts/cormorant-garamond-400.woff2"
+  },
+  "fonts/jost-latin-wght.woff2": {
+    "file": "jost-latin-wght-ObQm3Zd1.woff2",
+    "src": "fonts/jost-latin-wght.woff2"
+  },
+  "js/app.js": {
+    "file": "app-CVfSwoT1.js",
+    "name": "app",
+    "src": "js/app.js",
+    "isEntry": true
+  }
+}

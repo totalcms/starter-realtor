@@ -1,0 +1,49 @@
+{#
+	The private list, at /private and /es/private.
+
+	A visitor who isn't on the list sees what it is, the form to join and a
+	way to sign in. Joining signs them in at once and brings them back here,
+	where they now see every Private home (and Private homes everywhere else
+	on the site). The agent and admins always see them.
+#}
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	{% import 'macros/i18n.twig' as i18n %}
+	{% set private = listings|filter(l => l.private|default(false)) %}
+	{% set user = cms.auth.userData() %}
+
+	<header class="page-head sheet">
+		<p class="eyebrow">{{ info.name }}</p>
+		<h1>{{ i18n.l(info.privateTitle)|trim ?: i18n.t('private.title') }}</h1>
+		<p>{{ i18n.l(info.privateText)|trim ?: i18n.t('private.intro') }}</p>
+	</header>
+
+	{% if seePrivate %}
+		<section class="sheet">
+			{% if user %}
+				<p class="result-count caps muted">{{ i18n.t('private.signed_in', {name: user.name|default(user.email)|e}) }}
+					· <a href="{{ cms.auth.logout(i18n.url('home')) }}">{{ i18n.t('buttons.sign_out') }}</a></p>
+			{% endif %}
+			<div class="section-head"><h2>{{ i18n.t('private.members_title') }}</h2></div>
+			{% if private is empty %}
+				<p class="empty-note">{{ i18n.t('private.none') }}</p>
+			{% else %}
+				<div class="listing-grid">{% for l in private %}{% include 'partials/listing-card.twig' %}{% endfor %}</div>
+			{% endif %}
+		</section>
+		<div class="section"></div>
+	{% else %}
+		<section class="sheet split section join">
+			<div class="panel">
+				<h2>{{ i18n.t('private.join_title') }}</h2>
+				<p class="muted">{{ i18n.t('private.join_text') }}</p>
+				{% include 'partials/register-form.twig' %}
+			</div>
+			<div class="stack">
+				<h2>{{ i18n.t('private.sign_in_title') }}</h2>
+				<p><a class="button" data-emphasis="medium" href="{{ cms.auth.login('buyers', i18n.url('private')) }}">{{ i18n.t('buttons.sign_in') }}</a></p>
+			</div>
+		</section>
+	{% endif %}
+{% endblock %}

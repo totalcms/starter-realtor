@@ -1,0 +1,40 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/social-link.json",
+    "type": "object",
+    "id": "social-link",
+    "description": "One social profile link shown in the footer.",
+    "properties": {
+        "id": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/slug.json",
+            "label": "ID",
+            "help": "Made automatically.",
+            "field": "id",
+            "settings": {
+                "autogen": "item_${uid-7}"
+            }
+        },
+        "label": {
+            "type": "string",
+            "label": "Name",
+            "help": "The site's name, e.g. Instagram.",
+            "field": "text"
+        },
+        "url": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/url.json",
+            "label": "Address",
+            "help": "The full address of her profile, starting https:\/\/.",
+            "field": "url"
+        }
+    },
+    "required": [
+        "id"
+    ],
+    "index": [
+        "label",
+        "url",
+        "id"
+    ],
+    "updated": "2026-11-10T17:17:39-08:00",
+    "category": "Valeria Montoya"
+}

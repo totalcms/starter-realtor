@@ -1,0 +1,14 @@
+{#
+	Version B of the home-page test, shown at / and /es to the share of
+	visitors set by abPercent on the Home page's Data (the A/B Split page
+	feature picks who sees it, and a cookie keeps each visitor on the same
+	version for 30 days).
+
+	B leads with sellers: "What's my home worth?" is the first button and the
+	seller callout sits right under the hero, using the B words on Agent
+	Info. Everything else is the same page: see partials/home.twig.
+#}
+{% extends 'layouts/default.twig' %}
+{% set version = 'b' %}
+
+{% block content %}{% include 'partials/home.twig' %}{% endblock %}

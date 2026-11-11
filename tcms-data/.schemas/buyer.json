@@ -1,0 +1,38 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/buyer.json",
+    "type": "object",
+    "id": "buyer",
+    "description": "A buyer who joined the private list. They sign up on the site, are signed in straight away and see private (coming-soon) homes. Everything here comes from the Users schema, plus the language they signed up in.",
+    "properties": {
+        "lang": {
+            "type": "string",
+            "label": "Language",
+            "help": "The language the visitor was reading when they sent this: reply in it. Set by the form; visitors don't see this field.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "en_US",
+                    "label": "English"
+                },
+                {
+                    "value": "es",
+                    "label": "Spanish"
+                }
+            ],
+            "default": "en_US"
+        }
+    },
+    "required": [
+        "id"
+    ],
+    "index": [
+        "lang",
+        "id"
+    ],
+    "updated": "2026-11-10T17:17:38-08:00",
+    "category": "Valeria Montoya",
+    "inheritFrom": [
+        "auth"
+    ]
+}

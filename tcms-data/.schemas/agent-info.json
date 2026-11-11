@@ -1,0 +1,223 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/agent-info.json",
+    "type": "object",
+    "id": "agent-info",
+    "description": "The agent's details and the words on her home page. One record feeds every page, so a change here shows across the site. Fields marked with language tabs have an English and a Spanish version: fill in both.",
+    "properties": {
+        "id": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/slug.json",
+            "label": "ID",
+            "help": "Always info. The templates look for this record by its ID, so leave it alone.",
+            "field": "id"
+        },
+        "name": {
+            "type": "string",
+            "label": "Agent Name",
+            "help": "Her full name, as it appears in the nav, the footer and search results.",
+            "field": "text"
+        },
+        "signature": {
+            "type": "string",
+            "label": "Signature",
+            "help": "The word shown in script over the hero photo and in the footer, usually just her first name.",
+            "field": "text"
+        },
+        "photo": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/image.json",
+            "label": "Portrait",
+            "help": "Her headshot, used in the home page hero (an arched crop) and on the About page. A tall photo works best.",
+            "field": "image"
+        },
+        "tagline": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Tagline",
+            "help": "One short line under her name in the footer, e.g. Real estate on the Peninsula, with care.",
+            "field": "localizedtext"
+        },
+        "heroHeadline": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Hero Headline",
+            "help": "The large line on the home page. Keep it short: a few words. The Hero Accent follows it in italic rosewood.",
+            "field": "localizedtext"
+        },
+        "heroAccent": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Hero Accent",
+            "help": "The last few words of the headline, set in italic rosewood, e.g. feels like home.",
+            "field": "localizedtext"
+        },
+        "heroLede": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Hero Introduction",
+            "help": "Two sentences under the headline: who she helps and where.",
+            "field": "localizedtextarea"
+        },
+        "bio": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Biography",
+            "help": "Her story for the About page. A few short paragraphs, in her own voice.",
+            "field": "localizedstyledtext"
+        },
+        "languages": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Languages Spoken",
+            "help": "Shown on the About page, e.g. English and Spanish.",
+            "field": "localizedtext"
+        },
+        "phone": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/phone.json",
+            "label": "Phone",
+            "help": "Shown in the footer and on the Contact page. Use her direct mobile, the one she answers.",
+            "field": "phone"
+        },
+        "email": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/email.json",
+            "label": "Email",
+            "help": "Shown in the footer. Form submissions are emailed here too, once the site's mail settings are set up.",
+            "field": "email"
+        },
+        "address": {
+            "type": "string",
+            "label": "Office Address",
+            "help": "Street on the first line, then City, ST 12345 on the second.",
+            "field": "textarea"
+        },
+        "license": {
+            "type": "string",
+            "label": "License Line",
+            "help": "Her license, exactly as her state requires it to appear, e.g. DRE #01234567. Shown in the footer of every page.",
+            "field": "text"
+        },
+        "brokerage": {
+            "type": "string",
+            "label": "Brokerage",
+            "help": "The brokerage she works under. Many states require it on every page, so it's in the footer.",
+            "field": "text"
+        },
+        "brokerageLogo": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/image.json",
+            "label": "Brokerage Logo",
+            "help": "Optional. A small logo for the footer. Leave it empty and the footer shows the name only.",
+            "field": "image"
+        },
+        "yearsInBusiness": {
+            "type": "number",
+            "label": "Years in Real Estate",
+            "help": "Shown on the About page. Leave it at 0 to hide it.",
+            "field": "number",
+            "default": 0
+        },
+        "sellerTitle": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Seller Callout Title (A)",
+            "help": "Version A of the home page's seller callout, the headline. The A\/B test shows half of visitors version A and half version B.",
+            "field": "localizedtext"
+        },
+        "sellerText": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Seller Callout Text (A)",
+            "help": "Version A's sentence under the headline.",
+            "field": "localizedtextarea"
+        },
+        "sellerTitleB": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Seller Callout Title (B)",
+            "help": "Version B of the seller callout, the headline. Version B shows the callout near the top of the home page. See \/readme for how to read the results.",
+            "field": "localizedtext"
+        },
+        "sellerTextB": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Seller Callout Text (B)",
+            "help": "Version B's sentence under the headline.",
+            "field": "localizedtextarea"
+        },
+        "privateTitle": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Private List Title",
+            "help": "The headline of the private-list callout and page, e.g. The private list.",
+            "field": "localizedtext"
+        },
+        "privateText": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Private List Text",
+            "help": "What a buyer gets for signing up: they see coming-soon homes before anyone else.",
+            "field": "localizedtextarea"
+        },
+        "mortgageRate": {
+            "type": "number",
+            "label": "Mortgage Rate (%)",
+            "help": "The interest rate the mortgage calculator starts with, e.g. 6.25. Visitors can change it. Update it now and then.",
+            "field": "number",
+            "default": 6.25,
+            "settings": {
+                "step": 0.01
+            }
+        },
+        "propertyTaxRate": {
+            "type": "number",
+            "label": "Property Tax Rate (%)",
+            "help": "The yearly property tax the calculator assumes, as a percent of the price. About 1.1 on the Peninsula.",
+            "field": "number",
+            "default": 1.1,
+            "settings": {
+                "step": 0.01
+            }
+        },
+        "insuranceYearly": {
+            "type": "number",
+            "label": "Home Insurance per Year ($)",
+            "help": "The yearly insurance estimate the calculator adds.",
+            "field": "number",
+            "default": 2400
+        },
+        "social": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/deck.json",
+            "label": "Social Links",
+            "help": "Her social profiles, shown as links in the footer. Add or remove as she likes.",
+            "field": "deck",
+            "schemaref": "https:\/\/www.totalcms.co\/schemas\/custom\/social-link.json",
+            "settings": {
+                "deckItemLabel": "${label}"
+            },
+            "patternProperties": {
+                "^[a-zA-Z]\\w*$": {
+                    "$ref": "https:\/\/www.totalcms.co\/schemas\/custom\/social-link.json"
+                }
+            }
+        },
+        "updated": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Updated",
+            "help": "Set automatically when the object is saved.",
+            "field": "datetime",
+            "settings": {
+                "onUpdate": true,
+                "readonly": true
+            }
+        },
+        "created": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Created",
+            "help": "Set automatically when the object is created.",
+            "field": "datetime",
+            "settings": {
+                "onCreate": true,
+                "readonly": true
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name"
+    ],
+    "index": [
+        "name",
+        "updated",
+        "created",
+        "id"
+    ],
+    "formgrid": "id id id name name name\nsignature signature signature photo photo photo\ntagline tagline tagline tagline tagline tagline\nheroHeadline heroHeadline heroHeadline heroHeadline heroHeadline heroHeadline\nheroAccent heroAccent heroAccent heroAccent heroAccent heroAccent\nheroLede heroLede heroLede heroLede heroLede heroLede\nbio bio bio bio bio bio\nlanguages languages languages yearsInBusiness yearsInBusiness yearsInBusiness\nphone phone phone email email email\naddress address address address address address\nlicense license license brokerage brokerage brokerage\nbrokerageLogo brokerageLogo brokerageLogo brokerageLogo brokerageLogo brokerageLogo\nsellerTitle sellerTitle sellerTitle sellerTitle sellerTitle sellerTitle\nsellerText sellerText sellerText sellerText sellerText sellerText\nsellerTitleB sellerTitleB sellerTitleB sellerTitleB sellerTitleB sellerTitleB\nsellerTextB sellerTextB sellerTextB sellerTextB sellerTextB sellerTextB\nprivateTitle privateTitle privateTitle privateTitle privateTitle privateTitle\nprivateText privateText privateText privateText privateText privateText\nmortgageRate mortgageRate propertyTaxRate propertyTaxRate insuranceYearly insuranceYearly\nsocial social social social social social\nupdated updated updated created created created",
+    "updated": "2026-11-10T17:17:37-08:00",
+    "category": "Valeria Montoya"
+}

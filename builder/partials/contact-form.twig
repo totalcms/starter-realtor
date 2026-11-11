@@ -1,0 +1,27 @@
+{#
+	The Contact page's message form. Saved in Contact Messages, then the
+	new-message email goes to her and the visitor lands on the Thanks page.
+	A link can choose the topic: /contact?about=selling.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set topics = ['buying', 'selling', 'both', 'other'] %}
+{% set form = cms.form.builder('contact-messages', {
+	addOnly: true,
+	botProtection: true,
+	fieldIcons: false,
+	save: i18n.t('contact.send') ~ '',
+	formgrid: "name name\nemail phone\ninterest interest\nmessage message",
+	newActions: [
+		{action: 'mailer', mailerId: 'new-message', continue: true},
+		{action: 'redirect', link: i18n.url('thanks') ~ '?form=contact'}
+	]
+}) %}
+{% do form.addField('name', {label: i18n.t('contact.name'), help: '', settings: {attributes: {autocomplete: 'name'}}}) %}
+{% do form.addField('email', {label: i18n.t('contact.email'), help: '', settings: {attributes: {autocomplete: 'email'}}}) %}
+{% do form.addField('phone', {label: i18n.t('contact.phone'), help: '', settings: {attributes: {autocomplete: 'tel'}}}) %}
+{% do form.addField('interest', {label: i18n.t('contact.interest'), help: '',
+	default: getData.about|default('') in topics ? getData.about : 'buying',
+	options: topics|map(v => {value: v, label: i18n.t('contact.interest_' ~ v)})}) %}
+{% do form.addField('message', {label: i18n.t('contact.message'), help: '', settings: {rows: 5}}) %}
+{% do form.addField('lang', {field: 'hidden', default: lang}) %}
+{{ form.build() }}

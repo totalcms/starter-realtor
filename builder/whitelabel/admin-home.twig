@@ -1,0 +1,60 @@
+{#
+	The dashboard home. Admins get the standard home, with the welcome in
+	admin-welcome.twig at the top. Everyone else (the agent, in the agent
+	access group) gets a short page for her day: the new leads first, then
+	the jobs that come up most often. Replacing the admin home needs the Pro
+	edition.
+
+	Names and addresses come from strangers, so they are escaped with |e.
+#}
+{% if cms.auth.isAdmin() %}
+	{{ include('admin-home-default.twig') }}
+{% else %}
+	{% set isNew = [{property: 'status', operator: 'equal', value: 'new'}] %}
+	{% set newest = [{property: 'created', reverse: true}] %}
+	{% set valuations = cms.collection.objects('valuations')|filterCollection(isNew)|sortCollection(newest) %}
+	{% set showings = cms.collection.objects('showings')|filterCollection(isNew)|sortCollection(newest) %}
+	{% set messages = cms.collection.objects('contact-messages')|filterCollection(isNew)|sortCollection(newest) %}
+
+	<div class="dashboard-welcome">
+		<h1>Good to see you, {{ cms.auth.userData.name|default('')|split(' ')|first|e }}</h1>
+		<p class="dashboard-subtitle">New leads from the website. Set a lead's Status to Contacted once you have answered, and it leaves this list.</p>
+	</div>
+
+	<div class="dashboard-section">
+		<h2>Home values</h2>
+		{% for v in valuations %}
+			<p><a href="collections/valuations/{{ v.id|url_encode }}">{{ v.name|e }}</a>, {{ v.address|e }}{% if v.lang == 'es' %} · in Spanish{% endif %}</p>
+		{% else %}
+			<p>Nothing new. Requests from the Sell page appear here.</p>
+		{% endfor %}
+	</div>
+
+	<div class="dashboard-section">
+		<h2>Showings</h2>
+		{% for s in showings %}
+			{% set home = cms.collection.object('listings', s.listing|default('')) %}
+			<p><a href="collections/showings/{{ s.id|url_encode }}">{{ s.name|e }}</a>{% if home %}, {{ home.address|e }}{% endif %}{% if s.date|default('') %}, {{ s.date|date('D, M j') }}{% endif %}{% if s.lang == 'es' %} · in Spanish{% endif %}</p>
+		{% else %}
+			<p>Nothing new. Requests from each home's page appear here.</p>
+		{% endfor %}
+	</div>
+
+	<div class="dashboard-section">
+		<h2>Messages</h2>
+		{% for m in messages %}
+			<p><a href="collections/contact-messages/{{ m.id|url_encode }}">{{ m.name|e }}</a>{% if m.interest|default('') %}, about {{ m.interest|e }}{% endif %}{% if m.lang == 'es' %} · in Spanish{% endif %}</p>
+		{% else %}
+			<p>Nothing new. Messages from the Contact page appear here.</p>
+		{% endfor %}
+	</div>
+
+	<div class="dashboard-section">
+		<h2>Quick jobs</h2>
+		<p><a href="collections/listings/add">Add a listing</a></p>
+		<p><a href="collections/listings">Mark a home Pending or Sold</a></p>
+		<p><a href="mailer">Send the Just-listed email</a></p>
+		<p><a href="collections/testimonials/add">Add a testimonial</a></p>
+		<p><a href="collections/info/info">Update your details</a></p>
+	</div>
+{% endif %}

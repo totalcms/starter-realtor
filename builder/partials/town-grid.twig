@@ -1,0 +1,17 @@
+{#
+	The towns as tall arched cards, each linking to its own page, with how
+	many homes are on the market there now. Used on the home page and the
+	Neighborhoods page. `towns` and `listings` come from the layout.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+<div class="town-grid">
+	{% for t in towns %}
+		{# Every home that isn't sold, as on the town's own page (Pending included). #}
+		{% set forSale = listings|filter(l => l.town == t.id and l.status != 'sold')|length %}
+		<article class="town-card">
+			{{ cms.render.image(t, {w: 600, h: 800, fit: 'crop'}, {collection: 'neighborhoods', property: 'image'}) }}
+			<h3><a href="{{ i18n.url('neighborhood', {id: t.id}) }}">{{ t.name }}</a></h3>
+			<p class="caps muted">{{ i18n.tn('homes.count', forSale) }}</p>
+		</article>
+	{% endfor %}
+</div>

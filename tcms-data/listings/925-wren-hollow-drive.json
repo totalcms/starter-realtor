@@ -1,0 +1,71 @@
+{
+    "id": "925-wren-hollow-drive",
+    "address": "925 Wren Hollow Drive",
+    "town": "belmont",
+    "zip": "94002",
+    "status": "for-sale",
+    "price": 1398000,
+    "soldPrice": 0,
+    "soldDate": "",
+    "listedOn": "2026-10-19T00:00:00-07:00",
+    "beds": 2,
+    "baths": 2.5,
+    "sqft": 1380,
+    "lotSqft": 1600,
+    "yearBuilt": 2001,
+    "propertyType": "townhouse",
+    "description": {
+        "en_US": "A two-level townhouse with vaulted ceilings, a fireplace and a view of the hills from the deck."
+    },
+    "features": {
+        "en_US": "Vaulted ceilings\nGas fireplace\nDeck with a hill view"
+    },
+    "gallery": [],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": false,
+    "agentName": "Renata Silva",
+    "brokerage": "Fennimore Bay Realty",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:25:53-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T17:25:53-08:00",
+    "created": "2026-11-10T17:25:53-08:00"
+}

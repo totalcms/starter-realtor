@@ -1,0 +1,21 @@
+{#
+	Thanks, at /thanks and /es/thanks: where every form lands. The form adds
+	?form=valuation, showing, contact or signup, which picks the message.
+	Not in the sitemap and never indexed.
+#}
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	{% import 'macros/i18n.twig' as i18n %}
+	{% set which = getData.form|default('') in ['valuation', 'showing', 'contact', 'signup'] ? getData.form : '' %}
+	<header class="page-head sheet">
+		<p class="eyebrow">{{ info.name }}</p>
+		<h1>{{ i18n.t('thanks.title') }}</h1>
+		<p>{{ which ? i18n.t(which ~ '.thanks') : i18n.t('thanks.default') }}</p>
+		<p class="cluster" data-gap="sm" data-justify="center">
+			<a class="button" href="{{ i18n.url('homes') }}">{{ i18n.t('buttons.browse') }}</a>
+			<a class="button" data-emphasis="medium" href="{{ i18n.url('home') }}">{{ i18n.t('thanks.back') }}</a>
+		</p>
+	</header>
+	<div class="section"></div>
+{% endblock %}

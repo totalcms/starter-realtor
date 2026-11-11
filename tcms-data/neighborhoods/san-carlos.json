@@ -1,0 +1,96 @@
+{
+    "id": "san-carlos",
+    "name": "San Carlos",
+    "image": {
+        "alt": "Quiet residential street with leafy green trees and low hedges under a bright blue sky dotted with soft clouds.",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "9a4da692",
+        "height": 853,
+        "link": "",
+        "mime": "image/jpeg",
+        "name": "town-san-carlos.jpg",
+        "palette": [
+            "#c7c6b8",
+            "#6ea4d8",
+            "#95956b",
+            "#9abfe6",
+            "#7a7542"
+        ],
+        "size": 166767,
+        "tags": [],
+        "uploadDate": "2026-11-10T18:14:20-08:00",
+        "width": 1280,
+        "credit": {
+            "author": "Strannik SK",
+            "authorUrl": "https://www.pexels.com/@strannik-sk/",
+            "source": "Pexels",
+            "sourceUrl": "https://www.pexels.com/photo/33622362/",
+            "license": "Pexels License"
+        }
+    },
+    "intro": {
+        "en_US": "<p>San Carlos calls itself the City of Good Living, and it earns it. Tree-lined streets climb gently from a walkable downtown into quiet hills, and weekends revolve around the farmers market, the parks and a long lunch on Laurel Street.</p>",
+        "es": "<p>San Carlos se llama a s\u00ed misma la Ciudad del Buen Vivir, y con raz\u00f3n. Sus calles arboladas suben suavemente desde un centro para caminar hasta colinas tranquilas, y los fines de semana giran en torno al mercado de productores, los parques y una comida sin prisa en Laurel Street.</p>"
+    },
+    "knownFor": {
+        "en_US": "A small-town downtown with independent shops and restaurants, and neighbors who know each other's names.",
+        "es": "Un centro con aire de pueblo, con tiendas y restaurantes independientes, y vecinos que se conocen por su nombre."
+    },
+    "schools": {
+        "en_US": "Well-regarded public elementary and middle schools, with high school in the neighboring district. Check boundaries for each address.",
+        "es": "Escuelas primarias y secundarias p\u00fablicas bien valoradas, con la preparatoria en el distrito vecino. Verifique los l\u00edmites escolares de cada direcci\u00f3n."
+    },
+    "commute": {
+        "en_US": "Caltrain stops in the middle of town, and Highway 101 and 280 are both minutes away: about 40 minutes to San Francisco, 20 to Palo Alto.",
+        "es": "El Caltrain para en el centro, y las autopistas 101 y 280 est\u00e1n a minutos: unos 40 minutos a San Francisco y 20 a Palo Alto."
+    },
+    "weekends": {
+        "en_US": "The Thursday evening market in summer, hiking in the hills above town, and the playgrounds of Burton Park.",
+        "es": "El mercado de los jueves por la tarde en verano, caminatas en las colinas sobre la ciudad y los juegos infantiles de Burton Park."
+    },
+    "metaDescription": {
+        "en_US": "Homes for sale in San Carlos, California: neighborhoods, schools, commute and recent sales, with Peninsula agent Valeria Montoya.",
+        "es": "Casas en venta en San Carlos, California: vecindarios, escuelas, traslados y ventas recientes, con la agente Valeria Montoya."
+    },
+    "sort": 1,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:26:58-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:21-08:00",
+    "created": "2026-11-10T17:26:58-08:00"
+}

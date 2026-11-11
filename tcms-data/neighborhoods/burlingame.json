@@ -1,0 +1,96 @@
+{
+    "id": "burlingame",
+    "name": "Burlingame",
+    "image": {
+        "alt": "Sunlit tree-lined pedestrian street with shady oaks and a row of caf\u00e9 patios where people sit outdoors.",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "d5cf3eee",
+        "height": 750,
+        "link": "",
+        "mime": "image/jpeg",
+        "name": "town-burlingame.jpg",
+        "palette": [
+            "#652d11",
+            "#d1dfcf",
+            "#24150b",
+            "#ebd294",
+            "#85632a"
+        ],
+        "size": 167968,
+        "tags": [],
+        "uploadDate": "2026-11-10T18:14:22-08:00",
+        "width": 1000,
+        "credit": {
+            "author": "Caleb Clark",
+            "authorUrl": "https://www.pexels.com/@caleb-clark-6462955/",
+            "source": "Pexels",
+            "sourceUrl": "https://www.pexels.com/photo/32767698/",
+            "license": "Pexels License"
+        }
+    },
+    "intro": {
+        "en_US": "<p>Burlingame is the City of Trees: tall eucalyptus along El Camino, classic homes on wide lots, and two walkable shopping streets where people still say hello.</p>",
+        "es": "<p>Burlingame es la Ciudad de los \u00c1rboles: altos eucaliptos a lo largo de El Camino, casas cl\u00e1sicas en terrenos amplios y dos calles comerciales para caminar donde la gente todav\u00eda se saluda.</p>"
+    },
+    "knownFor": {
+        "en_US": "Traditional and Tudor homes, Burlingame Avenue's shops and caf\u00e9s, and easy access to the airport.",
+        "es": "Casas tradicionales y de estilo Tudor, las tiendas y caf\u00e9s de Burlingame Avenue y un acceso f\u00e1cil al aeropuerto."
+    },
+    "schools": {
+        "en_US": "A highly regarded public school district, a strong reason many families choose the town.",
+        "es": "Un distrito escolar p\u00fablico muy bien valorado, una raz\u00f3n de peso por la que muchas familias eligen la ciudad."
+    },
+    "commute": {
+        "en_US": "Two Caltrain stations, 101 at the edge of town, and the airport about ten minutes away.",
+        "es": "Dos estaciones de Caltrain, la 101 a la orilla de la ciudad y el aeropuerto a unos diez minutos."
+    },
+    "weekends": {
+        "en_US": "The Sunday farmers market, a bike ride along the bay, and an evening walk on Broadway.",
+        "es": "El mercado de productores del domingo, un paseo en bicicleta junto a la bah\u00eda y una caminata por Broadway al anochecer."
+    },
+    "metaDescription": {
+        "en_US": "Homes for sale in Burlingame, California: neighborhoods, schools, commute and recent sales, with Peninsula agent Valeria Montoya.",
+        "es": "Casas en venta en Burlingame, California: vecindarios, escuelas, traslados y ventas recientes, con la agente Valeria Montoya."
+    },
+    "sort": 4,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:26:59-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:22-08:00",
+    "created": "2026-11-10T17:26:59-08:00"
+}

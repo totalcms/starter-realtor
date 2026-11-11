@@ -1,0 +1,96 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/subscriber.json",
+    "type": "object",
+    "id": "subscriber",
+    "description": "Someone who joined the Just-listed email list. The Just-listed email goes to everyone here who hasn't unsubscribed, in the language they signed up in.",
+    "properties": {
+        "id": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/slug.json",
+            "label": "ID",
+            "help": "Made automatically: the time it was sent plus a random part, so the Thanks page address doesn't carry the visitor's name and can't be guessed.",
+            "field": "id",
+            "settings": {
+                "autogen": "${timestamp}-${uid-10}"
+            }
+        },
+        "email": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/email.json",
+            "label": "Email",
+            "help": "Where the Just-listed emails go.",
+            "field": "email"
+        },
+        "name": {
+            "type": "string",
+            "label": "Name",
+            "help": "Optional.",
+            "field": "text"
+        },
+        "lang": {
+            "type": "string",
+            "label": "Language",
+            "help": "The language they signed up in. Their emails come in it.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "en_US",
+                    "label": "English"
+                },
+                {
+                    "value": "es",
+                    "label": "Spanish"
+                }
+            ],
+            "default": "en_US"
+        },
+        "towns": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/list.json",
+            "label": "Towns of Interest",
+            "help": "Optional. The towns they care about, one per line.",
+            "field": "list"
+        },
+        "unsubscribed": {
+            "type": "boolean",
+            "label": "Unsubscribed",
+            "help": "Turned on when they click Unsubscribe in an email. They get no more Just-listed emails. Turn it off only if they ask to rejoin.",
+            "field": "toggle",
+            "default": false
+        },
+        "updated": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Updated",
+            "help": "Set automatically when the object is saved.",
+            "field": "datetime",
+            "settings": {
+                "onUpdate": true,
+                "readonly": true
+            }
+        },
+        "created": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Created",
+            "help": "Set automatically when the object is created.",
+            "field": "datetime",
+            "settings": {
+                "onCreate": true,
+                "readonly": true
+            }
+        }
+    },
+    "required": [
+        "id",
+        "email"
+    ],
+    "index": [
+        "email",
+        "name",
+        "lang",
+        "unsubscribed",
+        "updated",
+        "created",
+        "id"
+    ],
+    "formgrid": "id id id id id id\nemail email email name name name\nlang lang lang unsubscribed unsubscribed unsubscribed\ntowns towns towns towns towns towns\nupdated updated updated created created created",
+    "updated": "2026-11-10T17:17:39-08:00",
+    "category": "Valeria Montoya"
+}

@@ -1,0 +1,66 @@
+{#
+	One town, at /neighborhoods/{id} and /es/neighborhoods/{id}: its photo,
+	what it's like, a few notes (known for, schools, commute, weekends), the
+	homes for sale there, and its sales over the last 12 months with their
+	median price. All of it comes from the town's record in Neighborhoods and
+	from Listings, so marking a home Sold moves it from one list to the other.
+#}
+{% extends 'layouts/default.twig' %}
+
+{% set town = cms.collection.object('neighborhoods', params.id|default('')) %}
+{% if town is empty %}{% do cms.notFound() %}{% endif %}
+{% set section = 'neighborhoods' %}
+
+{% block seo %}{% include 'partials/seo-agent.twig' with {subject: town, collection: 'neighborhoods'} %}{% endblock %}
+
+{% block content %}
+	{% import 'macros/i18n.twig' as i18n %}
+	{% set here = listings|filter(l => l.town == town.id) %}
+	{% set forSale = here|filter(l => l.status != 'sold') %}
+	{% set sold = here|filter(l => l.status == 'sold' and l.soldDate|default('')|date('Y-m-d') >= yearAgo)|sort((a, b) => b.soldDate <=> a.soldDate) %}
+
+	<header class="page-head sheet">
+		<p class="eyebrow">{{ i18n.t('towns.title') }}</p>
+		<h1>{{ town.name }}</h1>
+		<div class="lede prose">{{ i18n.styled(town.intro) }}</div>
+	</header>
+
+	{% if town.image.name|default('') %}
+		<div class="sheet town-hero">{{ cms.render.image(town, {w: 2000, h: 860, fit: 'crop'}, {collection: 'neighborhoods', property: 'image', loading: 'eager'}) }}</div>
+	{% endif %}
+
+	<section class="section sheet">
+		<div class="note-grid">
+			{% for key in ['knownFor', 'schools', 'commute', 'weekends'] %}
+				{% set text = i18n.l(attribute(town, key)) %}
+				{% if text|trim %}
+					<div>
+						<h3>{{ i18n.t('towns.' ~ {knownFor: 'known_for', schools: 'schools', commute: 'commute', weekends: 'weekends'}[key]) }}</h3>
+						<p>{{ text }}</p>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</section>
+
+	<section class="section sheet" data-rule>
+		<div class="section-head"><h2>{{ i18n.t('towns.homes_here', {town: town.name}) }}</h2></div>
+		{% if forSale is empty %}
+			<p class="empty-note">{{ i18n.t('towns.none_here') }}</p>
+		{% else %}
+			<div class="listing-grid">{% for l in forSale %}{% include 'partials/listing-card.twig' %}{% endfor %}</div>
+		{% endif %}
+	</section>
+
+	<section class="section" data-blush>
+		<div class="sheet">
+			<div class="section-head"><h2>{{ i18n.t('towns.recent_sales', {town: town.name}) }}</h2></div>
+			{% if sold is empty %}
+				<p class="empty-note">{{ i18n.t('towns.none_sold') }}</p>
+			{% else %}
+				<div class="stat-row">{% include 'partials/median-price.twig' with {sales: sold} %}</div>
+				<div class="listing-grid">{% for l in sold %}{% include 'partials/listing-card.twig' %}{% endfor %}</div>
+			{% endif %}
+		</div>
+	</section>
+{% endblock %}

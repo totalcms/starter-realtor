@@ -1,0 +1,106 @@
+{#
+	The home page's sections, shared by both versions of the home-page test.
+	`version` is 'a' (leads with buyers) or 'b' (leads with sellers: the
+	valuation button comes first and the seller callout moves up under the
+	hero). Everything else is the same, so the difference is easy to read.
+
+	In order: the arched hero with her signature, a quick search, featured
+	homes, this week's open houses, the private-list line, the seller
+	callout, the towns, kind words and her sales over the last 12 months.
+	The Just-listed signup is in the footer, on every page.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set sellerFirst = version|default('a') == 'b' %}
+
+{# ---- Hero ---------------------------------------------------------------- #}
+<section class="sheet home-hero" data-version="{{ sellerFirst ? 'b' : 'a' }}">
+	<div>
+		<p class="eyebrow">{{ i18n.t('home.eyebrow') }}</p>
+		<h1>{{ i18n.l(info.heroHeadline) }} <em>{{ i18n.l(info.heroAccent) }}</em></h1>
+		<p class="lede">{{ i18n.l(info.heroLede) }}</p>
+		<p class="cluster" data-gap="sm">
+			{% set browse %}<a class="button"{% if sellerFirst %} data-emphasis="medium"{% endif %} href="{{ i18n.url('homes') }}">{{ i18n.t('buttons.browse') }}</a>{% endset %}
+			{% set value %}<a class="button"{% if not sellerFirst %} data-emphasis="medium"{% endif %} href="{{ i18n.url('sell') }}#valuation">{{ i18n.t('buttons.value') }}</a>{% endset %}
+			{{ sellerFirst ? value ~ browse : browse ~ value }}
+		</p>
+	</div>
+	{% if info.photo.name|default('') %}
+		<div class="arch">
+			{{ cms.render.image(info, {w: 900, h: 1125, fit: 'crop'}, {collection: 'info', property: 'photo', loading: 'eager'}) }}
+			{% include 'partials/signature.twig' %}
+		</div>
+	{% endif %}
+</section>
+
+{% if sellerFirst %}{% include 'partials/seller-callout.twig' %}{% endif %}
+
+{# ---- Quick search -------------------------------------------------------- #}
+<section class="sheet">
+	{% include 'partials/search-form.twig' with {compact: true} %}
+</section>
+
+{# ---- Featured homes: the ones marked Featured, then hers, never sold ------ #}
+{% set active = listings|filter(l => l.status != 'sold') %}
+{% set featured = (active|filter(l => l.featured)|merge(active|filter(l => not l.featured)))|slice(0, 3) %}
+{# Each section below hides itself when it has nothing to show. #}
+{% if featured %}
+<section class="section sheet">
+	<div class="section-head">
+		<h2>{{ i18n.t('homes.featured') }}</h2>
+		<p>{{ i18n.t('home.featured_intro') }}</p>
+	</div>
+	<div class="listing-grid">{% for l in featured %}{% include 'partials/listing-card.twig' %}{% endfor %}</div>
+	<p class="cluster" data-justify="center" data-more><a class="button" data-emphasis="medium" href="{{ i18n.url('homes') }}">{{ i18n.t('buttons.view_all') }}</a></p>
+</section>
+{% endif %}
+
+{# ---- Open houses this week ------------------------------------------------ #}
+<section class="section" data-blush>
+	<div class="sheet narrow">
+		<div class="section-head"><h2>{{ i18n.t('open.this_week') }}</h2></div>
+		{% include 'partials/open-house-list.twig' with {homes: listings, limit: 2, heading: 'h3'} %}
+		<p class="cluster" data-justify="center" data-more><a class="button" data-emphasis="medium" href="{{ i18n.url('open-houses') }}">{{ i18n.t('open.view_all') }}</a></p>
+	</div>
+</section>
+
+{# ---- The private list ----------------------------------------------------- #}
+<section class="sheet">
+	<div class="callout-line">
+		<p>{{ i18n.t('private.line') }}</p>
+		<a class="button" href="{{ i18n.url('private') }}">{{ i18n.t('buttons.join') }}</a>
+	</div>
+</section>
+
+{% if not sellerFirst %}{% include 'partials/seller-callout.twig' %}{% endif %}
+
+{# ---- Towns ----------------------------------------------------------------- #}
+<section class="section sheet" data-rule>
+	<div class="section-head">
+		<h2>{{ i18n.t('towns.title') }}</h2>
+		<p>{{ i18n.t('home.towns_intro') }}</p>
+	</div>
+	{% include 'partials/town-grid.twig' %}
+</section>
+
+{# ---- Kind words ------------------------------------------------------------ #}
+{% set quotes = cms.collection.objects('testimonials')|sort((a, b) => b.date <=> a.date)|slice(0, 3) %}
+{% if quotes %}
+<section class="section" data-blush>
+	<div class="sheet">
+		<div class="section-head"><h2>{{ i18n.t('home.words_title') }}</h2></div>
+		<div class="quote-grid">{% for q in quotes %}{% include 'partials/testimonial.twig' %}{% endfor %}</div>
+	</div>
+</section>
+{% endif %}
+
+{# ---- Her last 12 months: worked out from Listings, nothing to update ------ #}
+{% set sales = listings|filter(l => l.mine and l.status == 'sold' and l.soldDate|default('')|date('Y-m-d') >= yearAgo) %}
+{% set volume = sales|reduce((total, l) => total + l.soldPrice|default(l.price), 0) %}
+{% if sales|length %}
+<section class="section sheet">
+	<div class="stat-row">
+		<div class="stat"><strong>{{ sales|length }}</strong><span class="caps">{{ i18n.t('home.sold_stat') }}</span></div>
+		{% if volume %}<div class="stat"><strong>${{ i18n.number(volume / 1000000, 1) }}M</strong><span class="caps">{{ i18n.t('home.volume_stat') }}</span></div>{% endif %}
+	</div>
+</section>
+{% endif %}

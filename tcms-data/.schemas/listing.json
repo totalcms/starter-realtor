@@ -1,0 +1,299 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/listing.json",
+    "type": "object",
+    "id": "listing",
+    "description": "A home for sale, coming soon or sold. Her own listings (My Listing on) come first everywhere; other agents' homes show who listed them. Change the Status to Sold and the home updates across the site: the badge, the sold count and the neighborhood's recent sales.",
+    "properties": {
+        "id": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/slug.json",
+            "label": "ID",
+            "help": "Made from the street address. It becomes the page address, e.g. \/homes\/214-linden-hollow-lane, so avoid changing it once the home is shared.",
+            "field": "id",
+            "settings": {
+                "autogen": "${address}"
+            }
+        },
+        "address": {
+            "type": "string",
+            "label": "Street Address",
+            "help": "Street only, e.g. 214 Linden Hollow Lane. The town is picked below.",
+            "field": "text"
+        },
+        "town": {
+            "type": "string",
+            "label": "Town",
+            "help": "The neighborhood page this home appears on. To add a town, add it under Neighborhoods first.",
+            "field": "select",
+            "settings": {
+                "relationalOptions": {
+                    "collection": "neighborhoods",
+                    "label": "name",
+                    "value": "id",
+                    "sort": "name"
+                }
+            }
+        },
+        "zip": {
+            "type": "string",
+            "label": "ZIP Code",
+            "help": "Five digits.",
+            "field": "text"
+        },
+        "status": {
+            "type": "string",
+            "label": "Status",
+            "help": "Coming Soon and For Sale show in the search. Pending shows with a badge. Sold moves the home to Recently Sold and counts toward her sales; fill in the sold price and date too.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "coming-soon",
+                    "label": "Coming Soon"
+                },
+                {
+                    "value": "for-sale",
+                    "label": "For Sale"
+                },
+                {
+                    "value": "pending",
+                    "label": "Pending"
+                },
+                {
+                    "value": "sold",
+                    "label": "Sold"
+                }
+            ],
+            "default": "for-sale"
+        },
+        "price": {
+            "type": "number",
+            "label": "Price",
+            "help": "The list price, in dollars.",
+            "field": "price",
+            "settings": {
+                "currency": "USD",
+                "decimals": 0
+            },
+            "default": 0
+        },
+        "soldPrice": {
+            "type": "number",
+            "label": "Sold Price",
+            "help": "Only for a sold home. Shown on its page. Leave it at 0 to keep the sale price private.",
+            "field": "price",
+            "settings": {
+                "currency": "USD",
+                "decimals": 0
+            },
+            "default": 0
+        },
+        "soldDate": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Sold Date",
+            "help": "Only for a sold home. Homes sold in the last 12 months count toward the number on the home page.",
+            "field": "date"
+        },
+        "listedOn": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Date Listed",
+            "help": "The day it went on the market. Homes are sorted newest first by this date, and the Just-listed email picks the newest.",
+            "field": "date"
+        },
+        "beds": {
+            "type": "number",
+            "label": "Bedrooms",
+            "help": "Whole number.",
+            "field": "number",
+            "default": 0
+        },
+        "baths": {
+            "type": "number",
+            "label": "Bathrooms",
+            "help": "Half baths count as .5, e.g. 2.5.",
+            "field": "number",
+            "default": 0,
+            "settings": {
+                "step": 0.5
+            }
+        },
+        "sqft": {
+            "type": "number",
+            "label": "Square Feet",
+            "help": "Interior living space.",
+            "field": "number",
+            "default": 0
+        },
+        "lotSqft": {
+            "type": "number",
+            "label": "Lot Size (sq ft)",
+            "help": "Leave it at 0 for a condo, and the lot is hidden. Lots of 43,560 sq ft or more show in acres.",
+            "field": "number",
+            "default": 0
+        },
+        "yearBuilt": {
+            "type": "number",
+            "label": "Year Built",
+            "help": "Leave it at 0 if unknown, and it's hidden.",
+            "field": "number",
+            "default": 0
+        },
+        "propertyType": {
+            "type": "string",
+            "label": "Property Type",
+            "help": "Shown on the home's page.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "house",
+                    "label": "Single-family home"
+                },
+                {
+                    "value": "townhouse",
+                    "label": "Townhouse"
+                },
+                {
+                    "value": "condo",
+                    "label": "Condo"
+                },
+                {
+                    "value": "multi",
+                    "label": "Multi-family"
+                }
+            ],
+            "default": "house"
+        },
+        "description": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Description",
+            "help": "A few short paragraphs about the home, in English and Spanish. A home imported from a CSV may have English only; Spanish pages then show the English.",
+            "field": "localizedstyledtext"
+        },
+        "features": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Features",
+            "help": "One feature per line, e.g. Chef's kitchen with a six-burner range. Shown as a list.",
+            "field": "localizedtextarea"
+        },
+        "gallery": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/gallery.json",
+            "label": "Photos",
+            "help": "The first photo is the card photo and the large one at the top of the page. Write alt text for each: what the room looks like, for visitors who can't see it.",
+            "field": "gallery"
+        },
+        "video": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/video.json",
+            "label": "Video Tour",
+            "help": "Optional. Paste a YouTube or Vimeo link, or the address of an .mp4 file such as \/media\/tour.mp4. Leave it empty and the page has no video section.",
+            "field": "video"
+        },
+        "openHouses": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/deck.json",
+            "label": "Open Houses",
+            "help": "Optional. Add one for each open house: a single date, or the same day every week. Past dates hide themselves, so there's nothing to clean up. They show on the home's page, the home page and the Open Houses page.",
+            "field": "deck",
+            "schemaref": "https:\/\/www.totalcms.co\/schemas\/custom\/open-house.json",
+            "settings": {
+                "deckItemLabel": "${kind} ${date} ${start}"
+            },
+            "patternProperties": {
+                "^[a-zA-Z]\\w*$": {
+                    "$ref": "https:\/\/www.totalcms.co\/schemas\/custom\/open-house.json"
+                }
+            }
+        },
+        "mine": {
+            "type": "boolean",
+            "label": "My Listing",
+            "help": "On for her own listings. They sort first and carry her name on the card. Off for another agent's home: fill in the agent and brokerage below so the page credits them, as listing rules require.",
+            "field": "toggle",
+            "default": false
+        },
+        "agentName": {
+            "type": "string",
+            "label": "Listing Agent",
+            "help": "For another agent's home only: their name, shown as Listing courtesy of. Ignored when My Listing is on.",
+            "field": "text"
+        },
+        "brokerage": {
+            "type": "string",
+            "label": "Listing Brokerage",
+            "help": "For another agent's home only: their brokerage. Ignored when My Listing is on.",
+            "field": "text"
+        },
+        "featured": {
+            "type": "boolean",
+            "label": "Featured",
+            "help": "On to show this home in Featured Homes on the home page. Three or four is plenty.",
+            "field": "toggle",
+            "default": false
+        },
+        "private": {
+            "type": "boolean",
+            "label": "Private",
+            "help": "On to keep the home off the public site: only buyers who joined the private list (and are signed in) see it. Anyone else sees the private-list sign-up at its address. Check her MLS's rules before marketing a home this way; see \/readme.",
+            "field": "toggle",
+            "default": false
+        },
+        "seo": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/seo.json",
+            "label": "Search and Sharing",
+            "help": "How this page appears in search results and when shared, in English. Leave it empty and the page's own words are used. Spanish pages use the Spanish text from the fields above.",
+            "field": "card",
+            "schemaref": "https:\/\/www.totalcms.co\/schemas\/seo.json"
+        },
+        "updated": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Updated",
+            "help": "Set automatically when the object is saved.",
+            "field": "datetime",
+            "settings": {
+                "onUpdate": true,
+                "readonly": true
+            }
+        },
+        "created": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Created",
+            "help": "Set automatically when the object is created.",
+            "field": "datetime",
+            "settings": {
+                "onCreate": true,
+                "readonly": true
+            }
+        }
+    },
+    "required": [
+        "id",
+        "address",
+        "status",
+        "price"
+    ],
+    "index": [
+        "address",
+        "town",
+        "zip",
+        "status",
+        "price",
+        "soldPrice",
+        "soldDate",
+        "listedOn",
+        "beds",
+        "baths",
+        "sqft",
+        "propertyType",
+        "mine",
+        "private",
+        "featured",
+        "agentName",
+        "brokerage",
+        "gallery",
+        "openHouses",
+        "video",
+        "updated",
+        "created",
+        "id"
+    ],
+    "formgrid": "id id id id id id\naddress address town town zip zip\nstatus status status price price price\nsoldPrice soldPrice soldPrice soldDate soldDate soldDate\nlistedOn listedOn listedOn propertyType propertyType propertyType\nbeds beds baths baths sqft sqft\nlotSqft lotSqft lotSqft yearBuilt yearBuilt yearBuilt\ndescription description description description description description\nfeatures features features features features features\ngallery gallery gallery gallery gallery gallery\nvideo video video video video video\nopenHouses openHouses openHouses openHouses openHouses openHouses\nmine mine featured featured private private\nagentName agentName agentName brokerage brokerage brokerage\nseo seo seo seo seo seo\nupdated updated updated created created created",
+    "updated": "2026-11-10T21:32:58-08:00",
+    "category": "Valeria Montoya"
+}

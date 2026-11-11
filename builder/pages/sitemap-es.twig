@@ -1,0 +1,28 @@
+{#-
+	Served at /sitemap-es.xml: the Spanish address of every home and town.
+
+	Total CMS's own sitemap (/sitemap.xml) lists each home and town once, at
+	its English address, and every Site Builder page in both languages. The
+	Spanish twins of the home and town pages are templated routes
+	(/es/homes/{id}), so they are listed here instead, and robots.txt names
+	both sitemaps.
+
+	A private home is never listed, matching the Listings collection's
+	sitemap setting (Exclude Filter private:true).
+-#}
+{%- set base = cms.seo.data().site.baseUrl -%}
+{#- An English-only site (no home-es page) lists nothing here. -#}
+{%- set spanish = cms.builder.url('home-es') is not empty -%}
+{%- set homes = spanish ? cms.collection.objects('listings')|filter(l => not l.private|default(false)) : [] -%}
+{%- set towns = spanish ? cms.collection.objects('neighborhoods') : [] -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% for item in homes|map(l => {page: 'listing', id: l.id, updated: l.updated|default('')})|merge(towns|map(t => {page: 'neighborhood', id: t.id, updated: t.updated|default('')})) %}
+	<url>
+		<loc>{{ base ~ cms.builder.url(item.page ~ '-es', {id: item.id}) }}</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="{{ base ~ cms.builder.url(item.page, {id: item.id}) }}"/>
+		<xhtml:link rel="alternate" hreflang="es" href="{{ base ~ cms.builder.url(item.page ~ '-es', {id: item.id}) }}"/>
+		{% if item.updated %}<lastmod>{{ item.updated|date('Y-m-d') }}</lastmod>{% endif %}
+	</url>
+{% endfor %}
+</urlset>

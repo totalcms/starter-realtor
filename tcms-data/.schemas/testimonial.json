@@ -1,0 +1,112 @@
+{
+    "$schema": "https:\/\/json-schema.org\/draft\/2020-12\/schema",
+    "$id": "https:\/\/www.totalcms.co\/schemas\/custom\/testimonial.json",
+    "type": "object",
+    "id": "testimonial",
+    "description": "A few words from a client she helped buy or sell. Shown on the home page and the About page.",
+    "properties": {
+        "id": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/slug.json",
+            "label": "ID",
+            "help": "Made from the name.",
+            "field": "id",
+            "settings": {
+                "autogen": "${name}"
+            }
+        },
+        "name": {
+            "type": "string",
+            "label": "Name",
+            "help": "As the client agreed to be named, e.g. Priya and Sam R.",
+            "field": "text"
+        },
+        "town": {
+            "type": "string",
+            "label": "Town",
+            "help": "Where they bought or sold, e.g. Belmont.",
+            "field": "text"
+        },
+        "quote": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/localizedtext.json",
+            "label": "Quote",
+            "help": "Their words, a few sentences. Add a Spanish version too; a quote left empty in Spanish shows in English on Spanish pages.",
+            "field": "localizedtextarea"
+        },
+        "kind": {
+            "type": "string",
+            "label": "They",
+            "help": "Whether she helped them buy or sell.",
+            "field": "select",
+            "options": [
+                {
+                    "value": "bought",
+                    "label": "Bought"
+                },
+                {
+                    "value": "sold",
+                    "label": "Sold"
+                }
+            ],
+            "default": "bought"
+        },
+        "date": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Date",
+            "help": "When they said it. Newest show first.",
+            "field": "date"
+        },
+        "listing": {
+            "type": "string",
+            "label": "Home",
+            "help": "Optional. The home they bought or sold, if it's on the site; the quote then links to it.",
+            "field": "select",
+            "settings": {
+                "relationalOptions": {
+                    "collection": "listings",
+                    "label": "address",
+                    "value": "id",
+                    "sort": "address"
+                }
+            }
+        },
+        "updated": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Updated",
+            "help": "Set automatically when the object is saved.",
+            "field": "datetime",
+            "settings": {
+                "onUpdate": true,
+                "readonly": true
+            }
+        },
+        "created": {
+            "$ref": "https:\/\/www.totalcms.co\/schemas\/properties\/date.json",
+            "label": "Created",
+            "help": "Set automatically when the object is created.",
+            "field": "datetime",
+            "settings": {
+                "onCreate": true,
+                "readonly": true
+            }
+        }
+    },
+    "required": [
+        "id",
+        "name",
+        "quote"
+    ],
+    "index": [
+        "name",
+        "town",
+        "kind",
+        "date",
+        "listing",
+        "quote",
+        "updated",
+        "created",
+        "id"
+    ],
+    "formgrid": "id id id name name name\ntown town kind kind date date\nquote quote quote quote quote quote\nlisting listing listing listing listing listing\nupdated updated updated created created created",
+    "updated": "2026-11-10T17:37:17-08:00",
+    "category": "Valeria Montoya"
+}

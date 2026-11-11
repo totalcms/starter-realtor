@@ -1,0 +1,106 @@
+[
+    {
+        "id": "home",
+        "children": []
+    },
+    {
+        "id": "homes",
+        "children": []
+    },
+    {
+        "id": "listing",
+        "children": []
+    },
+    {
+        "id": "open-houses",
+        "children": []
+    },
+    {
+        "id": "neighborhoods",
+        "children": []
+    },
+    {
+        "id": "neighborhood",
+        "children": []
+    },
+    {
+        "id": "sell",
+        "children": []
+    },
+    {
+        "id": "private",
+        "children": []
+    },
+    {
+        "id": "about",
+        "children": []
+    },
+    {
+        "id": "contact",
+        "children": []
+    },
+    {
+        "id": "thanks",
+        "children": []
+    },
+    {
+        "id": "home-es",
+        "children": []
+    },
+    {
+        "id": "homes-es",
+        "children": []
+    },
+    {
+        "id": "listing-es",
+        "children": []
+    },
+    {
+        "id": "open-houses-es",
+        "children": []
+    },
+    {
+        "id": "neighborhoods-es",
+        "children": []
+    },
+    {
+        "id": "neighborhood-es",
+        "children": []
+    },
+    {
+        "id": "sell-es",
+        "children": []
+    },
+    {
+        "id": "private-es",
+        "children": []
+    },
+    {
+        "id": "about-es",
+        "children": []
+    },
+    {
+        "id": "contact-es",
+        "children": []
+    },
+    {
+        "id": "thanks-es",
+        "children": []
+    },
+    {
+        "id": "not-found",
+        "children": []
+    },
+    {
+        "id": "robots",
+        "children": []
+    },
+    {
+        "id": "sitemap-es",
+        "children": []
+    },
+    {
+        "id": "readme",
+        "children": []
+    }
+]

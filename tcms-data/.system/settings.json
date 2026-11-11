@@ -1,0 +1,27 @@
+{
+    "i18n": {
+        "default": "en_US",
+        "available": [
+            {
+                "code": "en_US",
+                "label": "English",
+                "dir": "ltr"
+            },
+            {
+                "code": "es",
+                "label": "Español",
+                "dir": "ltr"
+            }
+        ]
+    },
+    "siteName": "Valeria Montoya",
+    "sentry": false,
+    "smtp": {
+        "host": "",
+        "username": "",
+        "password": "",
+        "from": "",
+        "fromName": "",
+        "to": ""
+    }
+}

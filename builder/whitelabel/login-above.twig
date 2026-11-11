@@ -1,0 +1,25 @@
+{#
+	The top of the sign-in page, above the form. Total CMS's own sign-in page
+	serves both the agent's admin login and the private list's buyers
+	(/admin/login/buyers, linked from "Sign in" on /private and on a private
+	home).
+
+	For buyers it shows the private list's own heading, in the language of the
+	page they came from: a redirect back to an /es address means Spanish.
+	cms.locale.set() here also puts the form's own text (help lines, errors)
+	into that language, and whitelabel/login-options.twig, which runs after
+	this, sets the form's labels from builder/strings/.
+
+	Everyone else, the agent included, sees Total CMS's usual heading.
+#}
+{% if collection|default('') == 'buyers' %}
+	{% set back = getData.redirect|default('') %}
+	{% if back is not iterable and back matches '{^/es(/|\\?|$)}' %}
+		{% do cms.locale.set('es') %}
+	{% endif %}
+	{% import 'macros/i18n.twig' as i18n %}
+	<h1>{{ i18n.t('signin.title') }}</h1>
+	<p>{{ i18n.t('signin.text') }}</p>
+{% else %}
+	{{ include('login-above-default.twig') }}
+{% endif %}

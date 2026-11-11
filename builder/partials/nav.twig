@@ -1,0 +1,34 @@
+{#
+	The top bar. Links come from Site Builder: every page with "Show in Nav"
+	turned on appears here, in the order set in the admin. English pages show
+	the English pages; Spanish pages show their twins (IDs ending -es), whose
+	titles are the Spanish labels. Rename a Spanish link by renaming its page.
+
+	Yeti's nav needs no JavaScript. On a narrow screen the links fold behind
+	the menu button, which opens them with the browser's built-in popover.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set spanish = i18n.es() == '1' %}
+<nav class="nav sheet" aria-label="{{ i18n.t('a11y.site_nav') }}" data-threshold="lg">
+	<a href="{{ i18n.url('home') }}" data-brand>{% include 'partials/logo.twig' %}</a>
+
+	<button type="button" popovertarget="site-menu" aria-label="{{ i18n.t('a11y.menu') }}">
+		<svg aria-hidden="true" viewBox="0 0 16 16"><path d="M2 4h12M2 8h12M2 12h12" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+	</button>
+
+	<ul id="site-menu" popover role="list">
+		{# The close button, shown only while the menu is open on a phone. #}
+		<li data-close><button type="button" popovertarget="site-menu" popovertargetaction="hide" aria-label="{{ i18n.t('a11y.close') }}"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg></button></li>
+		{% for item in cms.builder.nav() %}
+			{% if (item.id ends with '-es') == spanish %}
+				{% set baseId = spanish ? item.id|slice(0, -3) : item.id %}
+				{# aria-current marks the page you're on, or the section a listing or town page belongs to. #}
+				<li><a href="{{ item.route }}"{% if page.id|default('') == item.id or section|default('') == baseId %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+
+	<div data-actions>
+		{% include 'partials/lang-switch.twig' %}
+	</div>
+</nav>

@@ -1,0 +1,222 @@
+{
+    "id": "214-linden-hollow-lane",
+    "address": "214 Linden Hollow Lane",
+    "town": "san-carlos",
+    "zip": "94070",
+    "status": "for-sale",
+    "price": 2895000,
+    "soldPrice": 0,
+    "soldDate": "",
+    "listedOn": "2026-10-29T00:00:00-07:00",
+    "beds": 4,
+    "baths": 3,
+    "sqft": 2640,
+    "lotSqft": 7200,
+    "yearBuilt": 1948,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A 1940s farmhouse on one of San Carlos's quietest lanes, opened up and brought gently into this century. The front porch faces a row of old sycamores; inside, white oak floors run from the living room through a kitchen made for long Sunday breakfasts.</p><p>The primary suite sits apart at the back of the house, over the garden, with a bath finished in handmade tile. Three more bedrooms, a home office and a deep backyard with a lemon tree complete it. Downtown and the Caltrain station are a ten-minute walk.</p>",
+        "es": "<p>Una casa de campo de los a\u00f1os cuarenta en una de las calles m\u00e1s tranquilas de San Carlos, abierta y tra\u00edda con delicadeza a este siglo. El porche da a una hilera de viejos sicomoros; adentro, pisos de roble blanco van desde la sala hasta una cocina hecha para largos desayunos de domingo.</p><p>La suite principal est\u00e1 aparte, al fondo de la casa, sobre el jard\u00edn, con un ba\u00f1o terminado en azulejo artesanal. Tres habitaciones m\u00e1s, una oficina y un patio amplio con un limonero la completan. El centro y la estaci\u00f3n de Caltrain est\u00e1n a diez minutos a pie.</p>"
+    },
+    "features": {
+        "en_US": "Renovated in 2021 with permits\nChef's kitchen with a six-burner range\nWhite oak floors throughout\nPrimary suite overlooking the garden\nHome office with built-in shelves\nDetached two-car garage\nMature lemon tree and raised beds",
+        "es": "Renovada en 2021 con permisos\nCocina de chef con estufa de seis quemadores\nPisos de roble blanco en toda la casa\nSuite principal con vista al jard\u00edn\nOficina con libreros empotrados\nGaraje independiente para dos autos\nLimonero maduro y huertos elevados"
+    },
+    "gallery": [
+        {
+            "alt": "Modern farmhouse with white siding and a steep gabled wing, dark-framed windows, and a wide, freshly mowed green lawn under a bright blue sky.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "87c2be3a",
+            "height": 730,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "linden-exterior.jpg",
+            "palette": [
+                "#5a8dd6",
+                "#d9d4c9",
+                "#292e23",
+                "#7b9a2e",
+                "#868a82"
+            ],
+            "size": 165374,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:22-08:00",
+            "width": 1100,
+            "credit": {
+                "author": "Pixabay",
+                "authorUrl": "https://www.pexels.com/@pixabay/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/280229/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Bright living room with a deep, plush white sectional, a patterned rug, and tall windows that fill the space with soft natural light.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "e393222c",
+            "height": 1066,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "linden-living.jpg",
+            "palette": [
+                "#c0b9b7",
+                "#746864",
+                "#413730",
+                "#8a7f78",
+                "#eae9e9"
+            ],
+            "size": 168491,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:23-08:00",
+            "width": 1600,
+            "credit": {
+                "author": "Curtis Adams",
+                "authorUrl": "https://www.pexels.com/@curtis-adams-1694007/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/6510974/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Bright white kitchen with shaker cabinets, a center island with two stools, pendant lighting, stainless appliances, and warm wood floors.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "334fd768",
+            "height": 1200,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "linden-kitchen.jpg",
+            "palette": [
+                "#715444",
+                "#ceccd2",
+                "#80808c",
+                "#433b38",
+                "#8c6b51"
+            ],
+            "size": 164348,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:24-08:00",
+            "width": 1800,
+            "credit": {
+                "author": "Mark McCammon",
+                "authorUrl": "https://www.pexels.com/@falling4utah/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/2724748/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "/media/tour.mp4",
+        "provider": "file",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9",
+        "poster": {
+            "alt": "Bright, furnished living room with white sofas, a glass coffee table, a tiled fireplace wall, and tall black-framed windows letting in sunlight.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "5b184b42",
+            "height": 720,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "tour-poster.jpg",
+            "palette": [
+                "#7b838f",
+                "#4e4a4a",
+                "#a7c4d7",
+                "#2d3b4a",
+                "#292728"
+            ],
+            "size": 79368,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:34-08:00",
+            "width": 1280,
+            "credit": {
+                "author": "Kindel Media",
+                "authorUrl": "https://www.pexels.com/@kindelmedia/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/video/7578546/",
+                "license": "Pexels License"
+            }
+        }
+    },
+    "openHouses": {
+        "sunday": {
+            "id": "sunday",
+            "kind": "weekly",
+            "date": "",
+            "weekday": "0",
+            "start": "13:00",
+            "end": "16:00",
+            "until": "",
+            "note": "Coffee and lemon cake on the porch.",
+            "noteEs": "Caf\u00e9 y pastel de lim\u00f3n en el porche."
+        }
+    },
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": true,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:00-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:21:56-08:00",
+    "created": "2026-11-10T17:27:00-08:00"
+}

@@ -1,0 +1,149 @@
+{#
+	Writes the page's <head> tags: title, description, robots, social cards,
+	icons and structured data, from the page's SEO settings (or a listing's or
+	town's). The canonical and hreflang links come from partials/head-i18n.twig,
+	so a Spanish page points at its own /es address.
+
+	Structured data: every page describes the agent as a RealEstateAgent (name,
+	phone, office address, license, the towns she serves), from Agent Info and
+	the Neighborhoods collection. A listing page adds the home itself: a
+	RealEstateListing with its price and status, about a residence with its
+	address, rooms and size. A private home never gets one.
+
+	Total CMS doesn't write real estate data itself, so this partial hands the
+	nodes to cms.seo.jsonld() and they join the same JSON-LD block as the rest.
+
+	Include it with:
+	  subject     the page, or a listing or town shown by a templated page
+	  collection  the subject's collection, when it is an object ('listings', 'neighborhoods')
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set options = collection|default('') ? {collection: collection} : {} %}
+{% set seo = cms.seo.data(subject|default(null), options) %}
+{% set base = seo.site.baseUrl %}
+{# This page's own address in its language (a Spanish listing lives at /es/homes/…). #}
+{% set here = base ~ (lang starts with 'es' ? twin.es : twin.en) %}
+
+{# The office address, split assuming its last line reads "City, ST 12345". #}
+{% set addressLines = info.address|default('')|replace({"\r": ''})|split("\n") %}
+{% set cityLine = addressLines|last|split(',') %}
+{% set office = {'@type': 'PostalAddress', 'streetAddress': info.address|default('')|replace({"\r": '', "\n": ', '}), 'addressCountry': 'US'} %}
+{% if addressLines|length > 1 and cityLine|length == 2 %}
+	{% set stateZip = cityLine[1]|trim|split(' ') %}
+	{% set office = {
+		'@type': 'PostalAddress',
+		'streetAddress': addressLines|slice(0, -1)|join(', '),
+		'addressLocality': cityLine[0]|trim,
+		'addressRegion': stateZip|first,
+		'postalCode': stateZip|length > 1 ? stateZip|last : '',
+		'addressCountry': 'US'
+	} %}
+{% endif %}
+
+{% set agentId = base ~ '/#agent' %}
+{% set agent = {
+	'@type': 'RealEstateAgent',
+	'@id': agentId,
+	'name': info.name,
+	'description': i18n.l(info.tagline) ~ '',
+	'url': base ~ cms.builder.url(lang starts with 'es' ? 'home-es' : 'home'),
+	'telephone': info.phone,
+	'email': info.email,
+	'address': office,
+	'areaServed': towns|map(t => {'@type': 'City', 'name': t.name ~ ', CA'})|slice(0),
+	'knowsLanguage': ['en', 'es'],
+	'hasCredential': info.license,
+	'parentOrganization': {'@type': 'RealEstateAgent', 'name': info.brokerage},
+	'image': info.photo|default(null) ? base ~ cms.media.imagePath(info, {w: 800, h: 1000, fit: 'crop'}, {collection: 'info', property: 'photo'}) : null
+}|filter(v => v is not null and v != '') %}
+{% set nodes = [agent] %}
+
+{# One home: only on a listing page, and never a private one. #}
+{% if collection|default('') == 'listings' and subject.id|default('') and not subject.private|default(false) %}
+	{% set l = subject %}
+	{% set residenceType = {house: 'SingleFamilyResidence', townhouse: 'House', condo: 'Apartment', multi: 'House'}[l.propertyType]|default('House') %}
+	{% set availability = {
+		'coming-soon': 'https://schema.org/PreOrder',
+		'for-sale': 'https://schema.org/InStock',
+		'pending': 'https://schema.org/LimitedAvailability',
+		'sold': 'https://schema.org/SoldOut'
+	}[l.status]|default('https://schema.org/InStock') %}
+	{% set price = l.status == 'sold' and l.soldPrice|default(0) ? l.soldPrice : l.price|default(0) %}
+	{% set town = townName[l.town]|default(l.town) %}
+
+	{% set residence = {
+		'@type': residenceType,
+		'@id': here ~ '#home',
+		'name': l.address,
+		'address': {
+			'@type': 'PostalAddress',
+			'streetAddress': l.address,
+			'addressLocality': town,
+			'addressRegion': 'CA',
+			'postalCode': l.zip|default(''),
+			'addressCountry': 'US'
+		},
+		'numberOfBedrooms': l.beds|default(0) ?: null,
+		'numberOfBathroomsTotal': l.baths|default(0) ?: null,
+		'floorSize': l.sqft|default(0) ? {'@type': 'QuantitativeValue', 'value': l.sqft, 'unitCode': 'FTK'} : null,
+		'yearBuilt': l.yearBuilt|default(0) ?: null,
+		'image': seo.ogImage|default('')
+	}|filter(v => v is not null and v != '') %}
+
+	{% set listingNode = {
+		'@type': 'RealEstateListing',
+		'@id': here ~ '#listing',
+		'url': here,
+		'name': l.address ~ ', ' ~ town,
+		'datePosted': l.listedOn|default('') ? l.listedOn|date('Y-m-d') : null,
+		'about': {'@id': here ~ '#home'},
+		'offers': price ? {
+			'@type': 'Offer',
+			'price': price,
+			'priceCurrency': 'USD',
+			'availability': availability,
+			'offeredBy': l.mine|default(false)
+				? {'@id': agentId}
+				: {'@type': 'RealEstateAgent', 'name': l.agentName|default(l.brokerage|default(''))}
+		} : null
+	}|filter(v => v is not null and v != '') %}
+	{% set nodes = nodes|merge([residence, listingNode]) %}
+{% endif %}
+
+{#
+	A home or a town gets a description of its own, in the page's language,
+	unless one is written on its SEO card: a town's Meta Description, or the
+	start of a home's description. Without this every home and town would
+	share the site's default description, in English.
+#}
+{% set subject = subject|default(null) %}
+{% if collection|default('') in ['listings', 'neighborhoods'] and subject.id|default('') and not subject.seo.description|default('') %}
+	{% if collection == 'neighborhoods' %}
+		{% set own = i18n.l(subject.metaDescription|default('')) ~ '' ?: i18n.l(subject.intro|default(''))|striptags %}
+	{% else %}
+		{% set own = subject.address ~ ', ' ~ townName[subject.town]|default(subject.town) ~ '. ' ~ i18n.l(subject.description|default(''))|striptags %}
+	{% endif %}
+	{% set own = own|replace({"\n": ' ', "\r": ''})|trim %}
+	{# Search results show about 155 characters: cut at a word, add an ellipsis. #}
+	{% if own|length > 155 %}
+		{% set own = own|slice(0, 155)|split(' ')|slice(0, -1)|join(' ')|trim(' ,.;:') ~ '…' %}
+	{% endif %}
+	{% if own %}
+		{% set subject = subject|merge({seo: subject.seo|default({})|merge({description: own, socialDescription: subject.seo.socialDescription|default('') ?: own})}) %}
+	{% endif %}
+{% endif %}
+
+{{ cms.seo.title(subject, options) }}
+{{ cms.seo.meta(subject, options) }}
+{#
+	Total CMS gives a home or a town its English address as og:url; a
+	Spanish page shares its own /es address instead. (Total CMS 3.8 writes
+	this itself.)
+#}
+{% set og = cms.seo.og(subject, options) ~ '' %}
+{% if lang starts with 'es' and twin.en and twin.es %}
+	{% set og = og|replace({('property="og:url" content="' ~ base ~ twin.en ~ '"'): 'property="og:url" content="' ~ here ~ '"'}) %}
+{% endif %}
+{{ og }}
+{{ cms.seo.icons(subject, options) }}
+{{ cms.seo.jsonld(subject, options|merge({jsonld: nodes})) }}

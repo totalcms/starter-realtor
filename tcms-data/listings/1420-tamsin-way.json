@@ -1,0 +1,222 @@
+{
+    "id": "1420-tamsin-way",
+    "address": "1420 Tamsin Way",
+    "town": "san-mateo",
+    "zip": "94402",
+    "status": "for-sale",
+    "price": 2250000,
+    "soldPrice": 0,
+    "soldDate": "",
+    "listedOn": "2026-11-04T00:00:00-08:00",
+    "beds": 3,
+    "baths": 2,
+    "sqft": 1980,
+    "lotSqft": 6000,
+    "yearBuilt": 1927,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A 1927 Spanish revival home with its arches, coved ceilings and wrought iron intact, and a kitchen and baths quietly updated for how people live now. The living room centers on the original fireplace, with French doors to a walled courtyard planted with olive trees.</p><p>Three bedrooms, two full baths and a sunny breakfast room. Central Park and downtown San Mateo are a short walk.</p>",
+        "es": "<p>Una casa de estilo colonial espa\u00f1ol de 1927 que conserva sus arcos, techos abovedados y herrer\u00eda originales, con la cocina y los ba\u00f1os actualizados con discreci\u00f3n para la vida de hoy. La sala gira en torno a la chimenea original, con puertas francesas hacia un patio amurallado con olivos.</p><p>Tres habitaciones, dos ba\u00f1os completos y un desayunador soleado. El Central Park y el centro de San Mateo quedan a una corta caminata.</p>"
+    },
+    "features": {
+        "en_US": "Original arches, coved ceilings and fireplace\nUpdated kitchen with marble counters\nWalled courtyard with olive trees\nSunny breakfast room\nRefinished hardwood floors\nOne-car garage and storage",
+        "es": "Arcos, techos abovedados y chimenea originales\nCocina actualizada con encimeras de m\u00e1rmol\nPatio amurallado con olivos\nDesayunador soleado\nPisos de madera restaurados\nGaraje para un auto y bodega"
+    },
+    "gallery": [
+        {
+            "alt": "White stucco Spanish-style home with a clay tile roof, arched blue-framed windows, and wooden gates beneath arches of pink bougainvillea and palms.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "9ac760c2",
+            "height": 960,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "tamsin-exterior.jpg",
+            "palette": [
+                "#73683b",
+                "#2f2d20",
+                "#5b3d2e",
+                "#b6b7b9",
+                "#687679"
+            ],
+            "size": 165876,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:26-08:00",
+            "width": 1440,
+            "credit": {
+                "author": "Phil",
+                "authorUrl": "https://www.pexels.com/@phil/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/10681890/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Open living room with a cream sectional sofa on terracotta floors, a tall brick-and-plaster fireplace, exposed wood beams, and an arched window above.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "dfc9c824",
+            "height": 1202,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "tamsin-living.jpg",
+            "palette": [
+                "#92766e",
+                "#cec6c4",
+                "#453530",
+                "#956549",
+                "#82482f"
+            ],
+            "size": 164200,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:26-08:00",
+            "width": 1800,
+            "credit": {
+                "author": "Max Vakhtbovych",
+                "authorUrl": "https://www.pexels.com/@artbovich/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/7174386/",
+                "license": "Pexels License"
+            }
+        },
+        {
+            "alt": "Elegant kitchen with rich walnut cabinetry, a long white marble island, a black faucet, and white plantation shutters letting in daylight.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "2036f744",
+            "height": 1201,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "tamsin-kitchen.jpg",
+            "palette": [
+                "#2a1f1a",
+                "#c6c4c0",
+                "#624b3f",
+                "#775f4e",
+                "#7a6d65"
+            ],
+            "size": 159547,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:27-08:00",
+            "width": 1800,
+            "credit": {
+                "author": "Curtis Adams",
+                "authorUrl": "https://www.pexels.com/@curtis-adams-1694007/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/36777559/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "/media/tour.mp4",
+        "provider": "file",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9",
+        "poster": {
+            "alt": "Bright, furnished living room with white sofas, a glass coffee table, a tiled fireplace wall, and tall black-framed windows letting in sunlight.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "5b184b42",
+            "height": 720,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "tour-poster.jpg",
+            "palette": [
+                "#7b838f",
+                "#4e4a4a",
+                "#a7c4d7",
+                "#2d3b4a",
+                "#292728"
+            ],
+            "size": 79368,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:34-08:00",
+            "width": 1280,
+            "credit": {
+                "author": "Kindel Media",
+                "authorUrl": "https://www.pexels.com/@kindelmedia/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/video/7578546/",
+                "license": "Pexels License"
+            }
+        }
+    },
+    "openHouses": {
+        "nov22": {
+            "id": "nov22",
+            "kind": "once",
+            "date": "2026-11-22T00:00:00-08:00",
+            "weekday": "0",
+            "start": "14:00",
+            "end": "16:30",
+            "until": "",
+            "note": "Open after the Central Park market.",
+            "noteEs": "Abierta despu\u00e9s del mercado del Central Park."
+        }
+    },
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": true,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:01-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:21:57-08:00",
+    "created": "2026-11-10T17:27:01-08:00"
+}

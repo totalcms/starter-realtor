@@ -1,0 +1,48 @@
+{
+	"name": "totalcms/starter-realtor",
+	"description": "Valeria Montoya: a real estate agent's site for Total CMS, in English and Spanish, with home search, neighborhood pages, open houses, video tours, private listings for registered buyers, a home valuation form, Just-listed emails, an A/B-tested home page and CSV import. Requires Pro.",
+	"homepage": "https://totalcms.co",
+	"support": {
+		"docs": "https://docs.totalcms.co",
+		"email": "support@totalcms.co"
+	},
+	"authors": [
+		{
+			"name": "Joe Workman",
+			"homepage": "https://totalcms.co"
+		}
+	],
+	"keywords": [
+		"cms",
+		"flat-file",
+		"flat-file-cms",
+		"no-database",
+		"headless-cms",
+		"content-management",
+		"php-cms",
+		"twig",
+		"slim",
+		"json",
+		"total-cms",
+		"totalcms",
+		"totalcms-starter"
+	],
+	"type": "project",
+	"license": "proprietary",
+	"prefer-stable": true,
+	"require": {
+		"php": ">=8.2",
+		"totalcms/cms": "^3.6.9"
+	},
+	"config": {
+		"allow-plugins": {
+			"totalcms/cms": true,
+			"php-http/discovery": true
+		}
+	},
+	"scripts": {
+		"post-create-project-cmd": [
+			"@php bin/post-install.php"
+		]
+	}
+}

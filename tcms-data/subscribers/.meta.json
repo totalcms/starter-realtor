@@ -1,0 +1,31 @@
+{
+    "id": "subscribers",
+    "schema": "subscriber",
+    "name": "Just-listed Subscribers",
+    "description": "Everyone on the Just-listed email list. Send them the Just-listed email from the Mailer with Bulk Send.",
+    "url": "",
+    "category": "",
+    "labelPlural": "Subscribers",
+    "labelSingular": "Subscriber",
+    "groups": [],
+    "publicOperations": [
+        "create"
+    ],
+    "requireBotProtection": true,
+    "sortBy": "created",
+    "reverseSort": true,
+    "prettyUrl": false,
+    "singleton": false,
+    "format": "json",
+    "publicRegistration": false,
+    "requireEmailVerification": false,
+    "registrationGroups": [],
+    "ownerProperty": "",
+    "ownerCollection": "",
+    "accessCollection": "",
+    "queueRebuildOnSave": false,
+    "count": 4,
+    "totalObjects": 0,
+    "lastUpdated": "2026-11-10T18:52:26-08:00",
+    "updated": "2026-11-10T17:18:22-08:00"
+}

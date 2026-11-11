@@ -1,0 +1,28 @@
+{#
+	The showing request, beside a home that isn't sold. Saved in Showing
+	Requests with the home it was sent from (the hidden Home field), then the
+	new-showing email goes to her and the visitor lands on the Thanks page.
+	`l` is the listing.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set form = cms.form.builder('showings', {
+	addOnly: true,
+	botProtection: true,
+	fieldIcons: false,
+	save: i18n.t('showing.send') ~ '',
+	formgrid: "name\nemail\nphone\ndate times\nmessage",
+	newActions: [
+		{action: 'mailer', mailerId: 'new-showing', continue: true},
+		{action: 'redirect', link: i18n.url('thanks') ~ '?form=showing'}
+	]
+}) %}
+{% do form.addField('name', {label: i18n.t('showing.name'), help: '', settings: {attributes: {autocomplete: 'name'}}}) %}
+{% do form.addField('email', {label: i18n.t('showing.email'), help: '', settings: {attributes: {autocomplete: 'email'}}}) %}
+{% do form.addField('phone', {label: i18n.t('showing.phone'), help: '', settings: {attributes: {autocomplete: 'tel'}}}) %}
+{% do form.addField('date', {label: i18n.t('showing.date'), help: ''}) %}
+{% do form.addField('times', {label: i18n.t('showing.time'), help: '',
+	options: ['morning', 'afternoon', 'evening']|map(v => {value: v, label: i18n.t('showing.time_' ~ v)})}) %}
+{% do form.addField('message', {label: i18n.t('showing.message'), help: '', settings: {rows: 3}}) %}
+{% do form.addField('listing', {field: 'hidden', default: l.id}) %}
+{% do form.addField('lang', {field: 'hidden', default: lang}) %}
+{{ form.build() }}

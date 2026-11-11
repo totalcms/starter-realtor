@@ -1,0 +1,96 @@
+{
+    "id": "san-mateo",
+    "name": "San Mateo",
+    "image": {
+        "alt": "Aerial view of a hillside residential neighborhood with curving streets and rows of homes below rolling golden hills.",
+        "exif": {
+            "nodata": ""
+        },
+        "featured": false,
+        "focalpoint": {
+            "x": 50,
+            "y": 50
+        },
+        "hash": "f9cfa2a1",
+        "height": 1013,
+        "link": "",
+        "mime": "image/jpeg",
+        "name": "town-san-mateo.jpg",
+        "palette": [
+            "#474341",
+            "#a6c2d8",
+            "#d3e2ed",
+            "#869bb3",
+            "#7b8186"
+        ],
+        "size": 161170,
+        "tags": [],
+        "uploadDate": "2026-11-10T18:14:21-08:00",
+        "width": 1800,
+        "credit": {
+            "author": "Riccardo Zerbinati",
+            "authorUrl": "https://www.pexels.com/@riccardo-zerbinati-3666278/",
+            "source": "Pexels",
+            "sourceUrl": "https://www.pexels.com/photo/17862876/",
+            "license": "Pexels License"
+        }
+    },
+    "intro": {
+        "en_US": "<p>San Mateo is the Peninsula's busiest small city: a lively downtown, a grand central park and a mix of neighborhoods, from 1920s Spanish revival streets to mid-century homes in the hills.</p>",
+        "es": "<p>San Mateo es la peque\u00f1a ciudad m\u00e1s animada de la Pen\u00ednsula: un centro lleno de vida, un gran parque central y una mezcla de vecindarios, desde calles de estilo colonial espa\u00f1ol de los a\u00f1os veinte hasta casas de mediados de siglo en las colinas.</p>"
+    },
+    "knownFor": {
+        "en_US": "Restaurants from every corner of the world, Central Park and its Japanese garden, and real variety in homes.",
+        "es": "Restaurantes de todos los rincones del mundo, el Central Park con su jard\u00edn japon\u00e9s y una verdadera variedad de casas."
+    },
+    "schools": {
+        "en_US": "Several public elementary districts serve the city, along with many private options. Boundaries vary by neighborhood.",
+        "es": "Varios distritos de escuelas primarias p\u00fablicas atienden a la ciudad, junto con muchas opciones privadas. Los l\u00edmites var\u00edan seg\u00fan el vecindario."
+    },
+    "commute": {
+        "en_US": "Three Caltrain stations, Highway 92 to the coast and the East Bay, and both 101 and 280.",
+        "es": "Tres estaciones de Caltrain, la autopista 92 hacia la costa y el Este de la Bah\u00eda, y tanto la 101 como la 280."
+    },
+    "weekends": {
+        "en_US": "Dinner downtown, a walk through Central Park, and the bayfront trails at Coyote Point.",
+        "es": "Cenar en el centro, pasear por el Central Park y recorrer los senderos junto a la bah\u00eda en Coyote Point."
+    },
+    "metaDescription": {
+        "en_US": "Homes for sale in San Mateo, California: neighborhoods, schools, commute and recent sales, with Peninsula agent Valeria Montoya.",
+        "es": "Casas en venta en San Mateo, California: vecindarios, escuelas, traslados y ventas recientes, con la agente Valeria Montoya."
+    },
+    "sort": 3,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:26:59-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:22-08:00",
+    "created": "2026-11-10T17:26:59-08:00"
+}

@@ -1,0 +1,66 @@
+{#
+	The Homes page, at /homes and /es/homes: a search form and every home that
+	matches, her own listings first.
+
+	The search is a plain form, so its choices arrive in the address, e.g.
+	/homes?town=san-carlos&beds=4. Anything after the ? is `getData` in Twig.
+	Only values the form itself offers are used; anything else typed into the
+	address is ignored, so a visitor can't break the page or inject text.
+
+	  town    a town's ID from the Neighborhoods collection
+	  min     lowest price, max  highest price (one of the form's steps)
+	  beds    at least this many bedrooms, baths  at least this many baths
+	  status  nothing: For sale and Coming soon; pending, sold (the last 12
+	          months) or all
+
+	Results start from `listings` (see the layout), so private homes stay
+	hidden from visitors who aren't on the private list.
+#}
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	{% import 'macros/i18n.twig' as i18n %}
+
+	{# Read the address, keeping only values the form offers. #}
+	{% set prices = ['1000000', '1500000', '2000000', '2500000', '3000000', '3500000', '4000000'] %}
+	{% set g = getData|default({}) %}
+	{% set f = {
+		town:   g.town|default('') in towns|map(t => t.id) ? g.town : '',
+		min:    g.min|default('') in prices ? g.min + 0 : 0,
+		max:    g.max|default('') in prices ? g.max + 0 : 0,
+		beds:   g.beds|default('') in ['2', '3', '4', '5'] ? g.beds + 0 : 0,
+		baths:  g.baths|default('') in ['1', '2', '3', '4'] ? g.baths + 0 : 0,
+		status: g.status|default('') in ['pending', 'sold', 'all'] ? g.status : ''
+	} %}
+
+	{% set results = listings
+		|filter(l => f.status == 'all'
+			or (f.status == '' and l.status in ['for-sale', 'coming-soon'])
+			or (f.status == 'pending' and l.status == 'pending')
+			or (f.status == 'sold' and l.status == 'sold' and l.soldDate|default('')|date('Y-m-d') >= yearAgo))
+		|filter(l => not f.town or l.town == f.town)
+		|filter(l => not f.min or l.price >= f.min)
+		|filter(l => not f.max or l.price <= f.max)
+		|filter(l => not f.beds or l.beds >= f.beds)
+		|filter(l => not f.baths or l.baths >= f.baths) %}
+
+	<header class="page-head sheet">
+		<p class="eyebrow">{{ info.name }}</p>
+		<h1>{{ i18n.t('homes.title') }}</h1>
+		<p>{{ i18n.t('homes.intro') }}</p>
+	</header>
+
+	<section class="sheet">
+		{% include 'partials/search-form.twig' %}
+		<p class="result-count caps muted" aria-live="polite">{{ i18n.tn('homes.count', results|length) }} · {{ i18n.t('homes.mine_first') }}</p>
+
+		{% if results is empty %}
+			<p class="empty-note">{{ i18n.t('homes.none') }}</p>
+		{% else %}
+			<div class="listing-grid">
+				{% for l in results %}{% include 'partials/listing-card.twig' %}{% endfor %}
+			</div>
+		{% endif %}
+	</section>
+	<div class="section"></div>
+{% endblock %}

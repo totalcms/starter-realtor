@@ -1,0 +1,22 @@
+{
+    "id": "just-listed",
+    "active": true,
+    "requireBotProtection": false,
+    "name": "Just Listed",
+    "category": "Announcements",
+    "description": "The Just-listed email to everyone on the list, in English or Spanish (whichever they signed up in). It shows her newest listing that is For sale or Coming soon and not Private, so there is nothing to edit: add the home, then send. To send: Bulk Send at the bottom of this page, Collection Just-listed Subscribers. Each template reaches each subscriber only once, ever. For the next home, Duplicate this template, give the copy a new name, and send the copy.",
+    "from": "",
+    "fromName": "{{ cms.collection.object('info', 'info').name }}",
+    "to": "{{ data.email }}",
+    "toName": "{{ data.name|default('') }}",
+    "replyTo": "{{ cms.collection.object('info', 'info').email }}",
+    "cc": "",
+    "bcc": "",
+    "subject": "{%- set l = cms.collection.objects('listings')|filter(x => x.mine and not x.private|default(false) and x.status in ['for-sale', 'coming-soon'])|sort((a, b) => b.listedOn|default('') <=> a.listedOn|default(''))|first -%}\n{{- data.lang|default('') == 'es' ? 'Nueva en el mercado: ' : 'Just listed: ' }}{{ l.address -}}",
+    "bodyHtml": "{#\n\tThe newest of her listings that is For sale or Coming soon and not Private.\n\tdata is the subscriber; data.lang picks the language.\n#}\n{% set es = data.lang|default('') == 'es' %}\n{% set pick = cms.collection.objects('listings')|filter(x => x.mine and not x.private|default(false) and x.status in ['for-sale', 'coming-soon'])|sort((a, b) => b.listedOn|default('') <=> a.listedOn|default(''))|first %}\n{% set l = cms.collection.object('listings', pick.id) %}\n{% set info = cms.collection.object('info', 'info') %}\n{% set town = cms.collection.object('neighborhoods', l.town).name|default(l.town) %}\n{% set link = cms.builder.canonicalUrl(es ? 'listing-es' : 'listing', {id: l.id}) %}\n{% set base = cms.builder.canonicalUrl('home')|trim('/', 'right') %}\n{% set about = (l.description[es ? 'es' : 'en_US']|default('') ?: l.description.en_US|default(''))|striptags|split(\"\\n\")|first %}\n<div style=\"max-width:600px;margin:0 auto;font-family:Georgia,serif;color:#3b2f33\">\n\t<p style=\"font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#8a4b56\">{{ es ? 'Nueva en el mercado' : 'Just listed' }}</p>\n\t<h1 style=\"font-weight:400;font-size:28px;margin:0 0 4px\">{{ l.address|e }}</h1>\n\t<p style=\"margin:0 0 16px;color:#6b5a5e\">{{ town|e }}, CA {{ l.zip|e }}</p>\n\t{% if l.gallery|default([]) is not empty %}\n\t\t<a href=\"{{ link }}\"><img src=\"{{ base }}/imageworks/listings/{{ l.id }}/gallery/first?w=1200&h=800&fit=crop\" width=\"600\" alt=\"{{ l.address|e }}\" style=\"display:block;width:100%;height:auto;border-radius:300px 300px 0 0\"></a>\n\t{% endif %}\n\t<p style=\"font-size:24px;margin:20px 0 4px\">${{ l.price|number_format(0, '.', ',') }}</p>\n\t<p style=\"margin:0 0 16px;color:#6b5a5e\">{{ l.beds }} {{ es ? 'hab.' : 'bd' }} \u00b7 {{ l.baths }} {{ es ? 'ba\u00f1os' : 'ba' }} \u00b7 {{ l.sqft|number_format(0, '.', ',') }} {{ es ? 'pies\u00b2' : 'sq ft' }}</p>\n\t{% if about %}<p style=\"line-height:1.6\">{{ about|e }}</p>{% endif %}\n\t<p style=\"margin:24px 0\"><a href=\"{{ link }}\" style=\"background:#8a4b56;color:#fff;padding:12px 24px;text-decoration:none;letter-spacing:.08em;text-transform:uppercase;font-family:Arial,sans-serif;font-size:13px\">{{ es ? 'Ver la casa' : 'See the home' }}</a></p>\n\t<p>{{ es ? 'Acaba de salir al mercado, y usted es de los primeros en saberlo. Si quiere verla, responda a este correo.' : 'It just came on the market, and you are among the first to hear. If you would like to see it, reply to this email.' }}</p>\n\t<p>{{ info.signature|default(info.name)|e }}<br><span style=\"color:#6b5a5e\">{{ info.name|e }} \u00b7 {{ info.phone|e }}{% if info.license %} \u00b7 {{ info.license|e }}{% endif %}</span></p>\n\t<p style=\"font-size:12px;color:#6b5a5e;border-top:1px solid #ead8da;padding-top:12px;margin-top:32px\">\n\t\t{% if es %}Recibe este correo porque se suscribi\u00f3 a las casas nuevas de {{ info.name|e }}. <a href=\"{{ unsubscribeUrl }}\">Cancelar la suscripci\u00f3n</a>.\n\t\t{% else %}You are receiving this because you joined {{ info.name|e }}'s Just-listed emails. <a href=\"{{ unsubscribeUrl }}\">Unsubscribe</a>.{% endif %}\n\t</p>\n</div>",
+    "bodyText": "",
+    "bulkCollection": "subscribers",
+    "bulkInclude": "",
+    "bulkExclude": "",
+    "updated": "2026-11-10T17:46:30-08:00"
+}

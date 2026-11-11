@@ -1,0 +1,53 @@
+{#
+	The footer. Everything here comes from Agent Info, apart from the town list,
+	which comes from Neighborhoods, and the words, from builder/strings/.
+
+	Her signature in script appears here once: the footer's only use of it.
+#}
+{% import 'macros/i18n.twig' as i18n %}
+{% set telHref = 'tel:' ~ info.phone|default('')|replace({' ': '', '(': '', ')': '', '-': '', '.': ''}) %}
+<footer class="site-footer">
+	<div class="sheet">
+		<div class="footer-grid">
+			<div class="stack" data-gap="sm">
+				<p class="footer-signature" aria-hidden="true">{{ info.signature|default(info.name|default('')|split(' ')|first) }}</p>
+				<p><strong class="serif" style="font-size: 1.35rem; font-weight: 400">{{ info.name|default(cms.siteName) }}</strong>{% if info.tagline|default('') %}<br><span class="muted">{{ i18n.l(info.tagline) }}</span>{% endif %}</p>
+				{% if info.address|default('') %}<address style="font-style: normal; white-space: pre-line">{{ info.address }}</address>{% endif %}
+			</div>
+			<div class="stack" data-gap="sm">
+				<h2>{{ i18n.t('footer.contact') }}</h2>
+				<ul role="list">
+					{% if info.phone|default('') %}<li><a href="{{ telHref }}">{{ info.phone }}</a></li>{% endif %}
+					{% if info.email|default('') %}<li><a href="mailto:{{ info.email }}">{{ info.email }}</a></li>{% endif %}
+					<li><a href="{{ i18n.url('contact') }}">{{ i18n.t('footer.message') }}</a></li>
+					{# Her social profiles, from Social Links in Agent Info. #}
+					{% for link in info.social|default({}) %}
+						{% if link.url|default('') %}<li><a href="{{ link.url|e }}" rel="me noopener">{{ link.label|default(link.id)|e }}</a></li>{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="stack" data-gap="sm">
+				<h2>{{ i18n.t('footer.towns') }}</h2>
+				<ul role="list">
+					{% for town in towns %}
+						<li><a href="{{ i18n.url('neighborhood', {id: town.id}) }}">{{ town.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="stack" data-gap="sm">
+				<h2>{{ i18n.t('footer.just_listed') }}</h2>
+				<p class="muted">{{ i18n.t('footer.just_listed_text') }}</p>
+				{% include 'partials/signup-form.twig' ignore missing with {place: 'footer'} %}
+			</div>
+		</div>
+
+		<div class="fine-print">
+			<p>&copy; {{ 'now'|date('Y') }} {{ info.name|default(cms.siteName) }}{% if info.license|default('') %} · {{ info.license }}{% endif %}{% if info.brokerage|default('') %} · {{ i18n.t('footer.brokerage', {brokerage: info.brokerage}) }}{% endif %}</p>
+			<p>{{ i18n.t('footer.equal_housing') }}</p>
+			{% if info.brokerageLogo.name|default('') %}
+				{# render.image takes the object and the property, not the image itself. #}
+				<p>{{ cms.render.image(info, {h: 80}, {collection: 'info', property: 'brokerageLogo', class: 'brokerage-logo', alt: info.brokerage|default('')}) }}</p>
+			{% endif %}
+		</div>
+	</div>
+</footer>

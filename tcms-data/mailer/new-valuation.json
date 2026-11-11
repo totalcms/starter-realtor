@@ -1,0 +1,22 @@
+{
+    "id": "new-valuation",
+    "active": true,
+    "requireBotProtection": true,
+    "name": "New Valuation Request",
+    "category": "Website",
+    "description": "Sent to the agent when a seller asks what their home is worth on the Sell page. Reply goes to the seller.",
+    "from": "",
+    "fromName": "",
+    "to": "{{ cms.collection.object('info', 'info').email }}",
+    "toName": "",
+    "replyTo": "{{ data.email }}",
+    "cc": "",
+    "bcc": "",
+    "subject": "Valuation request: {{ data.address }}",
+    "bodyHtml": "{% if data.lang|default('') == 'es' %}<p><strong>Sent from the Spanish site: reply in Spanish.</strong></p>{% endif %}\n<p><strong>{{ data.name|e }}</strong>, {{ data.email|e }}{% if data.phone %}, {{ data.phone|e }}{% endif %}</p>\n<p>{{ data.address|e }}{% if data.town %}, {{ data.town|e }}{% endif %}<br>\n{% if data.beds %}{{ data.beds|e }} bd \u00b7 {% endif %}{% if data.baths %}{{ data.baths|e }} ba \u00b7 {% endif %}{% if data.sqft %}{{ data.sqft|e }} sq ft{% endif %}</p>\n<p>Condition: {{ {'move-in': 'Move-in ready', 'updated': 'Some updates needed', 'project': 'Needs work'}[data.condition]|default(data.condition)|e }}<br>\nTimeline: {{ {'ready': 'Ready now', '3-6-months': 'In 3 to 6 months', 'curious': 'Just curious'}[data.timeline]|default(data.timeline)|e }}</p>\n{% if data.message %}<p>{{ data.message|e|nl2br }}</p>{% endif %}\n<p>It is saved in the admin under Valuation Requests.</p>",
+    "bodyText": "",
+    "bulkCollection": "",
+    "bulkInclude": "",
+    "bulkExclude": "",
+    "updated": "2026-11-10T17:46:28-08:00"
+}

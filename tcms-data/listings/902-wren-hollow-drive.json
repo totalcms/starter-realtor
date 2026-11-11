@@ -1,0 +1,105 @@
+{
+    "id": "902-wren-hollow-drive",
+    "address": "902 Wren Hollow Drive",
+    "town": "belmont",
+    "zip": "94002",
+    "status": "sold",
+    "price": 2195000,
+    "soldPrice": 2240000,
+    "soldDate": "2026-08-07T00:00:00-07:00",
+    "listedOn": "2026-07-10T00:00:00-07:00",
+    "beds": 3,
+    "baths": 2.5,
+    "sqft": 2150,
+    "lotSqft": 7800,
+    "yearBuilt": 1971,
+    "propertyType": "house",
+    "description": {
+        "en_US": "<p>A hillside home with a view of the bay, prepared and sold in five weeks.</p>",
+        "es": "<p>Una casa en la ladera con vista a la bah\u00eda, preparada y vendida en cinco semanas.</p>"
+    },
+    "features": [],
+    "gallery": [
+        {
+            "alt": "Single-story home with a tile roof and a drought-tolerant front yard of gravel, succulents, a sculpted olive tree, and palms behind.",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "f9a3af83",
+            "height": 733,
+            "link": "",
+            "mime": "image/jpeg",
+            "name": "sold-2.jpg",
+            "palette": [
+                "#dae0dd",
+                "#90938e",
+                "#9ac3d4",
+                "#76a6bf",
+                "#162327"
+            ],
+            "size": 163107,
+            "tags": [],
+            "uploadDate": "2026-11-10T18:14:31-08:00",
+            "width": 1100,
+            "credit": {
+                "author": "Judy Horn",
+                "authorUrl": "https://www.pexels.com/@judy-horn-2027870/",
+                "source": "Pexels",
+                "sourceUrl": "https://www.pexels.com/photo/5365778/",
+                "license": "Pexels License"
+            }
+        }
+    ],
+    "video": {
+        "url": "",
+        "provider": "",
+        "videoId": "",
+        "thumbnail": "",
+        "title": "",
+        "aspectRatio": "16:9"
+    },
+    "openHouses": [],
+    "mine": true,
+    "agentName": "",
+    "brokerage": "",
+    "featured": false,
+    "private": false,
+    "seo": {
+        "id": "seo",
+        "title": "",
+        "socialTitle": "",
+        "description": "",
+        "socialDescription": "",
+        "image": {
+            "alt": "",
+            "exif": {
+                "nodata": ""
+            },
+            "featured": false,
+            "focalpoint": {
+                "x": 50,
+                "y": 50
+            },
+            "hash": "",
+            "height": 0,
+            "link": "",
+            "mime": "",
+            "name": "",
+            "palette": [],
+            "size": 0,
+            "tags": [],
+            "uploadDate": "2026-11-10T17:27:02-08:00",
+            "width": 0
+        },
+        "noindex": false,
+        "nofollow": false,
+        "jsonldType": ""
+    },
+    "updated": "2026-11-10T18:14:31-08:00",
+    "created": "2026-11-10T17:27:02-08:00"
+}
